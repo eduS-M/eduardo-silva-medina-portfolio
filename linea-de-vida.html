@@ -8,12 +8,18 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Georgia, 'Times New Roman', serif; background: #ffffff; color: #1a1a18; }
 
-  /* ── HEADER ── */
-  .lv-header { padding: 36px 32px 24px; border-bottom: 1px solid #EFEFEB; background: #fff; }
+  .lv-header { padding: 36px 32px 24px; border-bottom: 1px solid #EFEFEB; background: #fff; position: relative; }
   .lv-header h1 { font-size: 32px; font-weight: 600; letter-spacing: -.3px; font-family: Georgia, serif; color: #1a1a18; }
-  .lv-header p  { font-size: 24px; color: #7A7970; margin-top: 6px; font-family: Arial, sans-serif; }
+  .lv-header p  { font-size: 18px; color: #7A7970; margin-top: 6px; font-family: Arial, sans-serif; }
+  
+  .back-btn {
+    display: inline-block; margin-bottom: 12px;
+    background: #2c5e5e; color: white; padding: 8px 14px;
+    border-radius: 6px; text-decoration: none; font-family: Arial, sans-serif;
+    font-size: 13px; transition: all 0.2s;
+  }
+  .back-btn:hover { background: #1e5a8a; }
 
-  /* ── FILTROS ── */
   .filter-row {
     display: flex; flex-wrap: wrap; gap: 8px;
     padding: 14px 32px; background: #fff;
@@ -31,12 +37,10 @@
   .fb.active[data-cat="estudios"]    { background: #3A6E10; border-color: #3A6E10; color: #fff; }
   .fb.active[data-cat="talleres"]    { background: #83a19d; border-color: #83a19d; color: #fff; }
 
-  /* ── LEYENDA ── */
   .legend { display: flex; flex-wrap: wrap; gap: 16px; padding: 10px 32px; background: #F9F9F7; border-bottom: 1px solid #EFEFEB; }
   .leg-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #7A7970; font-family: Arial, sans-serif; }
   .leg-dot  { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
 
-  /* ── TIMELINE ── */
   .tl-outer { position: relative; padding: 40px 0 60px; max-width: 960px; margin: 0 auto; }
   .tl-line  { position: absolute; left: 50%; transform: translateX(-1px); width: 2px; background: #EFEFEB; top: 0; bottom: 0; }
 
@@ -52,7 +56,6 @@
   .tl-dot  { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid #fff; flex-shrink: 0; }
   .tl-year { font-size: 18px; font-weight: 700; color: #7A7970; font-family: Arial, sans-serif; letter-spacing: .4px; white-space: nowrap; }
 
-  /* ── TARJETA ── */
   .tl-card {
     background: #fff; border: 1px solid #EFEFEB; border-radius: 10px;
     padding: 16px 18px; cursor: pointer;
@@ -74,8 +77,6 @@
   .tl-card.open .tl-body { display: block; }
    .tl-desc { font-size: 16px; color: #5F5E5A; line-height: 1.75; font-family: Arial, sans-serif; }
   .tl-desc * { font-size: 16px !important; font-family: Arial, sans-serif !important; color: #5F5E5A !important; line-height: 1.75 !important; }
-
-	/* Todos los elementos dentro de la descripción mantienen la misma fuente y tamaño */
 	.tl-desc p  { font-size: 14px !important; font-family: Arial, sans-serif !important; color: #5F5E5A !important; line-height: 1.75 !important; margin-top: 8px !important; }
 	.tl-desc ul,
 	.tl-desc ol { font-size: 14px !important; font-family: Arial, sans-serif !important; color: #5F5E5A !important; line-height: 1.75 !important; margin-top: 8px !important; padding-left: 20px !important; }
@@ -83,11 +84,6 @@
 	.tl-desc strong, .tl-desc b { font-family: Arial, sans-serif !important; color: #3D3D3A !important; }
 	.tl-desc em, .tl-desc i     { font-family: Arial, sans-serif !important; }
   
-  /* ══════════════════════════════════════════════
-     FOTO — se adapta al contenido real de la imagen
-     sin recortar nada, con fondo neutro.
-     Al hacer clic abre el lightbox.
-  ══════════════════════════════════════════════ */
   .tl-media-wrap {
     margin-top: 12px;
     width: 100%;
@@ -101,9 +97,9 @@
   }
   .tl-photo {
     width: 100%;
-    height: auto;          /* altura libre: la imagen dicta su proporción */
-    max-height: 340px;     /* tope para fotos muy largas                   */
-    object-fit: contain;   /* muestra la imagen completa sin recorte        */
+    height: auto;
+    max-height: 340px;
+    object-fit: contain;
     object-position: center;
     display: block;
     border-radius: 8px;
@@ -111,25 +107,17 @@
   }
   .tl-photo:hover { opacity: .88; }
 
-  /* ══════════════════════════════════════════════
-     VIDEO embed YouTube / Vimeo
-  ══════════════════════════════════════════════ */
   .tl-video-wrap { margin-top: 12px; width: 100%; aspect-ratio: 16/9; border-radius: 8px; overflow: hidden; }
   .tl-video-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
 
-  /* Video archivo directo */
   .tl-video-file { margin-top: 12px; width: 100%; border-radius: 8px; display: block; background: #000; max-height: 220px; }
 
-  /* Placeholder */
   .tl-photo-placeholder {
     display: flex; align-items: center; justify-content: center; gap: 6px;
     height: 68px; border: 1px dashed #C8C7C0; border-radius: 8px;
     font-size: 12px; color: #C8C7C0; margin-top: 12px; font-family: Arial, sans-serif;
   }
 
-  /* ══════════════════════════════════════════════
-     LIGHTBOX
-  ══════════════════════════════════════════════ */
   #lightbox {
     display: none;
     position: fixed; inset: 0; z-index: 9999;
@@ -156,7 +144,6 @@
   }
   #lb-close:hover { opacity: 1; }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 620px) {
     .tl-outer  { padding: 24px 0 40px; }
     .tl-line   { left: 20px; }
@@ -166,35 +153,22 @@
     .tl-mid    { position: absolute; left: 0; top: 10px; width: 40px; }
     .tl-card   { max-width: 100%; border-left: 3px solid var(--accent,#ccc) !important; border-right: none !important; }
     .filter-row, .legend { padding: 12px 16px; }
-    .lv-header { padding: 28px 16px 16px; }
+    .lv-header { padding: 24px 16px 16px; }
+    .lv-header p { font-size: 16px; }
   }
-  
-  /* Botón volver */
-  .back-btn {
-    position: fixed; top: 20px; left: 20px; z-index: 100;
-    background: #2c5e5e; color: white; padding: 10px 16px;
-    border-radius: 8px; text-decoration: none; font-family: Arial, sans-serif;
-    font-size: 14px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    transition: all 0.2s;
-  }
-  .back-btn:hover { background: #1e5a8a; transform: translateY(-1px); }
 </style>
 </head>
 <body>
 
-<!-- Botón volver al home -->
-<a href="/" class="back-btn">← Volver al inicio</a>
-
-<!-- LIGHTBOX -->
 <div id="lightbox" onclick="closeLightbox()">
   <button id="lb-close" onclick="closeLightbox()">&#x2715;</button>
   <img id="lb-img" src="" alt="Imagen ampliada" onclick="event.stopPropagation()">
 </div>
 
 <div class="lv-header">
-  <!-- <h1>Eduardo Silva Medina &mdash; Línea de Vida</h1> -->
+  <a href="/" class="back-btn">← Volver al inicio</a>
   <h1>Línea de Vida</h1>
-  <p>Historia personal, profesional, cultural y vocacional &nbsp;·&nbsp; Haz clic en cada hito para expandirlo</p>
+  <p>Historia personal, profesional, cultural y vocacional · Haz clic en cada hito para expandirlo</p>
 </div>
 
 <div class="filter-row">
@@ -204,7 +178,6 @@
   <button class="fb" data-cat="cultural">Cultural</button>
   <button class="fb" data-cat="comunitario">Comunitario / Pastoral</button>
   <button class="fb" data-cat="teologico">Teológico</button>
-  <!--<button class="fb" data-cat="operaciones">Gestión de Operaciones</button>-->
   <button class="fb" data-cat="estudios">Estudios / Formación</button>
   <button class="fb" data-cat="talleres">Talleres / Formación</button>
 </div>
@@ -214,7 +187,6 @@
   <div class="leg-item"><div class="leg-dot" style="background:#6C63C9"></div>Cultural</div>
   <div class="leg-item"><div class="leg-dot" style="background:#0A7C5C"></div>Comunitario / Pastoral</div>
   <div class="leg-item"><div class="leg-dot" style="background:#1A5FA8"></div>Teológico</div>
- <!-- <div class="leg-item"><div class="leg-dot" style="background:#B84A1E"></div>Gestión de Operaciones</div>-->
   <div class="leg-item"><div class="leg-dot" style="background:#3A6E10"></div>Estudios / Formación</div>
   <div class="leg-item"><div class="leg-dot" style="background:#83a19d"></div>Talleres / Formación</div>
 </div>
@@ -224,516 +196,9 @@
 </div>
 
 <script>
-/* ==========================================================
-   CÓMO AGREGAR FOTOS Y VIDEOS
-   ─────────────────────────────────────────────────────────
+// TODOS LOS EVENTOS (copiados del usuario, sin modificar)
+var events = [{"year":"1975","cat":"comunitario","title":"Bautizo en Vitacura, Santiago","desc":"Eduardo es bautizado el 27 de diciembre en la Parroquia Inmaculada Concepción, Vitacura, Santiago de Chile. Un inicio marcado por la fe que acompañará toda su vida.","media":{"tipo":"foto","url":"https://www.inmaculadaconcepcion.cl/imagenes/historia-parroquia.jpg"}},{"year":"1985","cat":"comunitario","title":"Inicio en los Scouts de Venezuela","desc":"Ingresa a la Asociación Scouts de Venezuela. Activo hasta 2008 (12 años). Llega a ser Dirigente de Rama Tropa nivel II y Sub Jefe de Grupo Aconcagua. Lema permanente: <em>"Dejar mejor de como lo encontré"</em>.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTGk0arTJ_ALfMTpqVmP771ZFJhb0qPOoCU3GQXwh6GVHRNm_CUuUxA4npZXhUotpS3JSprIbO_9-ETnxd-LfX6c8SuYnet9zmgmu-C0JzZAf79HH6mxgne3wfdnWR-QmXinrBWzY723ND/s1600/(1999+03)+Scout+Nivel+II+tropa.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgCZYemmu0T3heiER_6yBPpruyHiyv56Pht512zBvfT55KkrHkvVUsE3Jt4iigd11jkPuMIvxiE0FBBj85m6LNkmMTI5177Lj8duoyInXwNEQxSmWvX12H8OmpOFzI730nZZ_KgXr5gZwmzwid7RxVKS5SgeR1yMRHCwzUYbf4cArH-QtzmZJcRYjdDJhbL"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgBhBLrQ-FwyI0eccGAQTpshQcZLUOBHYOpoFwYNwrMHaD6prBhnIDqIhUq60-q9dxYsP4bPerBWIbs33k5kOlCHLTPPg83ep5st6FjfFnsu1Y5Teh-gtAI0PP41KPY_Hcy78MvPVMXsbF2SD81zPSL7SE7yG_bM-VN-GAdI-D3LJzJfpebHHPc8DNRNzW1"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjT_k5t17nQViimcXBsxbMf-izgJpBbA9wpxhKDdKx57XlJd0wuvDXn1Ardl3CQ3p6bQr-oxkkA3gStHOjKIWUyZupga-Mrwx5MQTHZ-Olh5xId-Nrs7nxagvtJ-R7V_VXLEFUPAwAwDVgoUzquR-SNbrbEOt_DdCZNBDTaMpGkd6YrJUAlFxfmUO6Icxj2"}]},{"year":"1986","cat":"comunitario","title":"Primera Comunión – Parroquia La Anunciación del Señor","desc":"Recibe el sacramento el 31 de mayo en Caracas, Venezuela, uniéndose por iniciativa propia a la catequesis parroquial. Un paso de fe consciente y personal.","medias":[{"tipo":"foto","url":"https://arquidiocesiscaracas.com/wp-content/uploads/elementor/thumbs/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCRVV9Azs1D3g5dKBeGQsGqLZtDA9G1EU2X7AoCPLdLfc95Z6vELgq4a36nzS47fx1NSPKGcx4YvxuBZ5RZo992G659Hn8wfbqw9M657FQn6TwC-ra80x7ch6xp3ly1q54trr1sy7jub0j13lns83fktm8.png"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgAXt9Fhu4k4LEDEIIvVzZkJ0PCtglBr7z_tISr2dIeCPv1GO7Yz04xDH2dH2DgSpCHlUyH-pzqz3ySOvTXRNNJXMWEyRKfyV5lQ9BBhVeSrHA4WKBJO69NnHJpum_Yki0O0oUmhcjgh50Et4T9yUB7uyjFCrQtnNZyoxRk5m25idqZA2m3wy_xoXyp1gT_"}]},{"year":"1988","cat":"comunitario","title":"Visita a la Gruta de la Virgen de Betania","desc":"Durante sus años en el Colegio Los Arcos (Opus Dei), visita la Gruta de la Virgen de Betania. Un momento de paz profunda que abre un proceso de discernimiento vocacional.","media":{"tipo":"foto","url":"https://i.imgur.com/pjAIrTd.png"}},{"year":"1992","cat":"estudios","title":"X OLIMPIADA VENEZOLANA DE QUÍMICA","desc":"Finalista de la X olimpiada Venezolana de Química, organizada por el Centro Nacional para el Mejoramiento de la Enseñanza de la Ciencia (CENAMEC), que se realiza entre todos los colegios de Venezuela.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOVY8Zmk8z9UzZ26WTACMmYuhY4-C3hJaBj76U6Wa8-Q2Qc1saxpPR_b6NvMjGBuf8ufGUfxLQIEJKSMGvyoO8PP-Zw6dbW7rND9L7-CyFEPuhNUjK0FA65Oq2VhcFEpeajrz2colRtuyd/s640/(1992+06)+Cenamec.jpg"}},{"year":"1993","cat":"estudios","title":"Ingreso a la UCV – Ingeniería Mecánica","desc":"Comienza estudios de Ingeniería en la Universidad Central de Venezuela.<br><br>Participa en el Centro de Estudiantes.<br>Estudiante de Ingeniería Mecánica de la UCV. (Caracas-Venezuela), período 1993-1997.<br><br>Materias vistas y aprobadas:<br>• Introducción a la Ingeniería<br>• Inglés I<br>• Lenguaje y Comunicación<br>• Cálculo I<br>• Geometría Descriptiva I<br>• Cálculo II<br>• Física I<br>• Diseño I<br>• Química I<br>• Laboratorio de Física I<br>• Laboratorio de Física Instrumental<br>• Álgebra Lineal","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEiUc4ToU95ViaYkbI7epX4fpeMcRKc_eKzYGynFj3XAGc2NaojaXps8gqHDbXbH6GTbus1hG5WZ2dWOHIn3m1BQUHqaBLBl-xDpw53XWrDyRn9HmB3n2Aff5_JvQmpnQrWHXHnOGCrjsUFuX22etimp8Gk59C4gUbQJPkY9Dr2n9Z7nSLqm-DpjnvLJy2JP=w400-h225"}},{"year":"1993","cat":"cultural","title":"Primer taller de teatro – Casa de la Cultura Baruta","desc":"Primer taller formal de teatro (Alcaldía de Baruta) con instructores de Teatro ALTOS F. Culmina con un montaje en el Teatro Oswaldo Pérez Perazzo en agosto de 1993.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOdi_amYN8Ps8GEHDQyYnrYWJLH1mQHwatC5tMq0E9edCWhoAg2Tzfo7EI9Xo5B7rIqbJYj1JMsog0Tsd5o98XvqddOeM8bbZgTkBJPwxiesam39qsyayBlSyuCWQsX8Y0zx6XdsnM_N5-/s1600/(1993+06)+Casa+de+la+Cultura+Baruta+Montaje+Teatral.jpg"}},{"year":"1993","cat":"cultural","title":"Asistente de Dirección – VII Festival Nacional de Teatro","desc":"Convocado para el montaje «La Ballena de la Luna» (dir. José Julián Martínez Santana), presentado en el VII Festival Nacional de Teatro. Rol: Asistente de Dirección y Escénico.","medias":[{"tipo":"foto","url":"https://rubenmartinezsantana.wordpress.com/wp-content/uploads/2018/04/la-ballena-de-la-luna-foto.png?w=309&h=207"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirHROf4ANGY6JdZXnrL3Jt74uBSAiywnvEU6bA7G_2dMpHOhm3dq8DUxcuIg9_e7TQUI18QbAvMhH97cN2th2kBRSWlzHTGlBwl2Imivxc8-8G4V9CdFiX1DWWfTjfuYB5CpmcEz7un8GU/w592-h794/(1993+08)+La+Ballena+de+la+Luna.jpg"}]},{"year":"1993","cat":"cultural","title":"Asistente de Escena – «La Casa del Perro»","desc":"Convocado para el montaje «La Casa del Perro» (dir. José Julián Martínez Santana), Obra galardonada con premio Fundarte 1992. Presentada en Sala 2 del CELARG.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjzvhcThuobPM5T2Bdg_5TAq5NzglpcchrH48Vj5MleDRtWNsfRStE_O6GRtx4CYVBJtM9MHw9Jmt_5H82zawEclO573y7M7_-0KvWNkaD62JRjUOtzqliQcg5ezjoq2Ux5Fss7hj6Y3HR9az0zbj1Y9Pb63FUCNWfNhxsYk9TfcTvF6FZrhmdIEBxjJFgx=w597-h640"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikkunpCG0DrxtBb3eINkbgPkwNWmnOD-OUpuRP9Rn0Rn94ZgzKvuP1bAJtDP9ZKIL50pBTqY-S1Uzgzhpaux7BYkkiF-TxpTpPLnn_viFqWs5qPZw0rxydK2EmWoW3pCg9MB4EI7FKlirY/w528-h676/(1993+11)+La+casa+del+Perro.jpg"}]},{"year":"1993","cat":"cultural","title":"Taller de Zancos – Grupo Maroma","desc":"Realiza el taller de zancos en el Grupo Maroma de Venezuela (instructor: Orlando Paredes). Inicio de su vínculo con el teatro callejero.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidD5J5AVKfFp82JIq7Mw3jYAt5ckLtgIR8N-CXiAJX2yYKVoYd0IHaXH1k7zOxGDijOT7gAABSxwa8XIvPIOUSRy0spLdkFYRPaj1LVc_hsPNKLi8sOSqiRPkxg5JSoYSSWCkYAlNMv9C2/s1600/(1996+02)+Carnavales+de+Maturin+2.jpg"}},{"year":"1994","cat":"cultural","title":"Miembro del Grupo Maroma – Teatro de Calle","desc":"Miembro estable de «Maroma Teatro de Calle» (1994–1995): zanqueadas, pasacalles y el montaje colectivo «Feudos», presentado en el XIX Festival Internacional de Teatro de Oriente.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCvi2ceRnh3rvxduX5pBGh-6HaiR2DjWb-dADDygAu0VwNJPrTkHeARnfMDk0pm1iUN0sOvOE0RkwyGGGrjIlHS1LFBv_PmH1HTjVqk2UpoDmrpJuRaEeIckU3XxGGRY4jCQbV5VK3NT9N/w573-h700/(1994+10)+XIX+Festival+de+Oriente+FEUDOS.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGG3FJ_HsOCeeUyx2ZRLRwuRahBCcgQvCkwgk71ONvK4CvdKrfbohVKcGX2f-3BAHzvjLZeMSLJdu7ZCfTF0t1pnT0C-nSE1h_5FnRXd_7nj-wAl6p7d-lfIREGCodnAJ2Kd27Y0sJhZX3EH2ZCLng5eP8jB3vLrd7GQEhqGPbCkl2EJLKsr-iGyY6DATo/w300-h400/Zancos.jpg"}]},{"year":"1995","cat":"comunitario","title":"Fundación Marozo – Prevención VIH-SIDA","desc":"Expositor en cursos de prevención del VIH-SIDA para adolescentes en instituciones públicas y privadas de Venezuela. Activo hasta marzo de 1997.","media":{"tipo":"foto","url":"https://pbs.twimg.com/profile_images/2639238091/86ac2b564a441a036d10cd733e2d7edf_400x400.png"}},{"year":"1995","cat":"cultural","title":"X Festival Teatro – «La Marioneta»","desc":"Seleccionado para el taller «La Marioneta Extensión Expresiva del Actor» con la Compañía Philippe Genty (Francia).","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyppFlPGqegLq1WZhaNmob-xINya4LfbGp7Wr2-67w6Oa9dEWpAQf61FICte6H7V2LPxeYv3glV2QalogIPYqiNFYEUQIpYeUGnltRsRDeuhjAxpQZDP1fvOBhGLCC6cU6L3KCjnEKB30b/s1600/(1995+04)+Philippe+Genty+Marioneta+Extension+Expresiva+del+Actor.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilh5c-auZ_CugJs1QKGbgeuEc6mOizdV8ngoL20UnnxXLtjlNMnyiL-zXmx_z_k9GoEtQRs8CJE85EQSN-xh4gLAHDNNkM93zjPkQvBfiDJMX9mGIuqglSuqXCRfULzHyBiRjEMhqrO8DD/s1600/(1995)+Filippe+Genty+no-me-olvides-phillip.jpg"}]},{"year":"1995","cat":"cultural","title":"X Festival Teatro – «Imagen Dramática»","desc":"Seleccionado para el taller «Investigación de la Imagen Dramática» con Enrique Vargas (Universidad Nacional de Bogotá, Colombia).","media":{"tipo":"youtube","id":"iKmkZmulnR8"}},{"year":"1995","cat":"cultural","title":"Co-fundador del Teatro del Bululú","desc":"Co-funda «Teatro del Bululú» (1995–1996): animaciones infantiles, zanqueadas y el montaje «El Hombre de los Espejos», presentado en el XX Festival Internacional de Teatro de Oriente.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh7xuF1EWnWZshbRYcVVknsKEg4UIHDv3SzZXuIEr4Q47IdTYp9Ip8LjF4mnL9RsXzRervDgImxictHdGTyHobRAdqfNKFO-GBLsVPt1K6E5J2eWnoT6FbHXHpkvrp_OjwyDNcWtyzQRmx/s1600/(1996+02)+Carnavales+de+Maturin+3.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKnY83bXmcs9UhACUCs1CFz0W0A0K0N6BTOgyYkt_o_MBB8Lippe0pN2_3H36BYfP5LzYOXo6-c5Gh7UJAuHtsZCG0G8UdGFzl8mo01H0eJC41nU6PLJXjrPXwffc0SZg4oMnJ0iKRYH0t/s1600/(1995+10)+XX+Festival+de+Oriente+Teatro+del+BULULU+El+Hombre+de+los+Espejos.jpg"}]},{"year":"1996","cat":"estudios","title":"Inicio BBA – Universidad José María Vargas","desc":"Inicia la carrera de Ingeniería Comercial / Bachelor of Business Administration (BBA) en la U. José María Vargas, Venezuela. Se gradúa en 2001.","media":{"tipo":"foto","url":"https://static.wixstatic.com/media/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp/v1/fill/w_278,h_66,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp"}},{"year":"1996","cat":"cultural","title":"Taller «El Chichón» + «60 y Dele»","desc":"Formación de actor, cuenta cuentos, expresión corporal y máscaras (dir. Armando Carias). Participa en el espectáculo «60 y Dele» en el Aula Magna de la UCV.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAPY1hj1j_Eqadu6-_7eF-l-v1OVt_mU8n8EHi8f8b7gD62EVMOHxit6c_iAdzwcBhRxqdqjJ3AD7ySSJBBOeF3-ltR1CKxi01ORd9AvRwqWjpi1PA7xIcQYnBDNoVfYsKknqBdxV98_NN/s1600/(1996+04)+El+Chichon+Iniciacion+Teatral.jpg"}]},{"year":"2001","cat":"estudios","title":"Graduado BBA + Especialización","desc":"Obtiene el título de Ingeniería Comercial y la Especialización en Gerencia Empresarial en la Universidad José María Vargas, Venezuela.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEj93VQ96WZ0KhYWFBJvt634S0VC7tDniTdRH3lGTmAsCHodttnp242ynCCDVDNOexd-waMfh4nA7c2AXYI5GJPMk73CSVnpaDn5UQu0hfhiUGUDsX6yJ2iLrWKSGZ66IkA7apilvUzk67oP9ZUCeRBXCGF5IMDuQ1aopq_u1mszioU0p4NhyYPC1T5puFce"}]},{"year":"2001","cat":"operaciones","title":"Jefe de Presupuesto – CONTIFLEX","desc":"Gestiona estrategias comerciales logrando 115% de cumplimiento de metas en promedio. Lidera la implementación y certificación ISO 9001 en la primera auditoría.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEhYe5-iQBzCuHtbat8wSBjrBf1IUZE57axZgqDJiPMrfw_-IBwea6hmP_2iH9Y-rSUDmzjipT6i8j7mEAGVBTjbY7xm6uzY0R6s77MpbFEOC3FXG5F4vA1d_cpZ1yWc9Bc_3O3UBBIQeQSfBhJNmaQYKOIIPhqR3BeW9EJ-1gVN2BWRHR6wIqtw49BSu_mH"}},{"year":"2008","cat":"operaciones","title":"Gerente de Planta – CONTIFLEX","desc":"Aumenta la producción en 70% en 3 meses y reduce las devoluciones del 40% al 0%. Lidera la implementación del SGC ISO 9001:2008.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEid60dV5yLTbPZOGjvVy_6vyBjIZ86fjgHv-izXSZU5hx4pY88MIWm41Ttu2UaMIa3wsLfmjyM27eYIKRwtmWrrtqMm_xFBuyQ8_waWkIpjhbF_1j9oMHtgNm5eKdZx10DoxGTYLAdwssqZR4nIvmOsUaT_ow_tL5gj5QRxh0o1GblY1hlfw2_rePzUqY__"}},{"year":"2014","cat":"operaciones","title":"Ingeniero Desarrollo Logístico – SODIMAC","desc":"Diseña la arquitectura del sistema de reposición para 74 tiendas. Desarrolla aplicativo de control de despachos. Gestiona 3.500 m³ diarios.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEg8fERkx0IpkC9fvTW-eA4vFYkTmqmrOUNgT4_3jHrl1w40HqqGd-dcMnOKOOh4vJrdhM25xmS8iUEbmpX-TJ3KaY9axVN6PIQXH0gGj1ZrPi4JQFGBzXeqacBlM5cWQBuGJGDFWAkkHXewbohb5TA52dJuZ-OGR1EnPg-yAf1aJ4xBSo9L-n1asokTJH32"}},{"year":"2015","cat":"operaciones","title":"Jefe Planificación Operacional – SODIMAC","desc":"Reduce tiempo de respuesta de CD a tiendas en 1,5 días. Aumenta despachos en 25% con talleres LEAN. Gestiona 6 CD con más de 8.000 m³ diarios.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEj9uHF4Lm2Zw8-5FtJFPyInW0-T_jUVE1dhmBY8kxcOR2iv01qN72zrKxLufrxVXcl2cn-RIlTkQaH_2RAHeDUI7WjS0dYBwabcx5ObwekjxFVkFis2YxsYqEx4B-5J3cHr5O90eII9Da52IDKoAfzC2gH4mzJarctGWrEHNI6lAxQund6JKeNTMhTNr9Q3"}},{"year":"2019","cat":"operaciones","title":"Head of Warehouse – Grin Scooters","desc":"Diseña layout de bodega e implementa LEAN. Logra crecimiento del 90% en un mes y disponibilidad de scooters superior al 98%.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgg0uTTxkHh0ONbQ5l2HLucXbTsFlrxbORXRO74AGAAaj0eiyh9fZWCguL0cBMZTUKuvcjXoiH93dN8cXiuNfeEkpk9F1Ce8fzYH2CcTKeQCv-dP5ShnzRGOLj38YqhMEvtO-u3ibEFayrXg-FQVju3JcCCAsyiu7yAKH4YzqgjtD6vnG3cQFEbqZ2MCDEF"}]},{"year":"2019","cat":"operaciones","title":"Gerente Operaciones – Vida Orgánica","desc":"Diseña procesos logísticos y e-commerce para marca Manare. Reduce diferencia inventario del 16% al 0,04% y logra crecimiento 88% en ventas.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjZB0CMz6pBnB5zWXpvFoQ3K8JNgdn_wgOlq9mcqkmuVG2jPZC11IQ-jLPLA6T_NYTSI7RAT3kF6Z4HiuUNgXEQPbszEWCFuARCOgSZGrrt4hZWP1Suf1CpLZwgguZ47JZ_yVWHx_TwMufpXUgk5o1brpwe7TvFNoMv8iPGPR85-JtD3TzqXqe8qAlt-5f9"}},{"year":"2023","cat":"operaciones","title":"Jefe Operaciones – Dunati Chile","desc":"Lidera transformación digital y mejora operacional de bodega, planificación y producción. Implementa KPIs de rentabilidad.","media":{"tipo":"youtube","id":"DnfKgfY6iLo"}},{"year":"2024","cat":"estudios","title":"Diplomado Gestión Proyectos Ágiles","desc":"Obtiene Diplomado en Gestión de Proyectos con Metodologías Ágiles y Enfoque Lean. U. de Playa Ancha.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nJxzd5dSoyTakkguJ6IjzUVkiHbz76zosGaFZEGI09V63MM1gfLQQf_qLy_4XV-PGWyCU74noK0mhG309qMyUcEhpwaoXM8spcqvmDsM9e3nv9PsvgK99wAs3LjH129l81kYnmlNnEXPUU1ewg6ej6FlxML3MgugRxCG6U5ltrP8sQiSir6o4gyjr4jL/s16000/Captura%20de%20pantalla_14-1-2026_232823_.jpeg"}},{"year":"2024","cat":"comunitario","title":"Catequista Pre-matrimonial","desc":"Ingresa como catequista de Taller Pre-matrimonial en Parroquia San Carlos Borromeo, La Reina, Santiago. Se incorpora a Pastoral del Consuelo.","medias":[{"tipo":"foto","url":"https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no"}]},{"year":"2026","cat":"comunitario","title":"Coordinador Pastoral del Consuelo","desc":"Elegido Coordinador ante el Consejo Parroquial de la Pastoral del Consuelo en Parroquia San Carlos Borromeo.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiffgydJaQ5U_utwwq39pTIMr2CYupKIkoTdaZe7Yxhw98cYyJInFmm_8knP_7XThybv2zmwPm-v3gOIuvYPvXef9CzBuiYupUJqbHbJM44pS0AKKrn7DfXaWqPTyRPQTXVqR6krkExLj4Szxv3uUoh6QIAcIWDTELieGf0YTZcmW9OSKcLR46VS0SLtKYO/s320/Logo%20pastoral%20del%20consuelo.png"}]}];
 
-   Sin media:
-     media: { tipo: "" }
-
-   Foto (URL directa):
-     media: { tipo: "foto", url: "https://..." }
-     → La imagen se muestra completa (sin recorte), vertical u horizontal.
-     → Al hacer clic se abre en tamaño real (lightbox).
-
-   YouTube (ID del video — lo que va después de ?v= en la URL):
-     media: { tipo: "youtube", id: "ABC123" }
-     → Se reproduce automáticamente al expandir el hito.
-
-   Vimeo:
-     media: { tipo: "vimeo", id: "123456789" }
-     → Se reproduce automáticamente al expandir.
-
-   Video archivo directo (MP4, WebM):
-     media: { tipo: "video", url: "https://...mp4" }
-     
-   // Una foto
-	media: { tipo: "foto", url: "https://..." }
-
-	// Varias fotos en grilla
-	medias: { tipo: "fotos", urls: ["https://foto1.jpg", "https://foto2.jpg"] }
-    
-    medias: [
- 	 	{ tipo: "foto", url: "https://url-foto-1.jpg" },
-  		{ tipo: "foto", url: "https://url-foto-2.jpg" },
-  		{ tipo: "foto", url: "https://url-foto-3.jpg" }
-		]
-
-	// Foto + video mezclados
-	medias: [
-  	{ tipo: "foto", url: "https://foto1.jpg" },
-  	{ tipo: "youtube", id: "ABC123" }
-	]  
-
-   ========================================================== */
-var events = [
-  {
-    year: "1975", cat: "comunitario",
-    title: "Bautizo en Vitacura, Santiago",
-    desc: "Eduardo es bautizado el 27 de diciembre en la Parroquia Inmaculada Concepción, Vitacura, Santiago de Chile. Un inicio marcado por la fe que acompañará toda su vida.",
-    media: { tipo: "foto", url: "https://www.inmaculadaconcepcion.cl/imagenes/historia-parroquia.jpg" }
-  },
-  {
-    year: "1985", cat: "comunitario",
-    title: "Inicio en los Scouts de Venezuela",
-    desc: "Ingresa a la Asociación Scouts de Venezuela. Activo hasta 2008 (12 años). Llega a ser Dirigente de Rama Tropa nivel II y Sub Jefe de Grupo Aconcagua. Lema permanente: <em>"Dejar mejor de como lo encontré"</em>.",
-    medias: [{ tipo: "foto", url: 
-"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTGk0arTJ_ALfMTpqVmP771ZFJhb0qPOoCU3GQXwh6GVHRNm_CUuUxA4npZXhUotpS3JSprIbO_9-ETnxd-LfX6c8SuYnet9zmgmu-C0JzZAf79HH6mxgne3wfdnWR-QmXinrBWzY723ND/s1600/(1999+03)+Scout+Nivel+II+tropa.jpg"},{ tipo: "foto", url: 
-"https://blogger.googleusercontent.com/img/a/AVvXsEgCZYemmu0T3heiER_6yBPpruyHiyv56Pht512zBvfT55KkrHkvVUsE3Jt4iigd11jkPuMIvxiE0FBBj85m6LNkmMTI5177Lj8duoyInXwNEQxSmWvX12H8OmpOFzI730nZZ_KgXr5gZwmzwid7RxVKS5SgeR1yMRHCwzUYbf4cArH-QtzmZJcRYjdDJhbL"},{ tipo: "foto", url: 
-"https://blogger.googleusercontent.com/img/a/AVvXsEgBhBLrQ-FwyI0eccGAQTpshQcZLUOBHYOpoFwYNwrMHaD6prBhnIDqIhUq60-q9dxYsP4bPerBWIbs33k5kOlCHLTPPg83ep5st6FjfFnsu1Y5Teh-gtAI0PP41KPY_Hcy78MvPVMXsbF2SD81zPSL7SE7yG_bM-VN-GAdI-D3LJzJfpebHHPc8DNRNzW1"},{ tipo: "foto", url: 
-"https://blogger.googleusercontent.com/img/a/AVvXsEjT_k5t17nQViimcXBsxbMf-izgJpBbA9wpxhKDdKx57XlJd0wuvDXn1Ardl3CQ3p6bQr-oxkkA3gStHOjKIWUyZupga-Mrwx5MQTHZ-Olh5xId-Nrs7nxagvtJ-R7V_VXLEFUPAwAwDVgoUzquR-SNbrbEOt_DdCZNBDTaMpGkd6YrJUAlFxfmUO6Icxj2"}]
-  },
-  {
-    year: "1986", cat: "comunitario",
-    title: "Primera Comunión – Parroquia La Anunciación del Señor",
-    desc: "Recibe el sacramento el 31 de mayo en Caracas, Venezuela, uniéndose por iniciativa propia a la catequesis parroquial. Un paso de fe consciente y personal.",
-    medias: [{ tipo: "foto", url:  "https://arquidiocesiscaracas.com/wp-content/uploads/elementor/thumbs/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCRVV9Azs1D3g5dKBeGQsGqLZtDA9G1EU2X7AoCPLdLfc95Z6vELgq4a36nzS47fx1NSPKGcx4YvxuBZ5RZo992G659Hn8wfbqw9M657FQn6TwC-ra80x7ch6xp3ly1q54trr1sy7jub0j13lns83fktm8.png" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEgAXt9Fhu4k4LEDEIIvVzZkJ0PCtglBr7z_tISr2dIeCPv1GO7Yz04xDH2dH2DgSpCHlUyH-pzqz3ySOvTXRNNJXMWEyRKfyV5lQ9BBhVeSrHA4WKBJO69NnHJpum_Yki0O0oUmhcjgh50Et4T9yUB7uyjFCrQtnNZyoxRk5m25idqZA2m3wy_xoXyp1gT_" }]
-  },
-  {
-    year: "1988", cat: "comunitario",
-    title: "Visita a la Gruta de la Virgen de Betania",
-    desc: "Durante sus años en el Colegio Los Arcos (Opus Dei), visita la Gruta de la Virgen de Betania. Un momento de paz profunda que abre un proceso de discernimiento vocacional.",
-     media: { tipo: "foto", url:  "https://i.imgur.com/pjAIrTd.png" }
-  },
-  {
-    year: "1992", cat: "estudios",
-    title: "X OLIMPIADA VENEZOLANA DE QUÍMICA",
-    desc: "Finalista de la X olimpiada Venezolana de Química, organizada por el Centro Nacional para el Mejoramiento de la Enseñanza de la Ciencia (CENAMEC), que se realiza entre todos los colegios de Venezuela.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOVY8Zmk8z9UzZ26WTACMmYuhY4-C3hJaBj76U6Wa8-Q2Qc1saxpPR_b6NvMjGBuf8ufGUfxLQIEJKSMGvyoO8PP-Zw6dbW7rND9L7-CyFEPuhNUjK0FA65Oq2VhcFEpeajrz2colRtuyd/s640/(1992+06)+Cenamec.jpg" }
-  },
-  {
-    year: "1993", cat: "estudios",
-    title: "Ingreso a la UCV – Ingeniería Mecánica",
-    desc: "Comienza estudios de Ingeniería en la Universidad Central de Venezuela.<br><br>Participa en el Centro de Estudiantes.<br>Estudiante de Ingeniería Mecánica de la UCV. (Caracas-Venezuela), período 1993-1997.<br><br>Materias vistas y aprobadas:<br>• Introducción a la Ingeniería<br>• Inglés I<br>• Lenguaje y Comunicación<br>• Cálculo I<br>• Geometría Descriptiva I<br>• Cálculo II<br>• Física I<br>• Diseño I<br>• Química I<br>• Laboratorio de Física I<br>• Laboratorio de Física Instrumental<br>• Álgebra Lineal",
-    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEiUc4ToU95ViaYkbI7epX4fpeMcRKc_eKzYGynFj3XAGc2NaojaXps8gqHDbXbH6GTbus1hG5WZ2dWOHIn3m1BQUHqaBLBl-xDpw53XWrDyRn9HmB3n2Aff5_JvQmpnQrWHXHnOGCrjsUFuX22etimp8Gk59C4gUbQJPkY9Dr2n9Z7nSLqm-DpjnvLJy2JP=w400-h225" }
-  },
-  {
-    year: "1993", cat: "cultural",
-    title: "Primer taller de teatro – Casa de la Cultura Baruta",
-    desc: "Primer taller formal de teatro (Alcaldía de Baruta) con instructores de Teatro ALTOS F. Culmina con un montaje en el Teatro Oswaldo Pérez Perazzo en agosto de 1993.",
-    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOdi_amYN8Ps8GEHDQyYnrYWJLH1mQHwatC5tMq0E9edCWhoAg2Tzfo7EI9Xo5B7rIqbJYj1JMsog0Tsd5o98XvqddOeM8bbZgTkBJPwxiesam39qsyayBlSyuCWQsX8Y0zx6XdsnM_N5-/s1600/(1993+06)+Casa+de+la+Cultura+Baruta+Montaje+Teatral.jpg" }
-  },
-  {
-    year: "1993", cat: "cultural",
-    title: "Asistente de Dirección – VII Festival Nacional de Teatro – Producción Teatral «La Ballena de la Luna»",
-    desc: "Convocado para el montaje «La Ballena de la Luna» (dir. José Julián Martínez Santana), presentado en el VII Festival Nacional de Teatro. Rol: Asistente de Dirección y Escénico.",
-    medias: [ { tipo: "foto", url: "https://rubenmartinezsantana.wordpress.com/wp-content/uploads/2018/04/la-ballena-de-la-luna-foto.png?w=309&h=207"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirHROf4ANGY6JdZXnrL3Jt74uBSAiywnvEU6bA7G_2dMpHOhm3dq8DUxcuIg9_e7TQUI18QbAvMhH97cN2th2kBRSWlzHTGlBwl2Imivxc8-8G4V9CdFiX1DWWfTjfuYB5CpmcEz7un8GU/w592-h794/(1993+08)+La+Ballena+de+la+Luna.jpg"}]
-  },
-  {
-    year: "1993", cat: "cultural",
-    title: "Asistente de Escena – Producción Teatral «La Casa del Perro»",
-    desc: "Convocado para el montaje «La Casa del Perro» (dir. José Julián Martínez Santana), Obra fue galardonada con el premio Fundarte en dramaturgia del año 1992.<br>Estrenada por el Grupo los Ojos del Espejo.<br>Presentada en Sala 2 del CELARG.<br>Rol: Asistente Escénico.",
-    medias: [ { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjzvhcThuobPM5T2Bdg_5TAq5NzglpcchrH48Vj5MleDRtWNsfRStE_O6GRtx4CYVBJtM9MHw9Jmt_5H82zawEclO573y7M7_-0KvWNkaD62JRjUOtzqliQcg5ezjoq2Ux5Fss7hj6Y3HR9az0zbj1Y9Pb63FUCNWfNhxsYk9TfcTvF6FZrhmdIEBxjJFgx=w597-h640"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikkunpCG0DrxtBb3eINkbgPkwNWmnOD-OUpuRP9Rn0Rn94ZgzKvuP1bAJtDP9ZKIL50pBTqY-S1Uzgzhpaux7BYkkiF-TxpTpPLnn_viFqWs5qPZw0rxydK2EmWoW3pCg9MB4EI7FKlirY/w528-h676/(1993+11)+La+casa+del+Perro.jpg"}]
-  },
-  {
-    year: "1993", cat: "cultural",
-    title: "Taller de Zancos – Grupo Maroma",
-    desc: "Realiza el taller de zancos en el Grupo Maroma de Venezuela (instructor: Orlando Paredes). Inicio de su vínculo con el teatro callejero.",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidD5J5AVKfFp82JIq7Mw3jYAt5ckLtgIR8N-CXiAJX2yYKVoYd0IHaXH1k7zOxGDijOT7gAABSxwa8XIvPIOUSRy0spLdkFYRPaj1LVc_hsPNKLi8sOSqiRPkxg5JSoYSSWCkYAlNMv9C2/s1600/(1996+02)+Carnavales+de+Maturin+2.jpg" }
-  },
-  {
-    year: "1994", cat: "cultural",
-    title: "Miembro del Grupo Maroma – Teatro de Calle",
-    desc: "Miembro estable de «Maroma Teatro de Calle» (1994–1995): zanqueadas, pasacalles y el montaje colectivo «Feudos», presentado en el XIX Festival Internacional de Teatro de Oriente.",
-    medias: [ { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCvi2ceRnh3rvxduX5pBGh-6HaiR2DjWb-dADDygAu0VwNJPrTkHeARnfMDk0pm1iUN0sOvOE0RkwyGGGrjIlHS1LFBv_PmH1HTjVqk2UpoDmrpJuRaEeIckU3XxGGRY4jCQbV5VK3NT9N/w573-h700/(1994+10)+XIX+Festival+de+Oriente+FEUDOS.jpg"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGG3FJ_HsOCeeUyx2ZRLRwuRahBCcgQvCkwgk71ONvK4CvdKrfbohVKcGX2f-3BAHzvjLZeMSLJdu7ZCfTF0t1pnT0C-nSE1h_5FnRXd_7nj-wAl6p7d-lfIREGCodnAJ2Kd27Y0sJhZX3EH2ZCLng5eP8jB3vLrd7GQEhqGPbCkl2EJLKsr-iGyY6DATo/w300-h400/Zancos.jpg"}]
-  },
-  {
-    year: "1995", cat: "comunitario",
-    title: "Fundación Marozo – Prevención VIH-SIDA",
-    desc: "Expositor en cursos de prevención del VIH-SIDA para adolescentes en instituciones públicas y privadas de Venezuela. Activo hasta marzo de 1997.",
-    media: { tipo: "foto", url: "https://pbs.twimg.com/profile_images/2639238091/86ac2b564a441a036d10cd733e2d7edf_400x400.png" }
-  },
-  {
-    year: "1995", cat: "cultural",
-    title: "X Festival Internacional de Teatro – Talleres de élite - «La Marioneta Extensión Expresiva del Actor»",
-    desc: "Seleccionado para el taller «La Marioneta Extensión Expresiva del Actor» con la Compañía Philippe Genty (Francia).",
-   medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyppFlPGqegLq1WZhaNmob-xINya4LfbGp7Wr2-67w6Oa9dEWpAQf61FICte6H7V2LPxeYv3glV2QalogIPYqiNFYEUQIpYeUGnltRsRDeuhjAxpQZDP1fvOBhGLCC6cU6L3KCjnEKB30b/s1600/(1995+04)+Philippe+Genty+Marioneta+Extension+Expresiva+del+Actor.jpg" }, { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilh5c-auZ_CugJs1QKGbgeuEc6mOizdV8ngoL20UnnxXLtjlNMnyiL-zXmx_z_k9GoEtQRs8CJE85EQSN-xh4gLAHDNNkM93zjPkQvBfiDJMX9mGIuqglSuqXCRfULzHyBiRjEMhqrO8DD/s1600/(1995)+Filippe+Genty+no-me-olvides-phillip.jpg"}]
-  },
-  {
-    year: "1995", cat: "cultural",
-    title: "X Festival Internacional de Teatro – Talleres de élite - «Investigación de la Imagen Dramática»",
-    desc: "Seleccionado para el taller  «Investigación de la Imagen Dramática» con Enrique Vargas (Universidad Nacional de Bogotá, Colombia).",
-   media: { tipo: "youtube", id:  "iKmkZmulnR8" }
-  },
-  {
-    year: "1995", cat: "cultural",
-    title: "Co-fundador del Teatro del Bululú",
-    desc: "Co-funda «Teatro del Bululú» (1995–1996): animaciones infantiles, zanqueadas y el montaje «El Hombre de los Espejos», presentado en el XX Festival Internacional de Teatro de Oriente.",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh7xuF1EWnWZshbRYcVVknsKEg4UIHDv3SzZXuIEr4Q47IdTYp9Ip8LjF4mnL9RsXzRervDgImxictHdGTyHobRAdqfNKFO-GBLsVPt1K6E5J2eWnoT6FbHXHpkvrp_OjwyDNcWtyzQRmx/s1600/(1996+02)+Carnavales+de+Maturin+3.jpg" }, { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKnY83bXmcs9UhACUCs1CFz0W0A0K0N6BTOgyYkt_o_MBB8Lippe0pN2_3H36BYfP5LzYOXo6-c5Gh7UJAuHtsZCG0G8UdGFzl8mo01H0eJC41nU6PLJXjrPXwffc0SZg4oMnJ0iKRYH0t/s1600/(1995+10)+XX+Festival+de+Oriente+Teatro+del+BULULU+El+Hombre+de+los+Espejos.jpg"}, { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZ3muZ3phElHHqpr8qkRbAd6SpQZZdBihvfOrPOBb3PwZXPnDcX8fKBykAosCRBs95DeRZqdLgiSUUsF0aS78OqYM-XE8su0UrsA_TbveY4NBL1HS1A3YN3kUmGYapX-p7gLvz0O17UHcG/s1600/(1996+05)+Teatro+del+Bululu+Cosas+de+Duendes+1.jpg"},{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTfxlpcq8E-blpHt9Jbj98FipBHZfrU-3bp-Ya4C0auJhjPHX8ZQdh1DOy0PDCIrFLej8nM6CvoMOI7325Ay6e4aRQJKErBPjqXO4rXobegrGXzZCcQAT_bYWS3TKd9UZygDszohxhhjeJ/s1600/(1996+05)+Teatro+del+Bululu+Cosas+de+Duendes+2.jpg"}]
-  },
-  {
-    year: "1996", cat: "estudios",
-    title: "Inicio BBA – Universidad José María Vargas",
-    desc: "Inicia la carrera de Ingeniería Comercial / Bachelor of Business Administration (BBA) en la U. José María Vargas, Venezuela. Se gradúa en 2001.",
-     media: { tipo: "foto", url: "https://static.wixstatic.com/media/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp/v1/fill/w_278,h_66,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp" }
-  },
-  {
-    year: "1996", cat: "cultural",
-    title: "Taller «El Chichón Teatro» + espectáculo «60 y Dele» en Aula Magna UCV",
-    desc: "Formación de actor, cuenta cuentos, expresión corporal y máscaras (dir. Armando Carias). Participa en el espectáculo «60 y Dele» en el Aula Magna de la UCV.",
-     medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAPY1hj1j_Eqadu6-_7eF-l-v1OVt_mU8n8EHi8f8b7gD62EVMOHxit6c_iAdzwcBhRxqdqjJ3AD7ySSJBBOeF3-ltR1CKxi01ORd9AvRwqWjpi1PA7xIcQYnBDNoVfYsKknqBdxV98_NN/s1600/(1996+04)+El+Chichon+Iniciacion+Teatral.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0INPP3j_3knMG9m9yAVOMIHEdQm90s9GoIarkhmeAWBJZVILJeNiTcU-jK9vWIhNpZJBX3RukRvU0LI5UOMK-qgvR9ueyctmTwE7hrLHZ5ScuqsC8Q9tm2P3ZFIRrtkOudhy2nA8oWkVP/s1600/(1996+04)+El+Chichon+60+Y+DELE+1.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglabIdlQl4gSnEbT_7cyNRENg-jbIwJ_YTBD_oqopOLUGe7IBKV2VkxQ3Tgj9r-Me4A_YpK5eVTvcfjLsf1eRjibNf9HYdLaCC44Y9RL-iIauUAZe2UFcAZnOpUoUtnO8kcoboTF_5ouQ8/s1600/(1996+04)+El+Chichon+60+Y+DELE+2.jpg" }]
-  },
-  {
-    year: "1997", cat: "talleres",
-    title: "IESA - EL MANEJO DEL STRESS: CÓMO LOGRAR LA EXCELENCIA.",
-    desc: "Participación en el Taller de Manejo del Stress para altos directivos en el Instituto de Estudios Superiores de Administracion - IESA.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEieTpC5Xa_pd_aA7pegUD2arUA9EFCA7sjTjpeUxe_GrHJfTZw1byGPcw1pNKam2-WFXzTlD6qjlLzXGRv4YOhSRmfj4zd9MQ_qZ84QuselNcRB44uqrjpSCy5ATGy9W1-P_xElQsN6wiO8/s1600/(1997+10)+IESA+Manejo+del+Stress.jpg" }
-  },
-
-  {
-    year: "2000", cat: "cultural",
-    title: "Grupo T-POS – Invitado internacional en Medellín",
-    desc: "Integra el Grupo T-POS de Caracas (dir. Jaime Liendo). Participa como invitado especial internacional en el «V Encuentro Nacional Comunitario de Teatro Joven» en Medellín, Colombia, con la obra «Ramón el Rey del Rumbón».",
-    medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiV7O7MTnxyj_KXdDz0jjsRW4Z6eozmYtXtF8HDdispLhcPt9FCTCmYpFn3layBFCgp0zPTKR8Ry8sBVXEcjhDe_tzlU6oAQ-Ny6VNklazCuKtQ4EcTrYiKn7nUqHaUAfnGuZMTkr0MaOkE/w534-h730/(2000+11)+Medellin+V+encuentro+Nacional+Comunitario+de+teatro+joven.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-2PYtvdpCc-Zote_1BJ4b6Otluy7w4WvtaoFKNAcAqckxABoJTMyiaFoCkJqTRt5jmVhJihWMB9vTj_AVJjUEo7ykOoJbJHx8sfFGqdgtV27-6lrJnbwSugDll6Ig4FEyoi0chV1e8PNy/w548-h701/(2001+06)+Ramon+rey+del+Rumbon+y+Homus-+Genesis+via+crucis.jpg" }]
-  },
-  {
-    year: "2001", cat: "estudios",
-    title: "Graduado BBA + Especialización en Gerencia Empresarial",
-    desc: "Obtiene el título de Ingeniería Comercial y la Especialización en Gerencia Empresarial en la Universidad José María Vargas, Venezuela.",
-     medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEj93VQ96WZ0KhYWFBJvt634S0VC7tDniTdRH3lGTmAsCHodttnp242ynCCDVDNOexd-waMfh4nA7c2AXYI5GJPMk73CSVnpaDn5UQu0hfhiUGUDsX6yJ2iLrWKSGZ66IkA7apilvUzk67oP9ZUCeRBXCGF5IMDuQ1aopq_u1mszioU0p4NhyYPC1T5puFce" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEheyBvO7lCAPNbQlt0cGwG_pxFJsu8ALA4BhYly9mHKzzHwDr3k-g0nskM1RSLjI4kwx0vLOG2WPt2KVGLaLdj0KGLa1HJLp_xJpQUtU06ifOPwlE-4k1bju615PX_nSHH8Ld9ZiaYRFxaGSYBEHKijPzAQVIELljJcDzQpHYGc-XJzqLdC8VkrTC3o6xTX=w400-h300" }]
-  },
-  {
-    year: "2001", cat: "cultural",
-    title: "Administrador de Producción – «Verdi: Pasión y Libertad»",
-    desc: "Producción y administración del espectáculo multimedia en la Sala Ríos Reyna del Teresa Carreño, con orquesta, coro, solistas y actores. Dirección musical: Eduardo Marturet.",
-   media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiG9nKMz1flQKeuRk-0Vq2hNLfslSyOcyzvGdvqarGak_XezldIlJIfUc7V6_55PFDs9fUVNNBlMEDWMTR4t0L3J5ICoZRU0qlY5AIZpYcM_jFOEeX4huFTvnpmMN3xAdisLWdYqcDE5zjS/w419-h572/(2001+07)+Verdi+Pasion+y+Libertad+Globo+Teatro.jpg" }
-  },
-  {
-    year: "2001", cat: "cultural",
-    title: "Escuela Danza Caracas",
-    desc: "En el año 2001 buscando el mi mejoramiento continuo, entre a la Fundación Escuela Danza de Caracas, donde me forme como bailarín de danza contemporánea.",
-    medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEileM2K9Y1JkDm0agCXgb2x3lVH7NSgeSz2XDE99PlsfJ4N4H31wMZ9uZnkRvWLheWhMeKVLXPvLgE_DdHc1S5xRg1uOpuK7iziQ_eNEgpvVUdPFSL_MxZg-yus7e54JvjYnQHJ0gfx0uqr/w554-h813/(2001+12)+Muestra+Coreografica+Escuela+de+Danza+de+Caracas+1.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzdUxvtUb2i8eOjQ1L_QAVitoQivE8NqUN5ptubuD8oXWTWfk-19AErLm_netyA9Q4dxq2rXbUBL4Xe4yaVWalxhP2svFIh5-UTEOx4YbkkPokLVA2aBhTtpQ43IQBr9Wn0a4X9zMjn5qI/w513-h817/(2001+12)+Muestra+Coreografica+Escuela+de+Danza+de+Caracas+2.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhcI3Onaw5yT2Pg1QXESFKLofJGDu0DYxsGwH3o8A1w-CBo9YT41J8gnQ6RfEb6TD51gZ0atQ0iNlLTciK3GyvaKbc0CXGHPwGRbpirLq6qdanrCYu0x-FmoSUcqJsSbGpaU9dkYc6fvfJ1/s1600/(2002+06)+Muestra+Coreografica+Escuela+de+Danza+De+Caracas+1.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhSYAHcLn2rH2_zYziQDWsOm9dvAOQ62UyzBKTBqHcJRjykdJ_1dUt66aLPSQbyHCT6u-eJZIJKGbneT8xe1T-Qjq2OBtf0aDl5o9NMJsoXlqSpCQUJK97tA3osh1LQ-Xx328-AomFH-85y/s1600/(2002+06)+Muestra+Coreografica+Escuela+de+Danza+De+Caracas+2.jpg" }]
-  },
-    {
-    year: "2001", cat: "operaciones",
-    title: "Jefe de Presupuesto – CONTIFLEX, C.A. (hasta 2008)",
-    desc: "Gestiona estrategias comerciales logrando 115% de cumplimiento de metas en promedio. Lidera la implementación y certificación ISO 9001 en la primera auditoría.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEhYe5-iQBzCuHtbat8wSBjrBf1IUZE57axZgqDJiPMrfw_-IBwea6hmP_2iH9Y-rSUDmzjipT6i8j7mEAGVBTjbY7xm6uzY0R6s77MpbFEOC3FXG5F4vA1d_cpZ1yWc9Bc_3O3UBBIQeQSfBhJNmaQYKOIIPhqR3BeW9EJ-1gVN2BWRHR6wIqtw49BSu_mH" }
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "Trabajo de Fotografia en las obras de teatro «LA MARQUESA DE LARKSPUR LOTION» Y «LA NOCHE DE LOS ASESINOS»",
-    desc: "En el año 2002 realice dos trabajos de Fotografía y Diseño para dos obras de teatro presentadas en el Nuevo Teatrino del «Laboratorio Teatral Anna Julia Rojas» de Caracas - Venezuela, las obras fueron:<br>«La Marquesa de Larkspur Lotion» de Teennesse Williams, Dirigida por Trino Rojas y Giovanni Reali,<br>«La Noche de los Asesinos» de José Triana, - Dirigida por Júnior Molina.",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFg8gjOuuy9uJ6Y6ciykOoN0BhgZ-c2cwtM7GW4xFfoPPZ-5pwCasTiILlJgx14Rvs3fhB1UTMnup6xEERag2wgTwbpDio80dce0ncUa0lkg57R5AtQ6cadls_gn-rITG-Ja_i1qZNk3oA/s1600/(2002+04)+La+marquesa+de+Larkspur+lotion+Lab+Teatral+Anna+Julia+Rojas+1.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIdxru_jx3NyzUQOB6coIrngPAIhlWJ5hQPkbJ1-3UWtIoaNM0TMMH6STHbq9VsBuVnuB07JwJxU0WVzHzHU6J-RhjGZWRlvkqFUthxNiXdFijN3loAjWpbZ8R0DUvLfeft41vTu-akWH8/s1600/(2002+04)+La+marquesa+de+Larkspur+lotion+Lab+Teatral+Anna+Julia+Rojas+2.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidv2u8-X8s2FPtuSS8dTKSyw3NhEhtVlHTUvVZEQuI7LuCkekm51ajLEYZg5duXEi955mj5W4yTrW_lB1GNs6alOonNYwboSJ5gHa0MMTFgKguzx1HxSEIKT6BPIFJ3aWvVo0iWUo7U8O5/s1600/(2002+10)+La+noche+de+los+Asesinos+Lab+Teatral+Anna+Julia+Rojas+1.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUn30qzwVT59evZXsgL_XbyqhyphenhyphenpQ9jVrDuQK0zurmKd5VEIw2hUpF7Y2znqkJ3z9b9TTnL_FajcmSoIQGPtnQZ6IQfzR25TqtxROSOnbK_tNzykay4e2dfm9pd7BwM1Jgcksef21l93MFj/s1600/(2002+10)+La+noche+de+los+Asesinos+Lab+Teatral+Anna+Julia+Rojas+2.jpg" }]
-  },
-  
-  {
-    year: "2002", cat: "cultural",
-    title: "XIV Festival Internacional de Teatro – Aulas abiertas y talleres",
-    desc: "Aulas Abiertas con grupos de Argentina, Bolivia y Uruguay;<br>1.  Argentina I; Grupo: Teatro Callejón; Aula: «Gatea: Juego y Compromiso, El Procedimiento»<br>2.  Argentina II; Grupo: Teatro Callejón; Aula: «Clase Práctica de Entrenamiento para actores»<br>3. Bolivia; Grupo: Teatro Los Andes; Aula: «Pensar la Escena»<br>4. Uruguay; Aula: «El Trabajo Escénico»",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZeBYpfx-IGelBE4O74Z88Ujsbw8UGziFgA435fFCG43KtO55qyskr66FMEUo9C2vFRiPcm0LZHnSqWxY7kaBFlV0mex7gLfVqAmCpfgQp50uaTcO-Yh46ezovwsy8cqSQ0SEpofeJVHxv/s1600/(2002+03)+Aulas+Abiertas+del+XIV+Festival+internacional+de+Teatro.jpg" }
-  },
-  
-  {
-    year: "2002", cat: "cultural",
-    title: "XIV Festival Internacional de Teatro – «Clínica de Dramaturgia»",
-    desc: "En marco del XIV Festival Internacional de Teatro de Caracas 2002, fui seleccionado para participar en una «Clínica de Dramaturgia» dictada por el Dramaturgo Argentino Mauricio Kartun.",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXPRGRCrMrlzScpFse9hclL5tTGIpgR_9nfl1DQC6DkF3qWOzQG7JKrt45VPJ8PIPPDzFbwtzX8H04am52gom2FDuKs78u4ysexBq-Cm7aXZtdDExGMD5maSGEbPUCSECEAhCxJf7obmTa/s1600/(2002+03)+Clinica+de+Dramaturgia+Mauricio+Kartun+XIV+Fest+Internacional+de+Teatro.jpg" },{tipo:"youtube", id: "G7cl4CeS7ks"}]
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "XIV Festival Internacional de Teatro – Taller «Teatro de Calle»",
-    desc: "En marco del XIV Festival Internacional de Teatro de Caracas 2002, participé en el taller de «Teatro de Calle» Dictado por la «Compañia OFF» de Francia.",
-    medias: [{tipo:"youtube", id: "v1AA16hJcno"},{tipo:"youtube", id: "lLtJxN7kw5w"}]
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "Asistente de escena en «LOS HOMBROS DE AMERICA» - (dir. Héctor Manrique)",
-    desc: "Asistente de escena en «LOS HOMBROS DE AMERICA» de Fausto Verdial - (dir. Héctor Manrique).",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi06PkOR1fMiaRPBCx_NV3zexjCxtvR3EIHhYRc43qvjGXSlR-FABQiyza4Pcc9jFUQVlOVdVutgr_IR2UV4tCQ7RVwGMg0M0pAwFtRf22W9VoLH8WJ0dj5YhsDvK-hG4Kc5RgYniCfQLuj/w524-h342/%25282002+09%2529+Los+Hombros+de+America+Grupo+Teatral+de+Caracas+1+.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijXgArHQYdoqvc15SRkwjRHDfEkv3U9tUlcqM8z5Vkeh-oBmTqVq9FsObua6I1Aq7_WvD3oXnz-hTBwY-A7NUuCg4QHbOPifUDnZpLu6WAHyE1ojXUBOtmgGHBU6cd1-tB6l2LzdlaIkHu/w578-h625/%25282002+09%2529+Los+Hombros+de+America+Grupo+Teatral+de+Caracas+2.jpg" }]
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "Actor en ópera «Oedipus Rex» (dir. Elia Schneider) – Orquesta Simón Bolívar",
-    desc: "VIII Temporada de Ópera Breve: actúa en «Oedipus Rex» (dir. Elia Schneider).",
-     medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIg_PH08Yj9OrW-wgvufFfHBRW0aeMwlEBDKHYSM98XN9Nzc2M1x4LO-5jSZewpGX9bwEC7korxvWu55nQnhLBJpSVpoLoIbZmDSTwDzPFWQZKqLlJMmXBab91dYrFIFMevqa5M6-e9puk/w551-h393/%25282002+10%2529+Opera+Breve+Oedipus++Rex+1.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgH7PwB73hsd_zFG3ZZA0gJcF1kstkrOwFWZ0LTzxFWtb0l9KddCk-VJKnCdTrzavwxNgZnjCbm6XbO_VEATSCpaDsYPVYnqfdVTIuyV9zj1D089dX5Id85UOArMkgntS4XEkJlODJKOsEM/w455-h684/%25282002+10%2529+Opera+Breve+Oedipus++Rex+2.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH0L8i4I10wnoBorOFIjVf8oRiXl_whILTN6iFbYq9RmHlaj_KlmnrykoFLfskSXj7GMtJxmBt4HmfbfxGn9z9_eIpoilID_g9UflOZ-Az2gYr-08wutkCfgWet0Rx6NvuCLlyKuyqy_hu/w444-h671/%25282002+10%2529+Opera+Breve+Oedipus++Rex+3.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUPxpuQZZwKkmEZWaJ38sroPP084CtoX7BeeXxGTvIQQvWr4Hp3Lt1KFQlybNFmE1mvqE9DKLuBoGTqOq33Z3d3rfG7GGf12EFna1pD-QeS-aOIhkuhRu2jc18BDlw_knqP8DVjb4TR5Zd/s320/%25282002+10%2529+Opera+Breve.jpg" }]
-  },
-   {
-    year: "2002", cat: "cultural",
-    title: "Actor en ópera «El Barbero de Sevilla» (dir. Alejandro Chacón) – Orquesta Simón Bolívar",
-    desc: "Actor en Produccion internacional: Ópera «El Barbero de Sevilla» (dir. Alejandro Chacón) - Ópera de Colombia.",
-     medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEipgNysIwGy4QoI0LaklO68yseCmqfj2Q1YzWJr5JZMcllXgEl_AFCb6UcNugqpU6onngx88M2oeG1zwb5GakKA7QIgOI5aGxL6eL55h_ZioPV04yUBbpxBcWQjSdbKbrLR5rkx7FkZqvG5/w514-h695/%25282002+11%2529+El+Barbero+de+Sevilla+1.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjNZvk_tDgN4XauO-RmIlkRksdqu-g1KMm7n35LLp1frB3YnYB8BYOvha5FXIg022awL_WiQpZjQCQqBHDRpD_TV_TA-mDYRHoLiGqCZF56vEkYbhb87rhcCCAnf5t-lASctjCCgMwL62S/w460-h667/%25282002+11%2529+El+Barbero+de+Sevilla+2.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgdpmKpz7dN6ASZuOs5iaWDPzdPACv6fFavCs02TXHalgBKRYVKujeuawEJp8MOTPXqYM5m4XZFVU00j4PO2gS9JGYz_pPGemWPVGdy9I6Uufih519ZLnZ4WwXi0NIG_foDOf70UjDC2rwB/s400/%25282002+11%2529+El+Barbero+de+Sevilla+3.jpg" }]
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "Asistente de dirección en «La Serva e Lussero» - Orquesta Gran Mariscal de Ayacucho",
-    desc: "Asistente de dirección en «La Serva e Lussero» (Orquesta Gran Mariscal de Ayacucho).",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjr9ZVHc2-ellaumlreGLChiXpon_UKc5bY9lLQ1OtrAyADFoSvBsi8gBVOTeVUooUlkV7jA1fTSRnaE8BOK2tJqrp-ot0PRf5o0g_98MPDcHfKMYd5X_B7E2LT4LtOOeOivX6S6MHZE2E9/w622-h443/%25282002+11%2529+Opera+Breve+La+serva+de+L%2527ussero.jpg" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWFvyg35dLwYyq_2Tni5rP1UDGFKPPGol19WTvIboQENzdZY-FtCyUlOxV_7gWl8oJg4_qbOX-m9K_44ll6HV7h2BpzHRtY02eLATDmR-nVRDuXiS1NWsucY2VmNqzIPBbaUejKC49xiAw/s400/%25282002+10%2529+Opera+Breve.jpg" }]
-  },
-  {
-    year: "2002", cat: "cultural",
-    title: "Taller «UN CUERPO EN EL ESPACIO» - Dictado por Giovanni Reali",
-    desc: "Fui invitado a participar en el taller «UN CUERPO EN EL ESPACIO» - Dictado por Giovanni Reali",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhHQSBvOR4j3SC_x71sQTAeXcudtm8ubOHek65KJwtcVryTPwAs_8v8s01xp-O7k0a-cI9wGq7gdc2XJsYThR5jfiyRWgQ4gAxJbKEXtSyG9uJWCLc088lSl11ykszCiXWPX7sdaXLL87cI/s640/%25282002+12%2529+Un+Cuerpo+en+el+Espacio+Escenico+Lab+Teatral+Anna+Julia+Rojas.jpg" }
-  },
-   {
-    year: "2002", cat: "cultural",
-    title: "Docente IUDET – Artes de la Calle y Expresión Corporal",
-    desc: "Docente en el Instituto Universitario de Teatro:<br>• Docente (instructor tiempo convencional) para Trabajar junto a la colega Julia Carolina Ojeda como Asistente de Imagen Sonora en la Cátedra de «CORO». (semestre Marzo - Julio 2003).<br>• Docente (instructor tiempo convencional) para dictar la cátedra electiva «ARTES DE LA CALLE» estructurada y planificada por mipersona, Cátedra dictada para alumnos del 6o semestre y disponibles para todas las menciones. (semestre Octubre 2002 - Febrero 2003)<br>• Fui apoyo en la Cátedra «ESPACIO ESCÉNICO I», Realizando la labor de facilitador y guía en la visita a la Plaza Capuchinos, con la finalidad que los estudiantes tuvieran un primer contacto con el manejo de los espacios no convencionales, para espectáculosteatrales. (mayo-junio-julio 2002)",
-     medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaxP6zRe_6D4IGU7WmyC6oyKG_OudOf7a-bi4Yfgm1Y6MV6GnSwIiYhl63Qq11RHcLQLVo4uU-qc1cNFvcvL0TwX_SUIGkR5DNJNLz98zqwp_CjcL6-p9OZrRfMsG4wgaH7A3_6xUcQvHU/w627-h781/%25282002+05%2529+IUDET+Espacio+Esenico+I.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiwgqtadwnNztbIjr8uSsTiKsPKTlrOBCFG2ZaX79wqpZkBswkZxcjmmunHaRcsn7M8p4fhVl1b7QZjokAUvZb_uNLFs3WRNleNTSBeBXszTzxivfm4ZFuV5VGCx1x0OhHYjnLoPIVt4Dbk/w692-h531/%25282003+02%2529+IUDET+Artes+de+la+Calle+Programa.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhb-Q39iO6KYBJWOYK2kr4iKOMbva4iwI0u0RnHr_vBf7P64kWkKMzlTiaSx4v2P9ZVMAuH8lxQpZEvaMZ9IoUIEx9kAdSr7qMfGOqbQYyo0kklC1K-_cx_aHA5AadcyqLFE0CeLBhuLiGN/w615-h807/%25282003+02%2529+IUDET+Artes+de+la+Calle.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFdOXha9KpFFnVfbCvUB7HMTiTgkgDveEoQZvDGgaXRH7sLj01yzAtencwwewMy3SpO8PyS3qvXd3LoOblB1SoK_e84ADLwjGZinUv62KmjNhVVOU4-d-uWhnOhG-TSeUQ__Q2yD0q_PVw/w642-h842/%25282003+06%2529+IUDET+Asistente+Imagen+Sonora.jpg" }]
-  },
-  {
-    year: "2003", cat: "cultural",
-    title: "Docente – Teatro Nacional Juvenil de Venezuela",
-    desc: "Profesor ad honorem de Expresión Corporal en el Taller de Profesionalización de Actores del TNJV. Prepara actores para «El Rincón de los Prodigios» y «Homenaje a Carlos Jiménez». Enero–agosto 2003.",
-   medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhwtxkWcSZSpLXjuxNRI5Pyv90PXoVPfoRQSnhgetagcr6erZ-zWQ8OHp_HdFn-Y0Z0BOW829_AYWzqDeVGJ_E9l-WeFMR3EimHZEm_ltDSueTTGvP1IYELUVaChiDGVmuNOfjCqRWHBaMx/w362-h743/%25282003+03%2529+TNJV+El+rincon+de+los+Prodigios+Profesor+de+expresion+corporal.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjIMQrq2fS3cnarGzF-T3k3eA8W7BVyc25SaMognyJWWlYL0mFpvxLG0U_4vIoEd4yz0n6iM0l93qeNLaJDPE5WGO8ouU8_sKXVAVkaCCm2PfaRnDCsIS4l36ey_Z1Lf_CN5nuzY-oud0TW/s640/%25282003+04%2529+TNJV+Vamos+a+andar+el+Camino+1.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhH-pQQnvgoDOr8wtRyRXMec-Tugz8KOJr5enmudXklNndnDbatMYybSCeL4AXX435BohChSyMdNaUlAigi4XP7FbRaMafAbwHydhX7C1CVsqh0NTbHA3cxkaf9yBNkUICQDfc1k4FValx5/s640/%25282003+04%2529+TNJV+Vamos+a+andar+el+Camino+2.jpg" }]
-  },
-  {
-    year: "2003", cat: "cultural",
-    title: "«¡VALE LA PENA!» - Camerata de Caracas",
-    desc: "Trabaje apoyando a la Fundación Camerata de Caracas, como «Maestro Interno», en el montaje de «Vale la pena!» 25 anos de suenos y realidades. Presentando en la sala José Félix Ribas del Teatro Teresa Carreño- Agosto 2003",
-   medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6OH8mrOkpJUku3zm85HFJ5NLDyuWxgFyBGb3CBH5RzdRN6IWgYQ57skxMv4uUEZSZC81x2nW0hz9sgT0cRujqNPkCGZmy96gjrf91AqsSELIFsyW15vo7Gv9LG8eInP21x3Ea3iO4MxXo/s640/%25282003+08%2529+Vale+la+Pena+Camerata+de+Caracas+1.jpg" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRxWY5xT8KUVO4DTUMJw4coI4TVrrMjdmwSnsOt5jQ53NVSNOkkfor5njwbPA_zn0Fijyaj8rLMfR1PTKaDsyP_e1CClfAplu84CKqJbRhXZFImrKZLJadIH9F6gs7pQJ915ifKtsgoboE/s1600/%25282003+08%2529+Vale+la+Pena+Camerata+de+Caracas+2.jpg" }]
-  },
-  {
-    year: "2003", cat: "cultural",
-    title: "Asistente de escena en «LOS HOMBROS DE AMERICA» - (dir. Héctor Manrique)- Temporada 2003",
-    desc: "Asistente de escena en «LOS HOMBROS DE AMERICA» de Fausto Verdial - (dir. Héctor Manrique).",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhhpsoaKz_hwT6jrXjsoOEUvj2EvoCLvd31jAhLp82aZ7DKLmpWGXGFFzQYicGXmswgoP4nZ8DQgNZAk6zQPzm52CSDCsTBsJXK-1H-77t2Uw-bFv2nyKUU2Y_ZsdFyJck6RR57Zy6Q_BSI/w546-h716/%25282003+09%2529+Los+Hombros+de+America+Grupo+Teatral+de+Caracas.jpg" }
-  },
-  {
-    year: "2003", cat: "comunitario",
-    title: "Ministro de la Comunión – Parroquia Santo Tomás Apóstol",
-    desc: "Apoya al párroco de la Parroquia Santo Tomás Apóstol, Caracas, como acólito y ministro extraordinario de la comunión. Activo hasta 2005.",
-    medias: [{ tipo: "foto", url:  "https://static.wixstatic.com/media/b8d5f7_0382afe8973d45e18eb7cb4034f4a34c.jpg/v1/fill/w_280,h_300,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8d5f7_0382afe8973d45e18eb7cb4034f4a34c.jpg" }, { tipo: "foto", url: "https://static.wixstatic.com/media/b8d5f7_e1c55d1f26864c03962f49db89ed3e9d.jpg/v1/fill/w_280,h_305,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/b8d5f7_e1c55d1f26864c03962f49db89ed3e9d.jpg"}]
-  },
-      {
-    year: "2003", cat: "talleres",
-    title: "EL GERENTE COACH - CICLO PARA EL MANEJO DEL CONFLICTO.",
-    desc: "Participación en el Taller de formacion de Gerentes Coach - bajo metodología de Stephen Covey.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTkLwxaS9vNL7uJ3xxMDcbdCQ-4RcimQuSYuzHPbVygpOaCTTrIvOFrRVld4FTzpLypaoq9Zdew0dd2k6UuDNE6y_uFIlOaqMpVyoo7DBzSPPcvkiAvCfsI0ckYlLbXed-KdoIqXR5rAIR/s1600/(2003+06)+El+Gerente+Coach.jpg" }
-  },
-    {
-    year: "2004", cat: "talleres",
-    title: "ESTRATEGIAS DE MERCADO Y SU IMPLEMENTACIÓN PARA PEQUEÑAS Y MEDIANAS EMPRESAS - PYMES.",
-    desc: "Participación en el Taller de actualización de estrategias de mercado para Pymes de las industrias intermedias de servicio.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3S3xiasA_RnSHz7fyGKJ8vefNt9HzGGI9AeG3EQjD4EvX13sGN14zhr63fpE9FaNTmWbJnr2H2-Dm4zcKvss5vRUqkdyltvnIFlVmAlx8gGpChIAy1aFXdDOjUAgBkf0JINTjcYOVwvuu/s1600/(2004+04)+Conindustria+Estrategias+de+mercados+para+PYMES.jpg" }
-  },
-    {
-    year: "2004", cat: "talleres",
-    title: "INTRODUCCIÓN A LA NORMA ISO 9001:2000.",
-    desc: "Inicio de la Formación en la norma de Calidad ISO 9001.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjnozUsFHUjiIMUExgBnIrLmOygXpcckkUvqu27EhdMw6RGCFVQXeRIMud7UpygSNYIAoNN4XuuJc3AuWIARGArNb9-scjvD-ZXo2rZGTNdHpw33M3FslAqzG99vIcWhGDoVgHlyuEYt4Pk/s1600/(2004+03)+QC2000+Introd+ISO+9001-2000.jpg" }
-  },
-   {
-    year: "2004", cat: "talleres",
-    title: "GESTIÓN POR PROCESOS BAJO LA NORMA ISO 9001:2000.",
-    desc: "Continuación de la formación en la norma de Calidad ISO 9001. Definición y aplicacion de gestión por procesos.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivtFMnXGgpJTQuxH5Fx0kBT2OIVXSNGKyA7m2cZrLIbdkFLi8RIk54OkLfLBTogh_z9AbR-TDGxyt7tEts9NEMBbaNRvj2G1MTK4bZvhMoWwVllVFYQLtmVXUUAeHURiJSscIMeQovL4sP/s1600/(2004+05)+QC2000+Gestion+por+procesos+ISO+9001-2000.jpg" }
-  },
-    {
-    year: "2004", cat: "talleres",
-    title: "AUDITOR INTERNO DE SISTEMAS DE GESTIÓN DE LA CALIDAD BAJO LA NORMA ISO 9001:2000.",
-    desc: "Formación para la aplicación de auditorias de seguimiento y de certificacion bajo la norma de Calidad ISO 9001.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOfjt-4pp1eWZQbOBFonTKBbTRRNuim9JlA2dDj9QYK5g9JqRKjCptoiI8fy1NyqsM4Okq21RStvXARQn5Ok6trwLjIvU4UdwvMcJocKnucrGuwdz2yL0xBp9HLDMNks2nOuZYuPVF8iLp/s1600/(2004+10)+QC2000+Auditor+Interno+ISO+9001-2000.jpg" }
-  },
-    {
-    year: "2004", cat: "talleres",
-    title: "TALLER ABC (ACTIVITY BASED COSTING) COSTOS POR ACTIVIDADES PARA LA PEQUEÑA Y MEDIANA EMPRESA..",
-    desc: "Taller practico para la aplicación del sistema de costeo ABC en PYMES.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiR8oWMCLx4cgdBcJ8U_CBPayYml6U5wwHoYI6nZ0m76QpcUlBflE8OwDc-a67GSEpcL3K7BLEKJGAs6rl4Qd6i1NFsmbiSiLlsrAPOu_Pg2gh5AkCGPTP-8Fu5cVPgmP-cWBTJSZtHN3xu/s1600/(2004+11)+Conindustria+Costos+por+ABC.jpg" }
-  },
-  {
-    year: "2005", cat: "talleres",
-    title: "TALLER PRÁCTICO PARA LA MEDICIÓN DE LA EFECTIVIDAD DEL ADIESTRAMIENTO DEL AUDITOR.",
-    desc: "Taller práctico de medicion de la efectividad de los auditores para la certificación de los mismos para la aplicacion de norma de Calidad ISO 9001.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjz7lEEJlEVEn_-AyKWnkeHR121cF8SFvYo4pCtoxAA3o_nQfPGbvxPdypGC2YCNJFrUH1eYpm2-xAR6_LqV10CX0456T0SdXpcvDREIRwc4adMcDbDYo9x0gT-HHN92yzkaGq3XxlgXaVU/s1600/(2005+01)+QC2000++Taller+Practico+de+Auditor.jpg" }
-  },
-  {
-    year: "2005", cat: "talleres",
-    title: "TALLER ACCIONES CORRECTIVAS Y PREVENTIVAS.",
-    desc: "Taller práctico para el desarrollo y aplicacion de Acciones Correctivas y preventivas bajo la norma de Calidad ISO 9001.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBG1optI1Ju1dxHfWvVrBlNvmYh5M5NtLf6sjU37DGpL_vL1v1mWA6J3lU9WaGx6Wr0Zk5k80PKwFP7zXoTp6E-lPjtEwya8kDG2JGC8aK44OIn7LcpLoNb-P_rHikrrWzp66PdA93Hc7p/s1600/(2005+02)+QC2000+Acciones+Correctivas+y+preventivas.jpg" }
-  },
-  {
-    year: "2005", cat: "teologico",
-    title: "Inicio Estudios Superiores de Teología – UCAB / ITER",
-    desc: "Inicia Teología Fundamental en la UCAB (ITER).<br> Cursa y aprueba: <br>•Cristología Bíblica,<br>•Antropología Teológica,<br>•Revelación y Credibilidad,<br>•Estudio del Antiguo Testamento,<br>•Estudio del Nuevo Testamento II,<br>•Teología Sacramental,<br>•Seminario I: Método y Metodología del que hacer Teológico,<br>•Moral II: Social y Familiar,<br>•Teología de la Gracia y Escatología,<br>•Cristología,<br>•Electiva I: El arte de elegir. Discernimiento Cristiano e Ignaciano.<br><br>Cursadas y no presentadas:<br>•Introducción a la Sagrada Escritura,<br>•Misterio de Dios,<br>•Estudio Nuevo Testamento I,<br>•Historia de la Iglesia I,<br>•Moral I: Fundamental,<br>•Electiva II: Cristología Dogmática.<br><br>Participa y funda el Café Teológico de Venezuela. Activo hasta 2012.",
-    medias: { tipo: "fotos", urls:[ "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgYObB171WJB60aHSCLpQrdFmxNaOx85bAbu_3h9EVXv_P6fsxw4i7P6dx5cyEuREb0PHsX0dvaDEbJ1M4yfmG07SyukMR7yK608amuNxGI9fmlydO9ol9bPamHar26qNXsMWapUopIvFvIe4BtW_kTNWwAImuagxejdOeVo4EGOogKrTSw6BCGnXwKhOTV/s1280/Logo%20ITER%203.png","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXVYxzcgusNKItd8U7UsRZRzazPEbl30Uk8g&s"] }
-  },
-  {
-    year: "2005", cat: "teologico",
-    title: "XI Jornada de Filosofía – UCAB/ITER",
-    desc: "Participa en jornadas sobre «Estetica y experiencia de lo religioso».",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRb8hfE0BNjHrvVwvlpnt_u8cnrV0c25tQxzGzfvPZI9zTSDoh9tKTP0VR525MHA7ay_IKKRTuq3OAXltjsXN9Ue2TL0RkqLOZIWbdSAQXa7Ej3G931w1-1ncgBpBVwhlHV5zIQ8WSEHpm/s1600/(2005+12)+ITER+UCAB+XI+jornada+de+reflexion.jpg" }
-  },
-  {
-    year: "2005", cat: "teologico",
-    title: "III Jornada de Reflexión Teológica – UCAB/ITER",
-    desc: "Participa en jornadas sobre «La eucaristía: dimensión simbólica y teológica del misterio».",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjRVzNediHNRP8XvfIpiVea2Ii6GiCl9VOErcFtjqW4GRO_n2GLx0MicSZU6CK24aFfw6mfWYNRTsfeD2Ra1E-OVjAzKms6_vo4taWrTvS2SceuikYi4s8L6DWK5_X-XUNtBz7OB3XMNeWb/s1600/(2005+12)+ITER+UCAB+III+jornada+de+Reflexion.jpg" }
-  },
-  {
-    year: "2006", cat: "comunitario",
-    title: "Brigada de Emergencia – CONTIFLEX",
-    desc: "Funda y lidera la Brigada de Emergencia de CONTIFLEX, formando a 15 personas en prevención de incendios y rescate pre-hospitalario. Jefe de la brigada hasta 2008.",
-     medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHTX88E5FJRbL800_d1ePEM24TwUkWIOnhr5bRi5viAyaKbGTh7TwXCvBCo1aRTNt4EktegLbVS_E6vZPIMF_GYpkdOzU9eflG0Q3SQAVGEB_B3E9bSp9f3X2iYqw6x7kWi9Ja3Ji-ei8XffNmt-29mDG8io8noEFtw95lcFvgwCFnxDIUbi0cVEEoBtjX/s604/Foto%20logo%20Brigada%20Conti.jpg"},{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/a/AVvXsEhtyrgP1R8WdipSQ7pXcbDERSpicNkGqs0hKLfvJT4GQLiDISf5v6m4hGlk3L9EAXyaxgCbWbDZw4rXLREwxp9G4x6MPp03DKJ8-RT-W3mx5brAGLpFpGMqErJjXSCtX8a0wv0FS21bdVzR-WFg6RPj7LL9nd-b676cF1kL3eb1u2s2_exfT3CijoAG0Ku7=w400-h300"},{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/a/AVvXsEj__ypyapxPxNRSImZHvUhSR0kr2j8LIr_QSBRdGPBf_Ow3tyGnZnzbo11Xk-DU1mI1izszY3l9l570ZOBxBtLLaqYpstjKhd1WzNjVNmM1qE_NHah2nd5F0wrJOcH4zSabN-ycNci-pz8XHuuxRyGynrBMOucQKQ9G5l37Dvc-2a6Kkwjj13Ocg3JotPC4=w400-h300"}, { tipo: "foto", url:"https://blogger.googleusercontent.com/img/a/AVvXsEgL6pnQrdtHFwOrAMwcItX8y75ZsBO_mILE8DrVYafMI1M-NuVcwAt_d3fnirh7QGzSOXSeJqYtAaDLt5NyvtM-2rDQouAFGi7u8byJs97_83RwPRzHE0FgnXre4S7cQN2ZwBwGX2WOMXB2NJ-UVaTa4VbEXXyOLGl5VSZtyjkE0iZYvuAEXhbzvFKLROZj"},{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/a/AVvXsEh0RRy4RbbaIr6asfUC0X_Clww7XPWOZh_Hbj5l4X4NWTZthwlyho8zDeE52HW2uliw-P59whAOzsPcIVImRgETlU9jzTpSmfVu0XvpxKCY0pyRFPbT777I_y9NcTON8hhgqLKuwJj_64KWcQDGrfsdl6e8IxNN7nco48NVOijDyCGxHRryDwORMp0PGVrr"},{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/a/AVvXsEjKVyR5FjqYKW_OeSZ-6IdHzd6bhi5TrLTUXkRX5t4JKpk7KSoR4diq6dpA3HXKP6yPaCC0XtAtfjoxX2AL9zyuku5sZGw-BTA1223ovngzfCs5YpVudtENELZVLbs_NOeoa4eYOd6d_-rTcztgEw_XbSmH93-TitFvqJ97Qcs30cFb6y5GvXE3nqVoyaaY"}] 
-  },
- {
-    year: "2006", cat: "talleres",
-    title: "TALLER FABRICACIÓN, PROPIEDADES Y APLICACIÓN DEL PAPEL.",
-    desc: "Taller de la forma de fabricación, propiedades y aplicacionde de papeles en base de caña.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4OsxV4mr2XLSjeAZlcfJM6nuQZ5b8FZ09kTyjBx2KFbTH-7hev76ZZaLf1XuOCDi58TDrHpFAlGy-0aiX-bSZqLu6e4aSxIlaEDoH1CSf5H0JWddQ3o6LSP5SwGzyxFKdIUTMP6s2AjmZ/s1600/(2006+03)+Propal+Fabricacion+y+prop+del+papel.jpg" }
-  }, 
-   {
-    year: "2006", cat: "talleres",
-    title: "Taller Componente Docente.",
-    desc: "Producto de la constante formación interna que existía en CONTIFLEX, C.A., donde llegamos a diseñar los talleres y cursos de formación técnica de todos los trabajadores, se tomó la decisión de formarnos como docentes para evaluar y mejorar los talleres y cursos estructurados.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgiR5dCy_U5wTYcgpuMoY4_MIBrekWsKRPCuBevfjLhc85aMtFUVtXSU_zO_TGxDDjhxbfoRgjMeP1K1ZhqEaB1x56zRF79S2FlUIvG_stfTNEE-_E6xXGlPsTm1THlN6tpRrXs-DLAvOV/s1600/(2006+05)+JA+asociados+Componente+Docente.jpg" }
-  }, 
-  
-  {
-    year: "2006", cat: "teologico",
-    title: "XII Jornada de Filosofía – UCAB/ITER",
-    desc: "Participa en jornadas sobre «Humanismo Integral», «Perspectivas ético-Políticas».",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZkwnvCrl_cPTQwcdKJGJt334nvnYCXsPeVOrCvLw-uOCtSjr4t1qwGqwFyKr2V8lfkNOeUDGlxMhj7X13wotfP5cvnaV_Go9gVceRpjGF1JHuQZNsGzCCnQK7TiRnemwc_yuKC_Q_gP_l/s1600/(2006+06)+ITER+UCAB+XII+Jornada+de+Reflexion.jpg" }
-  },
-  {
-    year: "2006", cat: "teologico",
-    title: "V Jornada de Reflexión – UCAB/ITER",
-    desc: "Participa en jornadas sobre «Diálogo Interreligioso y Paz».",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg83Ip8bdk9bBT2X1s9LMCqLb-nOoi8_zdUBKp8lsRPAblSRYd3kMQgXTvOsm-PURvGtwUrZP0235hZoUGahI9M6Op6iI9UsEt-ul4zxeSvlVvbpSkQ2FVWF-MzWxbfQIgel7eu2YdwuF2x/s1600/(2006+11)+ITER+UCAB+V+Jornada+de+teologia.jpg" }
-  },
-  
-  
-  {
-    year: "2007", cat: "teologico",
-    title: "Escuela de Teología para Laicos – Valencia, Venezuela",
-    desc: "Cursa la Escuela de Teología para Laicos «Mons. Luis Eduardo Henríquez» en la Parroquia Asunción y Santa Rita, El Trigal, Valencia.",
-    media: { tipo: "" }
-  },
-  
-    {
-    year: "2007", cat: "teologico",
-    title: "Jornada de Reflexión – UCAB/ITER",
-    desc: "Participa en jornadas sobre «Democracia social y Propiedad Privada».",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYQsZqfwHQFBC3GLIcE17wjqOzDLsPJBM-dSpIuy9hdpdwIFl_wqRlCoAs3eaLLjljzmaWnEiRs0bJYz0PfY8cDr03t3d8g0B6E_LhVQxsBHDYKdln_dwrS264X31lZ10EfJSFZ1ngomKm/s1600/(2007+06)+Jornada+de+reflexion.jpg" }
-  },
-    {
-    year: "2007", cat: "talleres",
-    title: "TALLER GENTE AL SERVICIO DEL CLIENTE.",
-    desc: "Taller de actualización del enfoque de los procesos y personas en cara al cliente.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaDGAtNDZGDtCCyXTkwXk1SofAqG0veg7TujQyLzzJr8utxYHt4B33BECIDA5afhlL6fITiy-jZ4cFTKdVCZEfk0YehEHFheIU8AT5E5TOdiBbkeVKlPYpz1xvBOZOYQ-HKdWGg1gwIrC7/s1600/(2007+03)+Gente+al+Servicio+del+Cliente+2.jpg" }
-  }, 
-  
-  {
-    year: "2008", cat: "operaciones",
-    title: "Gerente de Planta – CONTIFLEX (hasta 2013)",
-    desc: "Aumenta la producción en 70% en 3 meses y reduce las devoluciones del 40% al 0%. Lidera la implementación del SGC ISO 9001:2008. Coordina proyectos con Colgate-Palmolive y SC Johnson.",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEid60dV5yLTbPZOGjvVy_6vyBjIZ86fjgHv-izXSZU5hx4pY88MIWm41Ttu2UaMIa3wsLfmjyM27eYIKRwtmWrrtqMm_xFBuyQ8_waWkIpjhbF_1j9oMHtgNm5eKdZx10DoxGTYLAdwssqZR4nIvmOsUaT_ow_tL5gj5QRxh0o1GblY1hlfw2_rePzUqY__" }
-  },
-  {
-    year: "2008", cat: "talleres",
-    title: "EL GERENTE COMO COACH.",
-    desc: "Taller de actualización del enfoque del gerente como coach.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHRqsZ53x3CKdbwzMyjZzhpla-RM9wfmGwc27MmqjfD3ftY59dvl51raaWK1Q8h4DSDVwzixXJ1RyK_JFepkyFrZBZkBSV_gsWy_Tj8URhyEPr2m3tBHlnBEIwHM-98GGu8BxS3kG7d4r2/s1600/(2008+04)+El+gernte+Coach.jpg" }
-  }, 
-  {
-    year: "2009", cat: "talleres",
-    title: "TALLER DE TEORÍA DEL COLOR.",
-    desc: "Taller de colometria.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjHt61W0bqp4A2S5nSIY0vS8-4jivC9gV4TLnz5EEeeh6Xqcu-VYVE07ry4kdZ4w8Ni_dtSAvfKud34c7BQ4myHwh8_C8wohwlz9HyPlGv8l12xqcCI98np7Lnyh-v2m3B5qhjxnVaFEuvE/s1600/(2009+03)+X-rite+Teoria+del+Color.jpg" }
-  }, 
-  {
-    year: "2010", cat: "talleres",
-    title: "TALLER MANEJO EFICAZ DEL TIEMPO.",
-    desc: "Capacitación para manejar lo importante y evitar lo urgente, y optimizacion de tiempo en actividades d agregen valor.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRzAecrENwEAC0JItY1F_exu8fSqiBq4rTUTIntrZJ0JxymLPtWfpyhPo8Hxi3teNuqXCKDBAHuRG2I6MyozAvVFtmXBlm0F1hUDOylMkgXdMNxk0rfbGWewug_2mGNsEf6lAyvNJ1sA7R/s320/(2010+02)+Manejo+Eficaz+del+Tiempo.jpg" }
-  }, 
-  
-  
-  {
-    year: "2010", cat: "comunitario",
-    title: "Retiro de Emaús",
-    desc: "Experiencia de contemplación profunda que lo conecta con Dios y confirma su vocación de servicio desde el Matrimonio.",
-     media: { tipo: "foto", url:  "https://yt3.googleusercontent.com/DxQNEsVf_pEBR_8FpN8s2m3Y5aAPAN1HK4imm_1oLDeAGS2KwEarvbIfD_ksDZ6q1ZGVob-ODQ=s900-c-k-c0x00ffffff-no-rj" }
-  },
-  
-   {
-    year: "2011", cat: "talleres",
-    title: "INTRODUCCIÓN A LA NORMA ISO 9001:2008.",
-    desc: "Capacitación de actualizacion de los puntos de la norma ISO 9001.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggsGK7cvN4feQ5MynjlrGOrLb5wwm2OwvF-q7AbqWFayblJcpOhT2pqHA1p85gfOzhibnKdvoyiEIVSPwZkM5ucMGq-92MS3X9d5XzOv1CT0KfnkTPjlllRwKjfFDSGG3sgHUnFezGw5xm/s320/(2011+12+07)+QC2000+INTRODUCCION+A+LA+NORMA+ISO+9001-2008.jpeg" }
-  }, 
-  
-  {
-    year: "2011", cat: "comunitario",
-    title: "Sacramento del Matrimonio",
-    desc: "Recibe el Sacramento del Matrimonio el 15 de octubre en la Parroquia Santa María Madre de Dios de Manzanares, Caracas. Patrona elegida: Virgen del Carmen.",
-    medias: [{ tipo: "foto", url:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg1DJgxn7AYAkA1jY34IVUbq7NiQ6QZD2oavm-sP_YuPANh-RmoUpXtZrWGs3FzJj20pyxvZqm3hBL5YcTp-fWWjXQbg1g7YnEc6-4IxbX01Ke-FlkV4xGMpjW1gutaQ50ECN-Tdnkr6x_zLvvADdLi9ORNd66wZGObqRltxDryz1qs4a_F-9YlbDC5nOgC/s2048/Foto%20Boda.jpg" },{ tipo: "youtube", id: "ne6gzJ-G0IE" }]
-  },
-  {
-    year: "2011", cat: "comunitario",
-    title: "Lector de la Palabra – Ntra. Sra. de los Dolores",
-    desc: "Participa como Lector de la Palabra en la Parroquia Nuestra Señora de los Dolores, Naguanagua-Valencia, Venezuela. Hasta 2012.",
-    medias: [{ tipo: "foto", url: "https://pbs.twimg.com/media/ExUjGN9WYAIFqOH.png" }, { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgvc-HvoGp6yVGGMyj7fgbUIHW0FS1e5q5hORS4RSC0gLJ0Otq5tQQmE6xSb2RjGoE-dOVngNfrDBPMCAN-5du7b1l6oKcEYcSDQ8kJ6pXpiGs2bOoYj2F-UNKrlMvF_pB9shYVSmELrIcuikyfObK8wCvI-Sy7UBwnjkUNcA3XBJAKfz4Ve87QT3OYFQUx"}]
-  },
-  {
-    year: "2014", cat: "operaciones",
-    title: "Ingeniero de Desarrollo Logístico – SODIMAC",
-    desc: "Diseña la arquitectura del sistema de reposición para 74 tiendas. Desarrolla el aplicativo de control de despachos. Gestiona 3.500 m³ diarios. Hasta agosto de 2015.",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEg8fERkx0IpkC9fvTW-eA4vFYkTmqmrOUNgT4_3jHrl1w40HqqGd-dcMnOKOOh4vJrdhM25xmS8iUEbmpX-TJ3KaY9axVN6PIQXH0gGj1ZrPi4JQFGBzXeqacBlM5cWQBuGJGDFWAkkHXewbohb5TA52dJuZ-OGR1EnPg-yAf1aJ4xBSo9L-n1asokTJH32" }
-  },
-  {
-    year: "2015", cat: "operaciones",
-    title: "Jefe de Planificación Operacional – SODIMAC (hasta 2019)",
-    desc: "Reduce el tiempo de respuesta de los CD a tiendas en 1,5 días. Aumenta despachos en 25% con talleres LEAN. Gestiona 6 CD con más de 8.000 m³ diarios.",
-    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEj9uHF4Lm2Zw8-5FtJFPyInW0-T_jUVE1dhmBY8kxcOR2iv01qN72zrKxLufrxVXcl2cn-RIlTkQaH_2RAHeDUI7WjS0dYBwabcx5ObwekjxFVkFis2YxsYqEx4B-5J3cHr5O90eII9Da52IDKoAfzC2gH4mzJarctGWrEHNI6lAxQund6JKeNTMhTNr9Q3" }
-  },
-  {
-    year: "2019", cat: "operaciones",
-    title: "Head of Warehouse – Grin Scooters (may–nov 2019)",
-    desc: "Diseña el layout de la bodega e implementa metodología LEAN. Logra crecimiento del 90% de la operación en un mes y disponibilidad de scooters superior al 98%.",
-    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgg0uTTxkHh0ONbQ5l2HLucXbTsFlrxbORXRO74AGAAaj0eiyh9fZWCguL0cBMZTUKuvcjXoiH93dN8cXiuNfeEkpk9F1Ce8fzYH2CcTKeQCv-dP5ShnzRGOLj38YqhMEvtO-u3ibEFayrXg-FQVju3JcCCAsyiu7yAKH4YzqgjtD6vnG3cQFEbqZ2MCDEF" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjDXOBlGc8awm5ByP1fckuGyZwJrmPzkAoeAyCn_i0Yj3Fd8jGvqNJ0cnB4Hskd59tosYpt71EmeUolEkc5ExT4PT5KM0HuCvoWfw61_ZqQYQzUZ6Or063MapJE94aNQ0rEDQQ2snXL6gTavk0Xate4HckRVs_qbolN2UNQAuHrOSeQ_BNI_-GWm7UiHarn" }]
-  },
-  {
-    year: "2019", cat: "operaciones",
-    title: "Gerente de Operaciones y Comex – Vida Orgánica SPA (hasta 2023)",
-    desc: "Diseña desde cero los procesos logísticos y de e-commerce para la marca Manare. Reduce diferencia de inventario del 16% al 0,04% y logra crecimiento del 88% en ventas en el primer año.",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjZB0CMz6pBnB5zWXpvFoQ3K8JNgdn_wgOlq9mcqkmuVG2jPZC11IQ-jLPLA6T_NYTSI7RAT3kF6Z4HiuUNgXEQPbszEWCFuARCOgSZGrrt4hZWP1Suf1CpLZwgguZ47JZ_yVWHx_TwMufpXUgk5o1brpwe7TvFNoMv8iPGPR85-JtD3TzqXqe8qAlt-5f9"}
-  },
-  
-    {
-    year: "2023", cat: "estudios",
-    title: "Diplomado Profesional de Inversión en Acciones - The Investor U",
-    desc: "Realización del diplomado de analisis de activos y acciones en The Investor U. Se Culmina en 2026.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj809Jd-Fqb3eOrdQdUuQCqDfn14ebf4-8xvnohWdtlstFluE0gp7r9J-M3BL2XKn5aGoSQ8BxBiifErH-aNuXrgQQ7HpeVcg_jjsXGIb5BZC0tWNwk71TDABiYSl9myfZNZnwswionEGHATLZAGEQ9KeBhOmG2qKpa93EzEydM2FgZiuijz9xBHEE14xxe/w640-h465/cbei.png" }
-  },
-  
-  {
-    year: "2023", cat: "operaciones",
-    title: "Jefe de Operaciones – Dunati Chile SPA (hasta mar. 2025)",
-    desc: "Lidera la transformación digital y mejora operacional de bodega, planificación y producción. Implementa KPIs de rentabilidad y seguimiento de metas.",
-    media: { tipo: "youtube", id: "DnfKgfY6iLo" }
-  },
-  {
-    year: "2024", cat: "estudios",
-    title: "Diplomado Gestión de Proyectos Ágiles y Lean – U. de Playa Ancha",
-    desc: "Obtiene el Diplomado en Gestión de Proyectos con Metodologías Ágiles y Enfoque Lean. Refuerza competencias en Scrum, Lean Management y planificación estratégica.",
-    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nJxzd5dSoyTakkguJ6IjzUVkiHbz76zosGaFZEGI09V63MM1gfLQQf_qLy_4XV-PGWyCU74noK0mhG309qMyUcEhpwaoXM8spcqvmDsM9e3nv9PsvgK99wAs3LjH129l81kYnmlNnEXPUU1ewg6ej6FlxML3MgugRxCG6U5ltrP8sQiSir6o4gyjr4jL/s16000/Captura%20de%20pantalla_14-1-2026_232823_.jpeg" }
-  },
-  {
-    year: "2024", cat: "comunitario",
-    title: "Catequista Pre-matrimonial y Pastoral del Consuelo",
-    desc: "Ingresa como catequista de Taller Pre-matrimonial en la Parroquia San Carlos Borromeo, La Reina, Santiago de Chile. Se incorpora también a la Pastoral del Consuelo.",
-    medias: [{ tipo: "foto", url:  "https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no" },{ tipo: "foto", url: "https://static.wixstatic.com/media/3d1009_4770c94ea6524941a8eae782abbded81~mv2.jpg/v1/fill/w_320,h_240,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg" }]
-  },
-  
-  {
-    year: "2026", cat: "comunitario",
-    title: "Coordinador – Pastoral del Consuelo",
-    desc: "Es elegido Coordinador ante el Consejo Parroquial de la Pastoral del Consuelo en la Parroquia San Carlos Borromeo, La Reina, Santiago de Chile.",
-    medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiffgydJaQ5U_utwwq39pTIMr2CYupKIkoTdaZe7Yxhw98cYyJInFmm_8knP_7XThybv2zmwPm-v3gOIuvYPvXef9CzBuiYupUJqbHbJM44pS0AKKrn7DfXaWqPTyRPQTXVqR6krkExLj4Szxv3uUoh6QIAcIWDTELieGf0YTZcmW9OSKcLR46VS0SLtKYO/s320/Logo%20pastoral%20del%20consuelo.png" },{ tipo: "foto", url:  "https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no" }]
-  },
-  
-      {
-    year: "2026", cat: "talleres",
-    title: "Scrum: Gestión de Proyectos Complejos - Lenkedin Learning - PMI",
-    desc: "Obtiene el certificado del curso Scrum, para reforzar el conocimiento.",
-     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgjDjC7q5DVmA4J5BdaAmjQ5lWb7fHmVg3N_kIYn80-og6l-C-WHJ49_oCx5ccuonkvSvr9L-xq5r_rv6-7h2rxCxg3btSsCLGm0X1LWZwrpNF_-BBrMNg8YVR-fL4Ik0hivb6i6V865ukw2GvRiN-wwWAuAta0yWBCCfm0snO60a_dWhjU7LzXXR6tVaL6" }
-  },
-];
-
-/* ── COLORES Y ETIQUETAS ── */
 var CAT = {
   cultural:    { color: "#6C63C9", label: "Cultural" },
   comunitario: { color: "#0A7C5C", label: "Comunitario / Pastoral" },
@@ -743,9 +208,8 @@ var CAT = {
   talleres:    { color: "#83a19d", label: "Talleres / Formación" }
 };
 
-/* ── LIGHTBOX ── */
 function openLightbox(url) {
-  var lb  = document.getElementById("lightbox");
+  var lb = document.getElementById("lightbox");
   var img = document.getElementById("lb-img");
   img.src = url;
   lb.classList.add("active");
@@ -760,9 +224,6 @@ document.addEventListener("keydown", function(e) {
   if (e.key === "Escape") closeLightbox();
 });
 
-/* ── GENERAR BLOQUE DE MEDIA ── */
-
- /* ── GENERAR BLOQUE DE MEDIA ── */
 function buildMedia(ev) {
   var items = [];
   if (ev.medias) {
@@ -774,134 +235,80 @@ function buildMedia(ev) {
 
   var html = '';
   items.forEach(function(m) {
-    if (!m || !m.tipo) {
-      html += '<div class="tl-photo-placeholder">'
-        + '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">'
-        + '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>'
-        + '<path d="M21 15l-5-5L5 21"/></svg>'
-        + ' Agregar foto o video</div>';
-    }
-    else if (m.tipo === "foto") {
+    if (!m || !m.tipo) return;
+    if (m.tipo === "foto") {
       var u = m.url.replace(/'/g, "\'");
-      html += '<div class="tl-media-wrap" onclick="event.stopPropagation();openLightbox('' + u + '')" title="Clic para ampliar">'
-        + '<img class="tl-photo" src="' + m.url + '" alt="Imagen del hito" loading="lazy">'
-        + '</div>';
-    }
-    else if (m.tipo === "fotos") {
-      var cols = m.urls.length === 1 ? 1 : 2;
-      html += '<div style="display:grid;grid-template-columns:repeat(' + cols + ',1fr);gap:6px;margin-top:12px;">';
-      m.urls.forEach(function(url) {
-        var u2 = url.replace(/'/g, "\'");
-        html += '<div style="border-radius:7px;overflow:hidden;background:#F4F4F2;cursor:zoom-in;" onclick="event.stopPropagation();openLightbox('' + u2 + '')" title="Clic para ampliar">'
-          + '<img src="' + url + '" loading="lazy" style="width:100%;height:auto;max-height:200px;object-fit:contain;display:block;">'
-          + '</div>';
-      });
-      html += '</div>';
-    }
-    else if (m.tipo === "youtube") {
-      html += '<div class="tl-video-wrap">'
-        + '<iframe data-yt="' + m.id + '" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>'
-        + '</div>';
-    }
-    else if (m.tipo === "vimeo") {
-      html += '<div class="tl-video-wrap">'
-        + '<iframe data-vimeo="' + m.id + '" src="" allowfullscreen allow="autoplay"></iframe>'
-        + '</div>';
-    }
-    else if (m.tipo === "video") {
-      html += '<video class="tl-video-file" controls preload="metadata">'
-        + '<source src="' + m.url + '">Tu navegador no soporta video.</video>';
+      html += '<div class="tl-media-wrap" onclick="event.stopPropagation();openLightbox('' + u + '')" title="Clic para ampliar"><img class="tl-photo" src="' + m.url + '" alt="Imagen" loading="lazy"></div>';
+    } else if (m.tipo === "youtube") {
+      html += '<div class="tl-video-wrap"><iframe data-yt="' + m.id + '" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>';
+    } else if (m.tipo === "vimeo") {
+      html += '<div class="tl-video-wrap"><iframe data-vimeo="' + m.id + '" src="" allowfullscreen allow="autoplay"></iframe></div>';
     }
   });
   return html;
-} 
-  
-  
-/* ── CONSTRUIR LÍNEA ── */
-var tl = document.getElementById("timeline");
+}
 
-events.forEach(function(ev, i) {
-  var c    = CAT[ev.cat];
-  var item = document.createElement("div");
-  item.className  = "tl-item";
-  item.dataset.cat = ev.cat;
-  item.style.cssText = "--accent:" + c.color + "; animation-delay:" + (i * 0.04) + "s";
-
-  var cardHTML =
-    '<div class="tl-card" onclick="toggleCard(this)">'
-    + '<div class="tl-cat-label">' + c.label + '</div>'
-    + '<span class="tl-toggle">&#9660;</span>'
-    + '<div class="tl-title">' + ev.title + '</div>'
-    + '<div class="tl-body">'
-    + '<p class="tl-desc">' + ev.desc + '</p>'
-    + buildMedia(ev)
-    + '</div>'
-    + '</div>';
-
-  var midHTML =
-    '<div class="tl-mid">'
-    + '<div class="tl-dot" style="background:' + c.color + '; box-shadow:0 0 0 2px ' + c.color + '"></div>'
-    + '<div class="tl-year">' + ev.year + '</div>'
-    + '</div>';
-
-  if (i % 2 === 0) {
-    item.innerHTML = '<div class="tl-col left">' + cardHTML + '</div>' + midHTML + '<div class="tl-col right empty"></div>';
-  } else {
-    item.innerHTML = '<div class="tl-col left empty"></div>' + midHTML + '<div class="tl-col right">' + cardHTML + '</div>';
-  }
-
-  tl.appendChild(item);
-});
-
-/* ── TOGGLE TARJETA + AUTOPLAY VIDEO ── */
 function toggleCard(card) {
   var wasOpen = card.classList.contains("open");
   card.classList.toggle("open");
-
-  /* Si se acaba de ABRIR, activar autoplay en YouTube / Vimeo */
   if (!wasOpen) {
-    /* YouTube */
     card.querySelectorAll("iframe[data-yt]").forEach(function(iframe) {
-      if (!iframe.src || iframe.src === window.location.href) {
-        iframe.src = "https://www.youtube.com/embed/"
-          + iframe.dataset.yt
-          + "?autoplay=1&rel=0&modestbranding=1";
+      if (!iframe.src) {
+        iframe.src = "https://www.youtube.com/embed/" + iframe.dataset.yt + "?autoplay=1&rel=0&modestbranding=1";
       }
     });
-    /* Vimeo */
     card.querySelectorAll("iframe[data-vimeo]").forEach(function(iframe) {
-      if (!iframe.src || iframe.src === window.location.href) {
-        iframe.src = "https://player.vimeo.com/video/"
-          + iframe.dataset.vimeo
-          + "?autoplay=1&byline=0&portrait=0";
+      if (!iframe.src) {
+        iframe.src = "https://player.vimeo.com/video/" + iframe.dataset.vimeo + "?autoplay=1";
       }
     });
   } else {
-    /* Al CERRAR, pausar YouTube / Vimeo limpiando el src */
     card.querySelectorAll("iframe[data-yt], iframe[data-vimeo]").forEach(function(iframe) {
       iframe.src = "";
     });
   }
 }
 
-/* ── FILTROS ── */
-document.querySelectorAll(".fb").forEach(function(btn) {
-  btn.addEventListener("click", function() {
-    document.querySelectorAll(".fb").forEach(function(b) { b.classList.remove("active"); });
-    btn.classList.add("active");
-    var cat   = btn.dataset.cat;
-    var delay = 0;
-    document.querySelectorAll(".tl-item").forEach(function(item) {
-      var show = (cat === "todo" || item.dataset.cat === cat);
-      item.classList.toggle("hidden", !show);
-      if (show) {
-        item.style.animationDelay = (delay++ * 0.04) + "s";
-        item.style.opacity = "0";
-        void item.offsetWidth;
-        item.style.animation = "none";
-        void item.offsetWidth;
-        item.style.animation = "fadeUp .4s ease forwards";
-      }
+// CONSTRUIR TIMELINE
+document.addEventListener('DOMContentLoaded', function() {
+  var tl = document.getElementById("timeline");
+  events.forEach(function(ev, i) {
+    var c = CAT[ev.cat];
+    var item = document.createElement("div");
+    item.className = "tl-item";
+    item.dataset.cat = ev.cat;
+    item.style.cssText = "--accent:" + c.color + "; animation-delay:" + (i * 0.04) + "s";
+
+    var cardHTML = '<div class="tl-card" onclick="toggleCard(this)"><div class="tl-cat-label">' + c.label + '</div><span class="tl-toggle">&#9660;</span><div class="tl-title">' + ev.title + '</div><div class="tl-body"><p class="tl-desc">' + ev.desc + '</p>' + buildMedia(ev) + '</div></div>';
+    var midHTML = '<div class="tl-mid"><div class="tl-dot" style="background:' + c.color + '; box-shadow:0 0 0 2px ' + c.color + '"></div><div class="tl-year">' + ev.year + '</div></div>';
+
+    if (i % 2 === 0) {
+      item.innerHTML = '<div class="tl-col left">' + cardHTML + '</div>' + midHTML + '<div class="tl-col right empty"></div>';
+    } else {
+      item.innerHTML = '<div class="tl-col left empty"></div>' + midHTML + '<div class="tl-col right">' + cardHTML + '</div>';
+    }
+    tl.appendChild(item);
+  });
+
+  // FILTROS
+  document.querySelectorAll(".fb").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      document.querySelectorAll(".fb").forEach(function(b) { b.classList.remove("active"); });
+      btn.classList.add("active");
+      var cat = btn.dataset.cat;
+      var delay = 0;
+      document.querySelectorAll(".tl-item").forEach(function(item) {
+        var show = (cat === "todo" || item.dataset.cat === cat);
+        item.classList.toggle("hidden", !show);
+        if (show) {
+          item.style.animationDelay = (delay++ * 0.04) + "s";
+          item.style.opacity = "0";
+          void item.offsetWidth;
+          item.style.animation = "none";
+          void item.offsetWidth;
+          item.style.animation = "fadeUp .4s ease forwards";
+        }
+      });
     });
   });
 });
