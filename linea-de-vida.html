@@ -8,17 +8,17 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: Georgia, 'Times New Roman', serif; background: #ffffff; color: #1a1a18; }
 
-  .lv-header { padding: 36px 32px 24px; border-bottom: 1px solid #EFEFEB; background: #fff; position: relative; }
-  .lv-header h1 { font-size: 32px; font-weight: 600; letter-spacing: -.3px; font-family: Georgia, serif; color: #1a1a18; }
+  .lv-header { padding: 20px 32px 24px; border-bottom: 1px solid #EFEFEB; background: #fff; }
+  .lv-header h1 { font-size: 32px; font-weight: 600; letter-spacing: -.3px; font-family: Georgia, serif; color: #1a1a18; margin-top: 8px; }
   .lv-header p  { font-size: 18px; color: #7A7970; margin-top: 6px; font-family: Arial, sans-serif; }
   
   .back-btn {
-    display: inline-block; margin-bottom: 12px;
+    display: inline-flex; align-items: center; gap: 6px;
     background: #2c5e5e; color: white; padding: 8px 14px;
     border-radius: 6px; text-decoration: none; font-family: Arial, sans-serif;
-    font-size: 13px; transition: all 0.2s;
+    font-size: 13px; transition: all 0.2s; margin-bottom: 8px;
   }
-  .back-btn:hover { background: #1e5a8a; }
+  .back-btn:hover { background: #1e5a8a; transform: translateX(-2px); }
 
   .filter-row {
     display: flex; flex-wrap: wrap; gap: 8px;
@@ -153,8 +153,7 @@
     .tl-mid    { position: absolute; left: 0; top: 10px; width: 40px; }
     .tl-card   { max-width: 100%; border-left: 3px solid var(--accent,#ccc) !important; border-right: none !important; }
     .filter-row, .legend { padding: 12px 16px; }
-    .lv-header { padding: 24px 16px 16px; }
-    .lv-header p { font-size: 16px; }
+    .lv-header { padding: 16px 16px 16px; }
   }
 </style>
 </head>
@@ -168,7 +167,7 @@
 <div class="lv-header">
   <a href="/" class="back-btn">← Volver al inicio</a>
   <h1>Línea de Vida</h1>
-  <p>Historia personal, profesional, cultural y vocacional · Haz clic en cada hito para expandirlo</p>
+  <p>Historia personal, profesional, cultural y vocacional &nbsp;·&nbsp; Haz clic en cada hito para expandirlo</p>
 </div>
 
 <div class="filter-row">
@@ -196,8 +195,110 @@
 </div>
 
 <script>
-// TODOS LOS EVENTOS (copiados del usuario, sin modificar)
-var events = [{"year":"1975","cat":"comunitario","title":"Bautizo en Vitacura, Santiago","desc":"Eduardo es bautizado el 27 de diciembre en la Parroquia Inmaculada Concepción, Vitacura, Santiago de Chile. Un inicio marcado por la fe que acompañará toda su vida.","media":{"tipo":"foto","url":"https://www.inmaculadaconcepcion.cl/imagenes/historia-parroquia.jpg"}},{"year":"1985","cat":"comunitario","title":"Inicio en los Scouts de Venezuela","desc":"Ingresa a la Asociación Scouts de Venezuela. Activo hasta 2008 (12 años). Llega a ser Dirigente de Rama Tropa nivel II y Sub Jefe de Grupo Aconcagua. Lema permanente: <em>"Dejar mejor de como lo encontré"</em>.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTGk0arTJ_ALfMTpqVmP771ZFJhb0qPOoCU3GQXwh6GVHRNm_CUuUxA4npZXhUotpS3JSprIbO_9-ETnxd-LfX6c8SuYnet9zmgmu-C0JzZAf79HH6mxgne3wfdnWR-QmXinrBWzY723ND/s1600/(1999+03)+Scout+Nivel+II+tropa.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgCZYemmu0T3heiER_6yBPpruyHiyv56Pht512zBvfT55KkrHkvVUsE3Jt4iigd11jkPuMIvxiE0FBBj85m6LNkmMTI5177Lj8duoyInXwNEQxSmWvX12H8OmpOFzI730nZZ_KgXr5gZwmzwid7RxVKS5SgeR1yMRHCwzUYbf4cArH-QtzmZJcRYjdDJhbL"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgBhBLrQ-FwyI0eccGAQTpshQcZLUOBHYOpoFwYNwrMHaD6prBhnIDqIhUq60-q9dxYsP4bPerBWIbs33k5kOlCHLTPPg83ep5st6FjfFnsu1Y5Teh-gtAI0PP41KPY_Hcy78MvPVMXsbF2SD81zPSL7SE7yG_bM-VN-GAdI-D3LJzJfpebHHPc8DNRNzW1"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjT_k5t17nQViimcXBsxbMf-izgJpBbA9wpxhKDdKx57XlJd0wuvDXn1Ardl3CQ3p6bQr-oxkkA3gStHOjKIWUyZupga-Mrwx5MQTHZ-Olh5xId-Nrs7nxagvtJ-R7V_VXLEFUPAwAwDVgoUzquR-SNbrbEOt_DdCZNBDTaMpGkd6YrJUAlFxfmUO6Icxj2"}]},{"year":"1986","cat":"comunitario","title":"Primera Comunión – Parroquia La Anunciación del Señor","desc":"Recibe el sacramento el 31 de mayo en Caracas, Venezuela, uniéndose por iniciativa propia a la catequesis parroquial. Un paso de fe consciente y personal.","medias":[{"tipo":"foto","url":"https://arquidiocesiscaracas.com/wp-content/uploads/elementor/thumbs/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCRVV9Azs1D3g5dKBeGQsGqLZtDA9G1EU2X7AoCPLdLfc95Z6vELgq4a36nzS47fx1NSPKGcx4YvxuBZ5RZo992G659Hn8wfbqw9M657FQn6TwC-ra80x7ch6xp3ly1q54trr1sy7jub0j13lns83fktm8.png"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgAXt9Fhu4k4LEDEIIvVzZkJ0PCtglBr7z_tISr2dIeCPv1GO7Yz04xDH2dH2DgSpCHlUyH-pzqz3ySOvTXRNNJXMWEyRKfyV5lQ9BBhVeSrHA4WKBJO69NnHJpum_Yki0O0oUmhcjgh50Et4T9yUB7uyjFCrQtnNZyoxRk5m25idqZA2m3wy_xoXyp1gT_"}]},{"year":"1988","cat":"comunitario","title":"Visita a la Gruta de la Virgen de Betania","desc":"Durante sus años en el Colegio Los Arcos (Opus Dei), visita la Gruta de la Virgen de Betania. Un momento de paz profunda que abre un proceso de discernimiento vocacional.","media":{"tipo":"foto","url":"https://i.imgur.com/pjAIrTd.png"}},{"year":"1992","cat":"estudios","title":"X OLIMPIADA VENEZOLANA DE QUÍMICA","desc":"Finalista de la X olimpiada Venezolana de Química, organizada por el Centro Nacional para el Mejoramiento de la Enseñanza de la Ciencia (CENAMEC), que se realiza entre todos los colegios de Venezuela.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOVY8Zmk8z9UzZ26WTACMmYuhY4-C3hJaBj76U6Wa8-Q2Qc1saxpPR_b6NvMjGBuf8ufGUfxLQIEJKSMGvyoO8PP-Zw6dbW7rND9L7-CyFEPuhNUjK0FA65Oq2VhcFEpeajrz2colRtuyd/s640/(1992+06)+Cenamec.jpg"}},{"year":"1993","cat":"estudios","title":"Ingreso a la UCV – Ingeniería Mecánica","desc":"Comienza estudios de Ingeniería en la Universidad Central de Venezuela.<br><br>Participa en el Centro de Estudiantes.<br>Estudiante de Ingeniería Mecánica de la UCV. (Caracas-Venezuela), período 1993-1997.<br><br>Materias vistas y aprobadas:<br>• Introducción a la Ingeniería<br>• Inglés I<br>• Lenguaje y Comunicación<br>• Cálculo I<br>• Geometría Descriptiva I<br>• Cálculo II<br>• Física I<br>• Diseño I<br>• Química I<br>• Laboratorio de Física I<br>• Laboratorio de Física Instrumental<br>• Álgebra Lineal","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEiUc4ToU95ViaYkbI7epX4fpeMcRKc_eKzYGynFj3XAGc2NaojaXps8gqHDbXbH6GTbus1hG5WZ2dWOHIn3m1BQUHqaBLBl-xDpw53XWrDyRn9HmB3n2Aff5_JvQmpnQrWHXHnOGCrjsUFuX22etimp8Gk59C4gUbQJPkY9Dr2n9Z7nSLqm-DpjnvLJy2JP=w400-h225"}},{"year":"1993","cat":"cultural","title":"Primer taller de teatro – Casa de la Cultura Baruta","desc":"Primer taller formal de teatro (Alcaldía de Baruta) con instructores de Teatro ALTOS F. Culmina con un montaje en el Teatro Oswaldo Pérez Perazzo en agosto de 1993.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOdi_amYN8Ps8GEHDQyYnrYWJLH1mQHwatC5tMq0E9edCWhoAg2Tzfo7EI9Xo5B7rIqbJYj1JMsog0Tsd5o98XvqddOeM8bbZgTkBJPwxiesam39qsyayBlSyuCWQsX8Y0zx6XdsnM_N5-/s1600/(1993+06)+Casa+de+la+Cultura+Baruta+Montaje+Teatral.jpg"}},{"year":"1993","cat":"cultural","title":"Asistente de Dirección – VII Festival Nacional de Teatro","desc":"Convocado para el montaje «La Ballena de la Luna» (dir. José Julián Martínez Santana), presentado en el VII Festival Nacional de Teatro. Rol: Asistente de Dirección y Escénico.","medias":[{"tipo":"foto","url":"https://rubenmartinezsantana.wordpress.com/wp-content/uploads/2018/04/la-ballena-de-la-luna-foto.png?w=309&h=207"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirHROf4ANGY6JdZXnrL3Jt74uBSAiywnvEU6bA7G_2dMpHOhm3dq8DUxcuIg9_e7TQUI18QbAvMhH97cN2th2kBRSWlzHTGlBwl2Imivxc8-8G4V9CdFiX1DWWfTjfuYB5CpmcEz7un8GU/w592-h794/(1993+08)+La+Ballena+de+la+Luna.jpg"}]},{"year":"1993","cat":"cultural","title":"Asistente de Escena – «La Casa del Perro»","desc":"Convocado para el montaje «La Casa del Perro» (dir. José Julián Martínez Santana), Obra galardonada con premio Fundarte 1992. Presentada en Sala 2 del CELARG.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjzvhcThuobPM5T2Bdg_5TAq5NzglpcchrH48Vj5MleDRtWNsfRStE_O6GRtx4CYVBJtM9MHw9Jmt_5H82zawEclO573y7M7_-0KvWNkaD62JRjUOtzqliQcg5ezjoq2Ux5Fss7hj6Y3HR9az0zbj1Y9Pb63FUCNWfNhxsYk9TfcTvF6FZrhmdIEBxjJFgx=w597-h640"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikkunpCG0DrxtBb3eINkbgPkwNWmnOD-OUpuRP9Rn0Rn94ZgzKvuP1bAJtDP9ZKIL50pBTqY-S1Uzgzhpaux7BYkkiF-TxpTpPLnn_viFqWs5qPZw0rxydK2EmWoW3pCg9MB4EI7FKlirY/w528-h676/(1993+11)+La+casa+del+Perro.jpg"}]},{"year":"1993","cat":"cultural","title":"Taller de Zancos – Grupo Maroma","desc":"Realiza el taller de zancos en el Grupo Maroma de Venezuela (instructor: Orlando Paredes). Inicio de su vínculo con el teatro callejero.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidD5J5AVKfFp82JIq7Mw3jYAt5ckLtgIR8N-CXiAJX2yYKVoYd0IHaXH1k7zOxGDijOT7gAABSxwa8XIvPIOUSRy0spLdkFYRPaj1LVc_hsPNKLi8sOSqiRPkxg5JSoYSSWCkYAlNMv9C2/s1600/(1996+02)+Carnavales+de+Maturin+2.jpg"}},{"year":"1994","cat":"cultural","title":"Miembro del Grupo Maroma – Teatro de Calle","desc":"Miembro estable de «Maroma Teatro de Calle» (1994–1995): zanqueadas, pasacalles y el montaje colectivo «Feudos», presentado en el XIX Festival Internacional de Teatro de Oriente.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCvi2ceRnh3rvxduX5pBGh-6HaiR2DjWb-dADDygAu0VwNJPrTkHeARnfMDk0pm1iUN0sOvOE0RkwyGGGrjIlHS1LFBv_PmH1HTjVqk2UpoDmrpJuRaEeIckU3XxGGRY4jCQbV5VK3NT9N/w573-h700/(1994+10)+XIX+Festival+de+Oriente+FEUDOS.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgGG3FJ_HsOCeeUyx2ZRLRwuRahBCcgQvCkwgk71ONvK4CvdKrfbohVKcGX2f-3BAHzvjLZeMSLJdu7ZCfTF0t1pnT0C-nSE1h_5FnRXd_7nj-wAl6p7d-lfIREGCodnAJ2Kd27Y0sJhZX3EH2ZCLng5eP8jB3vLrd7GQEhqGPbCkl2EJLKsr-iGyY6DATo/w300-h400/Zancos.jpg"}]},{"year":"1995","cat":"comunitario","title":"Fundación Marozo – Prevención VIH-SIDA","desc":"Expositor en cursos de prevención del VIH-SIDA para adolescentes en instituciones públicas y privadas de Venezuela. Activo hasta marzo de 1997.","media":{"tipo":"foto","url":"https://pbs.twimg.com/profile_images/2639238091/86ac2b564a441a036d10cd733e2d7edf_400x400.png"}},{"year":"1995","cat":"cultural","title":"X Festival Teatro – «La Marioneta»","desc":"Seleccionado para el taller «La Marioneta Extensión Expresiva del Actor» con la Compañía Philippe Genty (Francia).","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhyppFlPGqegLq1WZhaNmob-xINya4LfbGp7Wr2-67w6Oa9dEWpAQf61FICte6H7V2LPxeYv3glV2QalogIPYqiNFYEUQIpYeUGnltRsRDeuhjAxpQZDP1fvOBhGLCC6cU6L3KCjnEKB30b/s1600/(1995+04)+Philippe+Genty+Marioneta+Extension+Expresiva+del+Actor.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilh5c-auZ_CugJs1QKGbgeuEc6mOizdV8ngoL20UnnxXLtjlNMnyiL-zXmx_z_k9GoEtQRs8CJE85EQSN-xh4gLAHDNNkM93zjPkQvBfiDJMX9mGIuqglSuqXCRfULzHyBiRjEMhqrO8DD/s1600/(1995)+Filippe+Genty+no-me-olvides-phillip.jpg"}]},{"year":"1995","cat":"cultural","title":"X Festival Teatro – «Imagen Dramática»","desc":"Seleccionado para el taller «Investigación de la Imagen Dramática» con Enrique Vargas (Universidad Nacional de Bogotá, Colombia).","media":{"tipo":"youtube","id":"iKmkZmulnR8"}},{"year":"1995","cat":"cultural","title":"Co-fundador del Teatro del Bululú","desc":"Co-funda «Teatro del Bululú» (1995–1996): animaciones infantiles, zanqueadas y el montaje «El Hombre de los Espejos», presentado en el XX Festival Internacional de Teatro de Oriente.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjh7xuF1EWnWZshbRYcVVknsKEg4UIHDv3SzZXuIEr4Q47IdTYp9Ip8LjF4mnL9RsXzRervDgImxictHdGTyHobRAdqfNKFO-GBLsVPt1K6E5J2eWnoT6FbHXHpkvrp_OjwyDNcWtyzQRmx/s1600/(1996+02)+Carnavales+de+Maturin+3.jpg"},{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKnY83bXmcs9UhACUCs1CFz0W0A0K0N6BTOgyYkt_o_MBB8Lippe0pN2_3H36BYfP5LzYOXo6-c5Gh7UJAuHtsZCG0G8UdGFzl8mo01H0eJC41nU6PLJXjrPXwffc0SZg4oMnJ0iKRYH0t/s1600/(1995+10)+XX+Festival+de+Oriente+Teatro+del+BULULU+El+Hombre+de+los+Espejos.jpg"}]},{"year":"1996","cat":"estudios","title":"Inicio BBA – Universidad José María Vargas","desc":"Inicia la carrera de Ingeniería Comercial / Bachelor of Business Administration (BBA) en la U. José María Vargas, Venezuela. Se gradúa en 2001.","media":{"tipo":"foto","url":"https://static.wixstatic.com/media/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp/v1/fill/w_278,h_66,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/de1dd6_b2a0cb996bca4b37a3e41cf2b6022132~mv2.webp"}},{"year":"1996","cat":"cultural","title":"Taller «El Chichón» + «60 y Dele»","desc":"Formación de actor, cuenta cuentos, expresión corporal y máscaras (dir. Armando Carias). Participa en el espectáculo «60 y Dele» en el Aula Magna de la UCV.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhAPY1hj1j_Eqadu6-_7eF-l-v1OVt_mU8n8EHi8f8b7gD62EVMOHxit6c_iAdzwcBhRxqdqjJ3AD7ySSJBBOeF3-ltR1CKxi01ORd9AvRwqWjpi1PA7xIcQYnBDNoVfYsKknqBdxV98_NN/s1600/(1996+04)+El+Chichon+Iniciacion+Teatral.jpg"}]},{"year":"2001","cat":"estudios","title":"Graduado BBA + Especialización","desc":"Obtiene el título de Ingeniería Comercial y la Especialización en Gerencia Empresarial en la Universidad José María Vargas, Venezuela.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEj93VQ96WZ0KhYWFBJvt634S0VC7tDniTdRH3lGTmAsCHodttnp242ynCCDVDNOexd-waMfh4nA7c2AXYI5GJPMk73CSVnpaDn5UQu0hfhiUGUDsX6yJ2iLrWKSGZ66IkA7apilvUzk67oP9ZUCeRBXCGF5IMDuQ1aopq_u1mszioU0p4NhyYPC1T5puFce"}]},{"year":"2001","cat":"operaciones","title":"Jefe de Presupuesto – CONTIFLEX","desc":"Gestiona estrategias comerciales logrando 115% de cumplimiento de metas en promedio. Lidera la implementación y certificación ISO 9001 en la primera auditoría.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEhYe5-iQBzCuHtbat8wSBjrBf1IUZE57axZgqDJiPMrfw_-IBwea6hmP_2iH9Y-rSUDmzjipT6i8j7mEAGVBTjbY7xm6uzY0R6s77MpbFEOC3FXG5F4vA1d_cpZ1yWc9Bc_3O3UBBIQeQSfBhJNmaQYKOIIPhqR3BeW9EJ-1gVN2BWRHR6wIqtw49BSu_mH"}},{"year":"2008","cat":"operaciones","title":"Gerente de Planta – CONTIFLEX","desc":"Aumenta la producción en 70% en 3 meses y reduce las devoluciones del 40% al 0%. Lidera la implementación del SGC ISO 9001:2008.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEid60dV5yLTbPZOGjvVy_6vyBjIZ86fjgHv-izXSZU5hx4pY88MIWm41Ttu2UaMIa3wsLfmjyM27eYIKRwtmWrrtqMm_xFBuyQ8_waWkIpjhbF_1j9oMHtgNm5eKdZx10DoxGTYLAdwssqZR4nIvmOsUaT_ow_tL5gj5QRxh0o1GblY1hlfw2_rePzUqY__"}},{"year":"2014","cat":"operaciones","title":"Ingeniero Desarrollo Logístico – SODIMAC","desc":"Diseña la arquitectura del sistema de reposición para 74 tiendas. Desarrolla aplicativo de control de despachos. Gestiona 3.500 m³ diarios.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEg8fERkx0IpkC9fvTW-eA4vFYkTmqmrOUNgT4_3jHrl1w40HqqGd-dcMnOKOOh4vJrdhM25xmS8iUEbmpX-TJ3KaY9axVN6PIQXH0gGj1ZrPi4JQFGBzXeqacBlM5cWQBuGJGDFWAkkHXewbohb5TA52dJuZ-OGR1EnPg-yAf1aJ4xBSo9L-n1asokTJH32"}},{"year":"2015","cat":"operaciones","title":"Jefe Planificación Operacional – SODIMAC","desc":"Reduce tiempo de respuesta de CD a tiendas en 1,5 días. Aumenta despachos en 25% con talleres LEAN. Gestiona 6 CD con más de 8.000 m³ diarios.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEj9uHF4Lm2Zw8-5FtJFPyInW0-T_jUVE1dhmBY8kxcOR2iv01qN72zrKxLufrxVXcl2cn-RIlTkQaH_2RAHeDUI7WjS0dYBwabcx5ObwekjxFVkFis2YxsYqEx4B-5J3cHr5O90eII9Da52IDKoAfzC2gH4mzJarctGWrEHNI6lAxQund6JKeNTMhTNr9Q3"}},{"year":"2019","cat":"operaciones","title":"Head of Warehouse – Grin Scooters","desc":"Diseña layout de bodega e implementa LEAN. Logra crecimiento del 90% en un mes y disponibilidad de scooters superior al 98%.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEgg0uTTxkHh0ONbQ5l2HLucXbTsFlrxbORXRO74AGAAaj0eiyh9fZWCguL0cBMZTUKuvcjXoiH93dN8cXiuNfeEkpk9F1Ce8fzYH2CcTKeQCv-dP5ShnzRGOLj38YqhMEvtO-u3ibEFayrXg-FQVju3JcCCAsyiu7yAKH4YzqgjtD6vnG3cQFEbqZ2MCDEF"}]},{"year":"2019","cat":"operaciones","title":"Gerente Operaciones – Vida Orgánica","desc":"Diseña procesos logísticos y e-commerce para marca Manare. Reduce diferencia inventario del 16% al 0,04% y logra crecimiento 88% en ventas.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/a/AVvXsEjZB0CMz6pBnB5zWXpvFoQ3K8JNgdn_wgOlq9mcqkmuVG2jPZC11IQ-jLPLA6T_NYTSI7RAT3kF6Z4HiuUNgXEQPbszEWCFuARCOgSZGrrt4hZWP1Suf1CpLZwgguZ47JZ_yVWHx_TwMufpXUgk5o1brpwe7TvFNoMv8iPGPR85-JtD3TzqXqe8qAlt-5f9"}},{"year":"2023","cat":"operaciones","title":"Jefe Operaciones – Dunati Chile","desc":"Lidera transformación digital y mejora operacional de bodega, planificación y producción. Implementa KPIs de rentabilidad.","media":{"tipo":"youtube","id":"DnfKgfY6iLo"}},{"year":"2024","cat":"estudios","title":"Diplomado Gestión Proyectos Ágiles","desc":"Obtiene Diplomado en Gestión de Proyectos con Metodologías Ágiles y Enfoque Lean. U. de Playa Ancha.","media":{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nJxzd5dSoyTakkguJ6IjzUVkiHbz76zosGaFZEGI09V63MM1gfLQQf_qLy_4XV-PGWyCU74noK0mhG309qMyUcEhpwaoXM8spcqvmDsM9e3nv9PsvgK99wAs3LjH129l81kYnmlNnEXPUU1ewg6ej6FlxML3MgugRxCG6U5ltrP8sQiSir6o4gyjr4jL/s16000/Captura%20de%20pantalla_14-1-2026_232823_.jpeg"}},{"year":"2024","cat":"comunitario","title":"Catequista Pre-matrimonial","desc":"Ingresa como catequista de Taller Pre-matrimonial en Parroquia San Carlos Borromeo, La Reina, Santiago. Se incorpora a Pastoral del Consuelo.","medias":[{"tipo":"foto","url":"https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no"}]},{"year":"2026","cat":"comunitario","title":"Coordinador Pastoral del Consuelo","desc":"Elegido Coordinador ante el Consejo Parroquial de la Pastoral del Consuelo en Parroquia San Carlos Borromeo.","medias":[{"tipo":"foto","url":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiffgydJaQ5U_utwwq39pTIMr2CYupKIkoTdaZe7Yxhw98cYyJInFmm_8knP_7XThybv2zmwPm-v3gOIuvYPvXef9CzBuiYupUJqbHbJM44pS0AKKrn7DfXaWqPTyRPQTXVqR6krkExLj4Szxv3uUoh6QIAcIWDTELieGf0YTZcmW9OSKcLR46VS0SLtKYO/s320/Logo%20pastoral%20del%20consuelo.png"}]}];
+var events = [
+  {
+    year: "1975", cat: "comunitario",
+    title: "Bautizo en Vitacura, Santiago",
+    desc: "Eduardo es bautizado el 27 de diciembre en la Parroquia Inmaculada Concepción, Vitacura, Santiago de Chile. Un inicio marcado por la fe que acompañará toda su vida.",
+    media: { tipo: "foto", url: "https://www.inmaculadaconcepcion.cl/imagenes/historia-parroquia.jpg" }
+  },
+  {
+    year: "1985", cat: "comunitario",
+    title: "Inicio en los Scouts de Venezuela",
+    desc: "Ingresa a la Asociación Scouts de Venezuela. Activo hasta 2008 (12 años). Llega a ser Dirigente de Rama Tropa nivel II y Sub Jefe de Grupo Aconcagua. Lema permanente: <em>"Dejar mejor de como lo encontré"</em>.",
+    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTGk0arTJ_ALfMTpqVmP771ZFJhb0qPOoCU3GQXwh6GVHRNm_CUuUxA4npZXhUotpS3JSprIbO_9-ETnxd-LfX6c8SuYnet9zmgmu-C0JzZAf79HH6mxgne3wfdnWR-QmXinrBWzY723ND/s1600/(1999+03)+Scout+Nivel+II+tropa.jpg"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgCZYemmu0T3heiER_6yBPpruyHiyv56Pht512zBvfT55KkrHkvVUsE3Jt4iigd11jkPuMIvxiE0FBBj85m6LNkmMTI5177Lj8duoyInXwNEQxSmWvX12H8OmpOFzI730nZZ_KgXr5gZwmzwid7RxVKS5SgeR1yMRHCwzUYbf4cArH-QtzmZJcRYjdDJhbL"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgBhBLrQ-FwyI0eccGAQTpshQcZLUOBHYOpoFwYNwrMHaD6prBhnIDqIhUq60-q9dxYsP4bPerBWIbs33k5kOlCHLTPPg83ep5st6FjfFnsu1Y5Teh-gtAI0PP41KPY_Hcy78MvPVMXsbF2SD81zPSL7SE7yG_bM-VN-GAdI-D3LJzJfpebHHPc8DNRNzW1"},{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjT_k5t17nQViimcXBsxbMf-izgJpBbA9wpxhKDdKx57XlJd0wuvDXn1Ardl3CQ3p6bQr-oxkkA3gStHOjKIWUyZupga-Mrwx5MQTHZ-Olh5xId-Nrs7nxagvtJ-R7V_VXLEFUPAwAwDVgoUzquR-SNbrbEOt_DdCZNBDTaMpGkd6YrJUAlFxfmUO6Icxj2"}]
+  },
+  {
+    year: "1986", cat: "comunitario",
+    title: "Primera Comunión – Parroquia La Anunciación del Señor",
+    desc: "Recibe el sacramento el 31 de mayo en Caracas, Venezuela, uniéndose por iniciativa propia a la catequesis parroquial. Un paso de fe consciente y personal.",
+    medias: [{ tipo: "foto", url:  "https://arquidiocesiscaracas.com/wp-content/uploads/elementor/thumbs/FUkUE5bzkAZT3HzV5tJDiU2ik81PCd4JCyhWnRcDN8XJsVFY3UNB8DCRVV9Azs1D3g5dKBeGQsGqLZtDA9G1EU2X7AoCPLdLfc95Z6vELgq4a36nzS47fx1NSPKGcx4YvxuBZ5RZo992G659Hn8wfbqw9M657FQn6TwC-ra80x7ch6xp3ly1q54trr1sy7jub0j13lns83fktm8.png" },{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEgAXt9Fhu4k4LEDEIIvVzZkJ0PCtglBr7z_tISr2dIeCPv1GO7Yz04xDH2dH2DgSpCHlUyH-pzqz3ySOvTXRNNJXMWEyRKfyV5lQ9BBhVeSrHA4WKBJO69NnHJpum_Yki0O0oUmhcjgh50Et4T9yUB7uyjFCrQtnNZyoxRk5m25idqZA2m3wy_xoXyp1gT_" }]
+  },
+  {
+    year: "1988", cat: "comunitario",
+    title: "Visita a la Gruta de la Virgen de Betania",
+    desc: "Durante sus años en el Colegio Los Arcos (Opus Dei), visita la Gruta de la Virgen de Betania. Un momento de paz profunda que abre un proceso de discernimiento vocacional.",
+     media: { tipo: "foto", url:  "https://i.imgur.com/pjAIrTd.png" }
+  },
+  {
+    year: "1992", cat: "estudios",
+    title: "X OLIMPIADA VENEZOLANA DE QUÍMICA",
+    desc: "Finalista de la X olimpiada Venezolana de Química, organizada por el Centro Nacional para el Mejoramiento de la Enseñanza de la Ciencia (CENAMEC), que se realiza entre todos los colegios de Venezuela.",
+     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOVY8Zmk8z9UzZ26WTACMmYuhY4-C3hJaBj76U6Wa8-Q2Qc1saxpPR_b6NvMjGBuf8ufGUfxLQIEJKSMGvyoO8PP-Zw6dbW7rND9L7-CyFEPuhNUjK0FA65Oq2VhcFEpeajrz2colRtuyd/s640/(1992+06)+Cenamec.jpg" }
+  },
+  {
+    year: "1993", cat: "estudios",
+    title: "Ingreso a la UCV – Ingeniería Mecánica",
+    desc: "Comienza estudios de Ingeniería en la Universidad Central de Venezuela.<br><br>Participa en el Centro de Estudiantes.<br>Estudiante de Ingeniería Mecánica de la UCV. (Caracas-Venezuela), período 1993-1997.<br><br>Materias vistas y aprobadas:<br>• Introducción a la Ingeniería<br>• Inglés I<br>• Lenguaje y Comunicación<br>• Cálculo I<br>• Geometría Descriptiva I<br>• Cálculo II<br>• Física I<br>• Diseño I<br>• Química I<br>• Laboratorio de Física I<br>• Laboratorio de Física Instrumental<br>• Álgebra Lineal",
+    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEiUc4ToU95ViaYkbI7epX4fpeMcRKc_eKzYGynFj3XAGc2NaojaXps8gqHDbXbH6GTbus1hG5WZ2dWOHIn3m1BQUHqaBLBl-xDpw53XWrDyRn9HmB3n2Aff5_JvQmpnQrWHXHnOGCrjsUFuX22etimp8Gk59C4gUbQJPkY9Dr2n9Z7nSLqm-DpjnvLJy2JP=w400-h225" }
+  },
+  {
+    year: "1993", cat: "cultural",
+    title: "Primer taller de teatro – Casa de la Cultura Baruta",
+    desc: "Primer taller formal de teatro (Alcaldía de Baruta) con instructores de Teatro ALTOS F. Culmina con un montaje en el Teatro Oswaldo Pérez Perazzo en agosto de 1993.",
+    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgOdi_amYN8Ps8GEHDQyYnrYWJLH1mQHwatC5tMq0E9edCWhoAg2Tzfo7EI9Xo5B7rIqbJYj1JMsog0Tsd5o98XvqddOeM8bbZgTkBJPwxiesam39qsyayBlSyuCWQsX8Y0zx6XdsnM_N5-/s1600/(1993+06)+Casa+de+la+Cultura+Baruta+Montaje+Teatral.jpg" }
+  },
+  {
+    year: "2001", cat: "operaciones",
+    title: "Jefe de Presupuesto – CONTIFLEX, C.A. (hasta 2008)",
+    desc: "Gestiona estrategias comerciales logrando 115% de cumplimiento de metas en promedio. Lidera la implementación y certificación ISO 9001 en la primera auditoría.",
+     media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEhYe5-iQBzCuHtbat8wSBjrBf1IUZE57axZgqDJiPMrfw_-IBwea6hmP_2iH9Y-rSUDmzjipT6i8j7mEAGVBTjbY7xm6uzY0R6s77MpbFEOC3FXG5F4vA1d_cpZ1yWc9Bc_3O3UBBIQeQSfBhJNmaQYKOIIPhqR3BeW9EJ-1gVN2BWRHR6wIqtw49BSu_mH" }
+  },
+  {
+    year: "2008", cat: "operaciones",
+    title: "Gerente de Planta – CONTIFLEX (hasta 2013)",
+    desc: "Aumenta la producción en 70% en 3 meses y reduce las devoluciones del 40% al 0%. Lidera la implementación del SGC ISO 9001:2008. Coordina proyectos con Colgate-Palmolive y SC Johnson.",
+    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEid60dV5yLTbPZOGjvVy_6vyBjIZ86fjgHv-izXSZU5hx4pY88MIWm41Ttu2UaMIa3wsLfmjyM27eYIKRwtmWrrtqMm_xFBuyQ8_waWkIpjhbF_1j9oMHtgNm5eKdZx10DoxGTYLAdwssqZR4nIvmOsUaT_ow_tL5gj5QRxh0o1GblY1hlfw2_rePzUqY__" }
+  },
+  {
+    year: "2014", cat: "operaciones",
+    title: "Ingeniero de Desarrollo Logístico – SODIMAC",
+    desc: "Diseña la arquitectura del sistema de reposición para 74 tiendas. Desarrolla el aplicativo de control de despachos. Gestiona 3.500 m³ diarios. Hasta agosto de 2015.",
+    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEg8fERkx0IpkC9fvTW-eA4vFYkTmqmrOUNgT4_3jHrl1w40HqqGd-dcMnOKOOh4vJrdhM25xmS8iUEbmpX-TJ3KaY9axVN6PIQXH0gGj1ZrPi4JQFGBzXeqacBlM5cWQBuGJGDFWAkkHXewbohb5TA52dJuZ-OGR1EnPg-yAf1aJ4xBSo9L-n1asokTJH32" }
+  },
+  {
+    year: "2015", cat: "operaciones",
+    title: "Jefe de Planificación Operacional – SODIMAC (hasta 2019)",
+    desc: "Reduce el tiempo de respuesta de los CD a tiendas en 1,5 días. Aumenta despachos en 25% con talleres LEAN. Gestiona 6 CD con más de 8.000 m³ diarios.",
+    media: { tipo: "foto", url:  "https://blogger.googleusercontent.com/img/a/AVvXsEj9uHF4Lm2Zw8-5FtJFPyInW0-T_jUVE1dhmBY8kxcOR2iv01qN72zrKxLufrxVXcl2cn-RIlTkQaH_2RAHeDUI7WjS0dYBwabcx5ObwekjxFVkFis2YxsYqEx4B-5J3cHr5O90eII9Da52IDKoAfzC2gH4mzJarctGWrEHNI6lAxQund6JKeNTMhTNr9Q3" }
+  },
+  {
+    year: "2019", cat: "operaciones",
+    title: "Head of Warehouse – Grin Scooters (may–nov 2019)",
+    desc: "Diseña el layout de la bodega e implementa metodología LEAN. Logra crecimiento del 90% de la operación en un mes y disponibilidad de scooters superior al 98%.",
+    medias: [{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEgg0uTTxkHh0ONbQ5l2HLucXbTsFlrxbORXRO74AGAAaj0eiyh9fZWCguL0cBMZTUKuvcjXoiH93dN8cXiuNfeEkpk9F1Ce8fzYH2CcTKeQCv-dP5ShnzRGOLj38YqhMEvtO-u3ibEFayrXg-FQVju3JcCCAsyiu7yAKH4YzqgjtD6vnG3cQFEbqZ2MCDEF" },{ tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjDXOBlGc8awm5ByP1fckuGyZwJrmPzkAoeAyCn_i0Yj3Fd8jGvqNJ0cnB4Hskd59tosYpt71EmeUolEkc5ExT4PT5KM0HuCvoWfw61_ZqQYQzUZ6Or063MapJE94aNQ0rEDQQ2snXL6gTavk0Xate4HckRVs_qbolN2UNQAuHrOSeQ_BNI_-GWm7UiHarn" }]
+  },
+  {
+    year: "2019", cat: "operaciones",
+    title: "Gerente de Operaciones y Comex – Vida Orgánica SPA (hasta 2023)",
+    desc: "Diseña desde cero los procesos logísticos y de e-commerce para la marca Manare. Reduce diferencia de inventario del 16% al 0,04% y logra crecimiento del 88% en ventas en el primer año.",
+    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/a/AVvXsEjZB0CMz6pBnB5zWXpvFoQ3K8JNgdn_wgOlq9mcqkmuVG2jPZC11IQ-jLPLA6T_NYTSI7RAT3kF6Z4HiuUNgXEQPbszEWCFuARCOgSZGrrt4hZWP1Suf1CpLZwgguZ47JZ_yVWHx_TwMufpXUgk5o1brpwe7TvFNoMv8iPGPR85-JtD3TzqXqe8qAlt-5f9"}
+  },
+  {
+    year: "2023", cat: "operaciones",
+    title: "Jefe de Operaciones – Dunati Chile SPA (hasta mar. 2025)",
+    desc: "Lidera la transformación digital y mejora operacional de bodega, planificación y producción. Implementa KPIs de rentabilidad y seguimiento de metas.",
+    media: { tipo: "youtube", id: "DnfKgfY6iLo" }
+  },
+  {
+    year: "2024", cat: "estudios",
+    title: "Diplomado Gestión de Proyectos Ágiles y Lean – U. de Playa Ancha",
+    desc: "Obtiene el Diplomado en Gestión de Proyectos con Metodologías Ágiles y Enfoque Lean. Refuerza competencias en Scrum, Lean Management y planificación estratégica.",
+    media: { tipo: "foto", url: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1nJxzd5dSoyTakkguJ6IjzUVkiHbz76zosGaFZEGI09V63MM1gfLQQf_qLy_4XV-PGWyCU74noK0mhG309qMyUcEhpwaoXM8spcqvmDsM9e3nv9PsvgK99wAs3LjH129l81kYnmlNnEXPUU1ewg6ej6FlxML3MgugRxCG6U5ltrP8sQiSir6o4gyjr4jL/s16000/Captura%20de%20pantalla_14-1-2026_232823_.jpeg" }
+  },
+  {
+    year: "2024", cat: "comunitario",
+    title: "Catequista Pre-matrimonial y Pastoral del Consuelo",
+    desc: "Ingresa como catequista de Taller Pre-matrimonial en la Parroquia San Carlos Borromeo, La Reina, Santiago de Chile. Se incorpora también a la Pastoral del Consuelo.",
+    medias: [{ tipo: "foto", url:  "https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no" },{ tipo: "foto", url: "https://static.wixstatic.com/media/3d1009_4770c94ea6524941a8eae782abbded81~mv2.jpg/v1/fill/w_320,h_240,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Image-empty-state.jpg" }]
+  },
+  {
+    year: "2026", cat: "comunitario",
+    title: "Coordinador – Pastoral del Consuelo",
+    desc: "Es elegido Coordinador ante el Consejo Parroquial de la Pastoral del Consuelo en la Parroquia San Carlos Borromeo, La Reina, Santiago de Chile.",
+    medias: [{ tipo: "foto", url:  "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiffgydJaQ5U_utwwq39pTIMr2CYupKIkoTdaZe7Yxhw98cYyJInFmm_8knP_7XThybv2zmwPm-v3gOIuvYPvXef9CzBuiYupUJqbHbJM44pS0AKKrn7DfXaWqPTyRPQTXVqR6krkExLj4Szxv3uUoh6QIAcIWDTELieGf0YTZcmW9OSKcLR46VS0SLtKYO/s320/Logo%20pastoral%20del%20consuelo.png" },{ tipo: "foto", url:  "https://lh5.googleusercontent.com/p/AF1QipNCNlg4GZ6Wmbac6_NO-H651nwOR_38kmc3XTUS=w650-h365-k-no" }]
+  }
+];
 
 var CAT = {
   cultural:    { color: "#6C63C9", label: "Cultural" },
@@ -209,7 +310,7 @@ var CAT = {
 };
 
 function openLightbox(url) {
-  var lb = document.getElementById("lightbox");
+  var lb  = document.getElementById("lightbox");
   var img = document.getElementById("lb-img");
   img.src = url;
   lb.classList.add("active");
@@ -238,11 +339,13 @@ function buildMedia(ev) {
     if (!m || !m.tipo) return;
     if (m.tipo === "foto") {
       var u = m.url.replace(/'/g, "\'");
-      html += '<div class="tl-media-wrap" onclick="event.stopPropagation();openLightbox('' + u + '')" title="Clic para ampliar"><img class="tl-photo" src="' + m.url + '" alt="Imagen" loading="lazy"></div>';
+      html += '<div class="tl-media-wrap" onclick="event.stopPropagation();openLightbox('' + u + '')" title="Clic para ampliar"><img class="tl-photo" src="' + m.url + '" alt="Imagen del hito" loading="lazy"></div>';
     } else if (m.tipo === "youtube") {
       html += '<div class="tl-video-wrap"><iframe data-yt="' + m.id + '" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe></div>';
     } else if (m.tipo === "vimeo") {
       html += '<div class="tl-video-wrap"><iframe data-vimeo="' + m.id + '" src="" allowfullscreen allow="autoplay"></iframe></div>';
+    } else if (m.tipo === "video") {
+      html += '<video class="tl-video-file" controls preload="metadata"><source src="' + m.url + '">Tu navegador no soporta video.</video>';
     }
   });
   return html;
@@ -259,7 +362,7 @@ function toggleCard(card) {
     });
     card.querySelectorAll("iframe[data-vimeo]").forEach(function(iframe) {
       if (!iframe.src) {
-        iframe.src = "https://player.vimeo.com/video/" + iframe.dataset.vimeo + "?autoplay=1";
+        iframe.src = "https://player.vimeo.com/video/" + iframe.dataset.vimeo + "?autoplay=1&byline=0&portrait=0";
       }
     });
   } else {
@@ -269,46 +372,43 @@ function toggleCard(card) {
   }
 }
 
-// CONSTRUIR TIMELINE
-document.addEventListener('DOMContentLoaded', function() {
-  var tl = document.getElementById("timeline");
-  events.forEach(function(ev, i) {
-    var c = CAT[ev.cat];
-    var item = document.createElement("div");
-    item.className = "tl-item";
-    item.dataset.cat = ev.cat;
-    item.style.cssText = "--accent:" + c.color + "; animation-delay:" + (i * 0.04) + "s";
+var tl = document.getElementById("timeline");
 
-    var cardHTML = '<div class="tl-card" onclick="toggleCard(this)"><div class="tl-cat-label">' + c.label + '</div><span class="tl-toggle">&#9660;</span><div class="tl-title">' + ev.title + '</div><div class="tl-body"><p class="tl-desc">' + ev.desc + '</p>' + buildMedia(ev) + '</div></div>';
-    var midHTML = '<div class="tl-mid"><div class="tl-dot" style="background:' + c.color + '; box-shadow:0 0 0 2px ' + c.color + '"></div><div class="tl-year">' + ev.year + '</div></div>';
+events.forEach(function(ev, i) {
+  var c    = CAT[ev.cat];
+  var item = document.createElement("div");
+  item.className  = "tl-item";
+  item.dataset.cat = ev.cat;
+  item.style.cssText = "--accent:" + c.color + "; animation-delay:" + (i * 0.04) + "s";
 
-    if (i % 2 === 0) {
-      item.innerHTML = '<div class="tl-col left">' + cardHTML + '</div>' + midHTML + '<div class="tl-col right empty"></div>';
-    } else {
-      item.innerHTML = '<div class="tl-col left empty"></div>' + midHTML + '<div class="tl-col right">' + cardHTML + '</div>';
-    }
-    tl.appendChild(item);
-  });
+  var cardHTML = '<div class="tl-card" onclick="toggleCard(this)"><div class="tl-cat-label">' + c.label + '</div><span class="tl-toggle">&#9660;</span><div class="tl-title">' + ev.title + '</div><div class="tl-body"><p class="tl-desc">' + ev.desc + '</p>' + buildMedia(ev) + '</div></div>';
+  var midHTML = '<div class="tl-mid"><div class="tl-dot" style="background:' + c.color + '; box-shadow:0 0 0 2px ' + c.color + '"></div><div class="tl-year">' + ev.year + '</div></div>';
 
-  // FILTROS
-  document.querySelectorAll(".fb").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      document.querySelectorAll(".fb").forEach(function(b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      var cat = btn.dataset.cat;
-      var delay = 0;
-      document.querySelectorAll(".tl-item").forEach(function(item) {
-        var show = (cat === "todo" || item.dataset.cat === cat);
-        item.classList.toggle("hidden", !show);
-        if (show) {
-          item.style.animationDelay = (delay++ * 0.04) + "s";
-          item.style.opacity = "0";
-          void item.offsetWidth;
-          item.style.animation = "none";
-          void item.offsetWidth;
-          item.style.animation = "fadeUp .4s ease forwards";
-        }
-      });
+  if (i % 2 === 0) {
+    item.innerHTML = '<div class="tl-col left">' + cardHTML + '</div>' + midHTML + '<div class="tl-col right empty"></div>';
+  } else {
+    item.innerHTML = '<div class="tl-col left empty"></div>' + midHTML + '<div class="tl-col right">' + cardHTML + '</div>';
+  }
+  tl.appendChild(item);
+});
+
+document.querySelectorAll(".fb").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    document.querySelectorAll(".fb").forEach(function(b) { b.classList.remove("active"); });
+    btn.classList.add("active");
+    var cat   = btn.dataset.cat;
+    var delay = 0;
+    document.querySelectorAll(".tl-item").forEach(function(item) {
+      var show = (cat === "todo" || item.dataset.cat === cat);
+      item.classList.toggle("hidden", !show);
+      if (show) {
+        item.style.animationDelay = (delay++ * 0.04) + "s";
+        item.style.opacity = "0";
+        void item.offsetWidth;
+        item.style.animation = "none";
+        void item.offsetWidth;
+        item.style.animation = "fadeUp .4s ease forwards";
+      }
     });
   });
 });
