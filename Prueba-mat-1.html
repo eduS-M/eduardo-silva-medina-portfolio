@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prueba Matemática 3° Básico - Daniel</title>
+<style>
+:root{--verde:#2e7d32;--rosa:#fce4ec;--claro:#e8f5e9}
+body{font-family:system-ui,Segoe UI,sans-serif;background:linear-gradient(135deg,#fce4ec,#e3f2fd);margin:0;padding:16px}
+.container{max-width:860px;margin:auto;background:#fff;border-radius:18px;box-shadow:0 6px 24px rgba(0,0,0,.12);overflow:hidden}
+header{background:var(--verde);color:#fff;padding:22px;text-align:center}
+.progress{height:8px;background:#eee}.bar{height:100%;background:#81c784;width:0;transition:.3s}
+.content{padding:24px}
+.tag{display:inline-block;background:var(--rosa);color:#880e4f;padding:5px 12px;border-radius:10px;font-size:.85rem;font-weight:600;margin-bottom:10px}
+.q{font-size:1.2rem;line-height:1.4;margin:14px 0}
+.visual{margin:14px 0;padding:14px;background:#fafafa;border:1px solid #eee;border-radius:10px}
+.bloques{display:flex;gap:16px;flex-wrap:wrap}
+.centena{width:52px;height:52px;background:#ab47bc;opacity:.85;border:2px solid #6a1b9a}
+.decena{width:18px;height:52px;background:#42a5f5;border:2px solid #1565c0;margin:auto}
+.unidad{width:14px;height:14px;background:#ffa726;border:1px solid #ef6c00;display:inline-block;margin:2px}
+input{padding:11px;font-size:1.05rem;border:2px solid #bbb;border-radius:9px;width:100%;max-width:340px}
+.opciones{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:14px 0}
+button.op{padding:12px;border:2px solid var(--verde);background:#fff;border-radius:9px;cursor:pointer;text-align:left}
+button.op.sel{background:var(--claro);border-color:#1b5e20}
+.btn{background:var(--verde);color:#fff;border:0;padding:13px 26px;border-radius:10px;font-size:1.05rem;cursor:pointer;margin-top:12px;font-weight:600}
+.btn:disabled{opacity:.5}
+.feedback{margin-top:18px;padding:15px;border-radius:10px;display:none}
+.ok{background:#c8e6c9;border:2px solid #2e7d32;color:#1b5e20}
+.no{background:#ffcdd2;border:2px solid #c62828;color:#b71c1c}
+.barra{display:flex;align-items:flex-end;gap:24px;height:120px;justify-content:center}
+</style>
+</head>
+<body>
+<div class="container">
+<header><h1>¡Vamos Daniel! 🌟</h1><p>Prueba Unidad 1 - Números hasta 999</p></header>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="content" id="app"></div>
+</div>
+<script>
+const P=[
+{s:"Leer y escribir",q:"Daniel abre su libro y ve el número <b>256</b> escrito con cifras. La profesora le pide que lo diga en voz alta con palabras completas. ¿Cómo se escribe?",t:"txt",r:["doscientos cincuenta y seis"],e:"Recuerda: el 2 está en las centenas (200), el 5 en las decenas (50) y el 6 en las unidades (6). Juntos forman doscientos cincuenta y seis."},
+{s:"Leer y escribir",q:"En el dictado la profesora dice: 'escriban setecientos ocho'. Daniel debe pasarlo a números. ¿Qué debe escribir?",t:"num",r:[708],e:"Setecientos son 700. Como no dijo 'decenas', ponemos un 0 en el medio: 708. Mucho ojo con no escribir solo 78."},
+{s:"Leer y escribir",q:"¿Cuál es el número más grande que puedes formar con tres nueves? Se lee 'novecientos noventa y nueve'. Escríbelo con cifras.",t:"num",r:[999],e:"9 centenas (900) + 9 decenas (90) + 9 unidades (9) = 999."},
+{s:"Representar",q:"Sobre la mesa hay bloques base 10: ves 4 placas grandes (cada una vale 100), 1 barra larga (vale 10) y 3 cubitos pequeños (cada uno vale 1). Si los juntas todos, ¿qué número formas?",t:"num",r:[413],e:"4×100=400, 1×10=10, 3×1=3. 400+10+3=413.",v:"b413"},
+{s:"Representar",q:"Daniel revisa su alcancía y encuentra 3 monedas de $100, 5 monedas de $10 y 8 monedas de $1. ¿Cuánto dinero tiene en total? Piensa como si fueran bloques.",t:"num",r:[358],e:"Es igual que base 10: 3 centenas ($300) + 5 decenas ($50) + 8 unidades ($8) = $358."},
+{s:"Representar",q:"Mira el número 627 en la pizarra. La profesora pregunta: '¿Cómo se descompone en centenas, decenas y unidades?' Elige la opción correcta.",t:"op",o:["6 centenas, 2 decenas y 7 unidades","6 decenas, 2 centenas y 7 unidades","7 centenas, 2 decenas y 6 unidades"],r:[0],e:"El primer dígito (6) siempre manda en las centenas, el del medio (2) en las decenas y el último (7) en las unidades."},
+{s:"Conteo",q:"Estás saltando la cuerda y cuentas de 2 en 2: dices 12, 14, 16... te distraes un segundo. ¿Qué número debes decir después del 16 para seguir bien y llegar a 20?",t:"num",r:[18],e:"Contar de 2 en 2 es sumar 2 cada vez: 16+2=18."},
+{s:"Conteo",q:"En educación física aplauden cada 5 segundos: 35, 40, 45... ¿Qué número sigue antes de llegar a 55?",t:"num",r:[50],e:"45+5=50. Es como contar monedas de $5."},
+{s:"Conteo",q:"Subes una escalera gigante de 10 en 10 peldaños: vas en el 170, luego 180... ¿en qué peldaño pisas después?",t:"num",r:[190],e:"180+10=190. Cada salto es una decena completa."},
+{s:"Conteo",q:"Cuentas cajas de 100 lápices: ya llevas 300, 400... ¿cuántas llevas en el siguiente montón antes de llegar a 600?",t:"num",r:[500],e:"400+100=500. Cada salto es una centena, como una placa morada."},
+{s:"Valor posicional",q:"En el número 842, el dígito 4 no vale 4 solito porque está en el medio. ¿Cuánto vale realmente ese 4?",t:"op",o:["Vale 4","Vale 40","Vale 400"],r:[1],e:"Está en la posición de las decenas, entonces 4×10=40."},
+{s:"Valor posicional",q:"Observa el 905. ¿Cuantas decenas hay?",t:"num",r:[0],e:"Significa que no hay decenas: 9 centenas, 0 decenas y 5 unidades."},
+{s:"Valor posicional",q:"Si descompones 739 (centenas + decenas + unidades), te queda 700 + 30 + __. ¿Qué número falta?",t:"num",r:[9],e:"El 9 está en las unidades."},
+{s:"Tablas",q:"Hicieron una encuesta en tu curso sobre mascotas favoritas. Mira la tabla y responde: ¿Cuántos niños eligieron perro?",t:"num",r:[7],e:"Cuenta los perros en la tabla: hay 7.",v:"masc"},
+{s:"Tablas",q:"Usando la misma tabla, ¿cuál fue la mascota que menos niños eligieron?",t:"op",o:["Perro","Gato","Conejo","Pez"],r:[2],e:"El conejo solo tiene 3 votos, es el número más pequeño.",v:"masc"},
+{s:"Tablas",q:"Si sumas todos los votos de la tabla, ¿cuántos niños contestaron la encuesta en total?",t:"num",r:[24],e:"Perro 7 + Gato 6 + Conejo 3 + Pez 8 = 24 niños.",v:"masc"},
+{s:"Operaciones",q:"Haz esta suma sin llevar, como te enseñaron: primero unidades, luego decenas, luego centenas. ¿Cuánto es 324 + 152?",t:"num",r:[476],e:"Unidades: 4+2=6. Decenas: 2+5=7. Centenas: 3+1=4. Resultado 476."},
+{s:"Operaciones",q:"Ahora una resta sin pedir prestado. Calcula 758 − 324 paso a paso.",t:"num",r:[434],e:"Unidades: 8-4=4. Decenas: 5-2=3. Centenas: 7-3=4. Da 434."},
+{s:"Operaciones",q:"Suma 460 + 23.",t:"num",r:[483],e:"0+3=3, 6+2=8, 4+0=4. Resultado 483."},
+{s:"Problemas",q:"Daniel tenía 245 láminas del álbum. Para su cumpleaños su mamá le regala 123 láminas más. ¿Cuántas láminas tiene ahora en total?",t:"num",r:[368],e:"Es una suma: 245+123=368."},
+{s:"Problemas",q:"En la biblioteca del colegio había 589 libros. Esta semana prestaron 456 libros a los cursos. ¿Cuántos libros quedan en la biblioteca?",t:"num",r:[133],e:"Es una resta: 589-456=133."},
+{s:"Conteo",q:"En música marcan el compás de 3 en 3: cuentan 3, 6, 9... ¿qué número deben decir después del 9 para seguir bien hasta 15?",t:"num",r:[12],e:"9+3=12. Contar de 3 en 3 es sumar 3 cada vez."},
+{s:"Conteo",q:"Armas torres con bloques de 4 en 4: llevas 8, 12, 16... ¿cuántos bloques tendrá la siguiente torre antes de llegar a 24?",t:"num",r:[20],e:"16+4=20."},
+{s:"Leer y escribir",q:"El número 604 es tramposo porque tiene un cero en el medio. ¿Cómo se escribe con palabras completas?",t:"txt",r:["seiscientos cuatro"],e:"Seiscientos (600) + cuatro (4). No decimos 'cero decenas'."},
+{s:"Valor posicional",q:"Descompón con tus palabras el número 573. ¿Cuál es la forma correcta?",t:"op",o:["5 centenas, 7 decenas y 3 unidades","7 centenas, 5 decenas y 3 unidades","5 centenas, 3 decenas y 7 unidades"],r:[0],e:"5×100=500, 7×10=70, 3×1=3."},
+{s:"Representar",q:"Imagina que tienes 5 billetes de $100 y 4 monedas de $1. ¿Cuánto dinero es?.",t:"num",r:[504],e:"500+0+4=504. Ese cero en las decenas no se puede olvidar."},
+{s:"Tablas",q:"El quiosco vendió helados tres días. Mira el gráfico de barras y dime: ¿qué día vendió más?",t:"op",o:["Lunes","Martes","Miércoles"],r:[1],e:"La barra de Martes llega hasta 8, es la más alta.",v:"bar"},
+{s:"Tablas",q:"En el pictograma de la escuela, cada dibujo de helado 🍦 representa a 5 niños que compraron. El martes hay tres helados dibujados. ¿Cuántos niños compraron el martes?",t:"num",r:[15],e:"3 helados × 5 niños cada uno = 15 niños.",v:"hel"},
+{s:"Operaciones",q:"Última suma sin llevar: junta 215 y 342. Hazlo por columnas.",t:"num",r:[557],e:"5+2=7, 1+4=5, 2+3=5. Da 557."},
+{s:"Problemas",q:"Daniel jugaba y tenía 750 puntos. En una ronda difícil gastó 230 puntos. ¿Cuántos puntos le quedan ahora?",t:"num",r:[520],e:"750-230=520. Restamos sin pedir prestado."}
+];
+let i=0,ok=0,sel=null;
+const norm=t=>t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim();
+function visual(v){
+ if(v==="b413") return `<div class="visual bloques"><div><div class="centena"></div><div class="centena"></div><div class="centena"></div><div class="centena"></div><div style="font-size:.8rem">4 centenas</div></div><div><div class="decena"></div><div style="font-size:.8rem">1 decena</div></div><div><span class="unidad"></span><span class="unidad"></span><span class="unidad"></span><div style="font-size:.8rem">3 unidades</div></div></div>`;
+ if(v==="masc") return `<div class="visual"><b>Encuesta curso 3°B:</b><br>Perro: 🐶🐶🐶🐶🐶🐶🐶 (7)<br>Gato: 🐱🐱🐱🐱🐱🐱 (6)<br>Conejo: 🐰🐰🐰 (3)<br>Pez: 🐟🐟🐟🐟🐟🐟🐟🐟 (8)</div>`;
+ if(v==="bar") return `<div class="visual barra"><div><div style="width:42px;height:50px;background:#4caf50"></div>Lunes<br>5</div><div><div style="width:42px;height:80px;background:#2196f3"></div>Martes<br>8</div><div><div style="width:42px;height:30px;background:#ff9800"></div>Miércoles<br>3</div></div>`;
+ if(v==="hel") return `<div class="visual"><b>Cada 🍦 = 5 niños</b><br>Lunes: 🍦🍦<br>Martes: 🍦🍦🍦<br>Miércoles: 🍦</div>`;
+ return "";
+}
+function render(){
+ const p=P[i];document.getElementById('bar').style.width=(i/P.length*100)+'%';
+ let h=`<div class="tag">${p.s} (${i+1}/${P.length})</div><div class="q">${p.q}</div>${visual(p.v)}`;
+ if(p.t==="txt"||p.t==="num") h+=`<input id="ans" type="${p.t==='num'?'number':'text'}" autocomplete="off">`;
+ else {h+=`<div class="opciones">`;p.o.forEach((o,ix)=>h+=`<button class="op" onclick="sel=${ix};document.querySelectorAll('.op').forEach(b=>b.classList.remove('sel'));this.classList.add('sel')">${o}</button>`);h+=`</div>`}
+ h+=`<button class="btn" id="chk" onclick="check()">Comprobar</button><div id="fb" class="feedback"></div>`;
+ document.getElementById('app').innerHTML=h;
+ const a=document.getElementById('ans');if(a){a.focus();a.onkeydown=e=>{if(e.key==='Enter')check()}}
+}
+function check(){
+ const p=P[i],fb=document.getElementById('fb');let bien=false,usr;
+ if(p.t==="op"){usr=sel;bien=p.r.includes(usr)}else{usr=document.getElementById('ans').value;bien=p.t==="num"?p.r.includes(Number(usr)):p.r.some(r=>norm(r)===norm(usr))}
+ if(bien)ok++;
+ fb.style.display='block';fb.className='feedback '+(bien?'ok':'no');
+ const rc=p.t==="op"?p.o[p.r[0]]:p.r[0];
+ fb.innerHTML=`<strong>${bien?'¡Correcto! ✅':'Revisemos juntos 🤔'}</strong><div style="margin-top:8px">${bien?p.e:`La respuesta correcta es <b>${rc}</b>. ${p.e}`}</div><button class="btn" style="margin-top:12px" onclick="next()">Siguiente →</button>`;
+ document.getElementById('chk').disabled=true;
+ document.querySelectorAll('.op,input').forEach(e=>e.disabled=true);
+}
+function next(){i++;if(i<P.length){sel=null;render()}else{fin()}}
+function fin(){
+ document.getElementById('bar').style.width='100%';const pct=Math.round(ok/P.length*100);
+ document.getElementById('app').innerHTML=`<div style="text-align:center;padding:20px"><h2>¡Terminaste Daniel!</h2><p style="font-size:2.4rem;margin:12px 0">${ok} / ${P.length}</p><p>${pct}% correctas</p><p style="margin:16px 0">${pct>=90?'¡Excelente trabajo!':pct>=70?'¡Muy bien, sigue así!':'Vamos a repasar juntos'}</p><button class="btn" onclick="location.reload()">Volver a intentar</button></div>`;
+}
+render();
+</script>
+</body>
+</html>
