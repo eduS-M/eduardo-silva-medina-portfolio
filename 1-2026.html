@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Entrevista - Ingeniero de Contratos Transelec</title>
+    <meta name="theme-color" content="#0a3d62">
+    <style>
+        :root {
+            --blue: #0a3d62;
+            --blue-600: #134e7c;
+            --blue-100: #e6eff6;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-600: #475569;
+            --gray-900: #0f172a;
+            --shadow: 0 4px 16px rgba(10, 61, 98, 0.08);
+            --shadow-lg: 0 10px 30px rgba(10, 61, 98, 0.12);
+            --radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-900);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        
+        .title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo {
+            width: 40px;
+            height: 40px;
+            background: var(--blue);
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -0.3px;
+        }
+        
+        .subtitle {
+            font-size: 0.85rem;
+            color: var(--gray-600);
+            display: none;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .btn {
+            background: var(--blue);
+            color: white;
+            border: none;
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            background: var(--blue-600);
+            transform: translateY(-1px);
+        }
+        
+        .btn-ghost {
+            background: white;
+            color: var(--blue);
+            border: 1px solid var(--gray-200);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 28px 20px 60px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-600) 100%);
+            color: white;
+            padding: 24px;
+            border-radius: var(--radius);
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .intro h2 {
+            font-size: 1.4rem;
+            margin-bottom: 6px;
+        }
+        
+        .intro p {
+            opacity: 0.92;
+            font-size: 0.95rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 22px;
+            align-items: start;
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            padding: 22px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-3px);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--blue);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+        
+        .card-icon {
+            font-size: 1.4rem;
+            line-height: 1;
+            margin-top: 2px;
+        }
+        
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: -0.2px;
+        }
+        
+        .card-body {
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+        
+        .card-body strong {
+            color: var(--gray-900);
+            font-weight: 600;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .list-check li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 10px;
+        }
+        
+        .list-check li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--blue);
+            font-weight: 700;
+            width: 18px;
+            height: 18px;
+            background: var(--blue-100);
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 11px;
+        }
+        
+        .list-bullet li {
+            padding-left: 18px;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .list-bullet li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 6px;
+            height: 6px;
+            background: var(--blue);
+            border-radius: 50%;
+        }
+        
+        .star {
+            display: grid;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .star-item {
+            background: var(--gray-50);
+            padding: 12px 14px;
+            border-radius: 10px;
+            border-left: 3px solid var(--blue-100);
+        }
+        
+        .star-label {
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        
+        .star-text {
+            font-size: 0.9rem;
+            color: var(--gray-900);
+        }
+        
+        .metrics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .metric {
+            background: var(--blue-100);
+            color: var(--blue);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .qa-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed var(--gray-200);
+        }
+        
+        .qa-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .question {
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 6px;
+            font-size: 0.95rem;
+        }
+        
+        .answer {
+            background: #f8fafc;
+            padding: 10px 12px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--blue);
+        }
+        
+        .terms {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .term {
+            display: grid;
+            grid-template-columns: 90px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+        
+        .term-name {
+            font-weight: 700;
+            color: var(--blue);
+            font-size: 0.9rem;
+        }
+        
+        .term-def {
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 12px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 0.88rem;
+        }
+        
+        .highlight strong {
+            color: #b45309;
+        }
+        
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 8px;
+            border-radius: 8px;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        
+        .checklist li:hover {
+            background: var(--gray-50);
+        }
+        
+        .checklist input {
+            margin-top: 3px;
+            accent-color: var(--blue);
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+        
+        .priority {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: #dc2626;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .card-wide {
+            grid-column: 1 / -1;
+        }
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 1.5rem; }
+            .subtitle { display: block; }
+            .intro { padding: 28px 32px; }
+            .card { padding: 26px; }
+        }
+        
+        @media (max-width: 480px) {
+            .header-inner { flex-direction: column; align-items: flex-start; }
+            .actions { width: 100%; }
+            .btn { flex: 1; text-align: center; }
+            .term { grid-template-columns: 1fr; gap: 4px; }
+        }
+        
+        @media print {
+            header, .actions, .btn { display: none !important; }
+            body { background: white; }
+            .card { box-shadow: none; break-inside: avoid; }
+            .intro { background: var(--blue) !important; -webkit-print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <div class="title">
+                <div class="logo">T</div>
+                <div>
+                    <h1>Resumen Entrevista - Ingeniero de Contratos Transelec</h1>
+                    <div class="subtitle">Preparación estratégica • Enfoque operativo</div>
+                </div>
+            <div class="actions">
+                <button class="btn btn-ghost" onclick="window.print()">Imprimir</button>
+                <button class="btn" onclick="document.getElementById('checklist').scrollIntoView({behavior:'smooth'})">Checklist</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="intro">
+            <h2>Tu objetivo mañana</h2>
+            <p>No venderte como abogado FIDIC. Venderte como el <strong>garante operativo</strong> que asegura que los US$1.100M de Transelec se ejecuten sin multas del Coordinador.</p>
+        </div>
+
+        <div class="grid">
+            <!-- Card 1 -->
+            <article class="card">
+                <span class="priority">Clave</span>
+                <div class="card-header">
+                    <div class="card-icon">🎯</div>
+                    <h2 class="card-title">Tu Posicionamiento Real</h2>
+                </div>
+                <div class="card-body">
+                    <p><strong>Ingeniero Comercial</strong> con <strong>20+ años</strong> liderando operaciones y logística de alto volumen. <strong>NO tienes experiencia en Enel</strong> (no lo menciones).</p>
+                    <p style="margin-top:10px;">Tu ventaja competitiva:</p>
+                    <ul class="list-check" style="margin-top:8px;">
+                        <li>Gestión contractual <strong>OPERATIVA</strong>, no legal</li>
+                        <li>Control de plazos, costos y calidad en terreno</li>
+                        <li>Experiencia con +400 proveedores simultáneos</li>
+                        <li>Enfoque en cumplimiento y evitar multas</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚡</div>
+                    <h2 class="card-title">Qué debes saber de Transelec</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="list-bullet">
+                        <li>Opera <strong>~10.000 km de líneas</strong> y transmite el <strong>80% del sistema</strong> eléctrico nacional</li>
+                        <li>Proyecto <strong>Jadresic – Monte Mina 2x500 kV</strong> (norte grande)</li>
+                        <li>Proyecto <strong>Tineo – Nueva Ancud</strong> con cruce submarino en Chacao</li>
+                        <li><strong>Bajo auditoría del Coordinador Eléctrico</strong> por atrasos del sector</li>
+                        <li>Cartera de inversión en ejecución: <strong>>US$1.100 millones</strong></li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">📦</div>
+                    <h2 class="card-title">Historia 1 - Sodimac</h2>
+                </div>
+                <div class="card-body">
+                    <div class="star">
+                        <div class="star-item">
+                            <div class="star-label">Situación</div>
+                            <div class="star-text">CD Santiago, 400 contenedores diarios en peak, facturación $2,6 billones/año</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Tarea</div>
+                            <div class="star-text">Eliminar cuellos de botella con transportistas y cumplir SLA de despacho</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Acción</div>
+                            <div class="star-text">Implementé torre de control, KPIs diarios, cláusulas de multa/incentivo por ventana horaria y seguimiento 24/7</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Resultado</div>
+                            <div class="star-text">Reducción de 1,5 días en entrega y +25% capacidad sin aumentar dotación</div>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <span class="metric">400 cont/día</span>
+                        <span class="metric">-1,5 días</span>
+                        <span class="metric">+25% cap.</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">🏭</div>
+                    <h2 class="card-title">Historia 2 - Contiflex</h2>
+                </div>
+                <div class="card-body">
+                    <div class="star">
+                        <div class="star-item">
+                            <div class="star-label">Situación</div>
+                            <div class="star-text">Planta con 40% de devoluciones por incumplimiento de calidad y plazo</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Tarea</div>
+                            <div class="star-text">Recuperar contratos clave y certificar ISO 9001</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Acción</div>
+                            <div class="star-text">Rediseñé ANS con proveedores, implementé control documental y trazabilidad de claims operativos</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Resultado</div>
+                            <div class="star-text">Devoluciones de 40% a 0%, productividad +70%, certificación ISO 9001 lograda</div>
+                        </div>
+                    </div>
+                    <div class="metrics">
+                        <span class="metric">40% → 0%</span>
+                        <span class="metric">+70% prod.</span>
+                        <span class="metric">ISO 9001</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">⛏️</div>
+                    <h2 class="card-title">Historia 3 - Dunati</h2>
+                </div>
+                <div class="card-body">
+                    <div class="star">
+                        <div class="star-item">
+                            <div class="star-label">Situación</div>
+                            <div class="star-text">Servicio logístico para SQM en faenas mineras (Salar, Antofagasta)</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Tarea</div>
+                            <div class="star-text">Cumplir contratos de alta criticidad sin multas operacionales</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Acción</div>
+                            <div class="star-text">Control estricto HSE, bitácora diaria de avance, validación de estados de pago y coordinación directa con mandante</div>
+                        </div>
+                        <div class="star-item">
+                            <div class="star-label">Resultado</div>
+                            <div class="star-text">Cumplimiento 100% en 3 contratos consecutivos, cero multas, renovación automática</div>
+                        </div>
+                    <div class="metrics">
+                        <span class="metric">SQM Minería</span>
+                        <span class="metric">100% cumpl.</span>
+                        <span class="metric">0 multas</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 6 -->
+            <article class="card card-wide">
+                <div class="card-header">
+                    <div class="card-icon">❓</div>
+                    <h2 class="card-title">Preguntas Trampa</h2>
+                </div>
+                <div class="card-body">
+                    <div class="qa-item">
+                        <div class="question">1. ¿Por qué un Ingeniero Comercial y no Civil/Abogado?</div>
+                        <div class="answer">"Porque Transelec no necesita otro redactor de contratos, necesita quien <strong>garantice que se cumplan en terreno</strong>. Mi experiencia es hacer seguimiento diario a 400 proveedores para cumplir plazos y evitar multas millonarias."</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="question">2. ¿Conoces FIDIC?</div>
+                        <div class="answer">"No lo he administrado directamente, pero conozco su lógica y la Cláusula 20 de reclamos. Es igual que en logística: <strong>notificas en 28 días o pierdes el derecho</strong>. Mi fortaleza es aplicar esa disciplina operativa."</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="question">3. ¿Manejas SAP?</div>
+                        <div class="answer">"Sí, módulo MM/SD para órdenes de compra y estados de pago. En Sodimac gestioné <strong>$2,6 billones anuales en SAP</strong>. Me adapto rápido a Ariba o el ERP que usen."</div>
+                    </div>
+                    <div class="qa-item">
+                        <div class="question">4. ¿Tienes experiencia en energía?</div>
+                        <div class="answer">"No directa en transmisión, pero sí en ambientes regulados y críticos como <strong>minería con SQM</strong>, con estándares HSE y multas severas. La lógica de gestión contractual es idéntica."</div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 7 -->
+            <article class="card">
+                <div class="card-header">
+                    <div class="card-icon">📘</div>
+                    <h2 class="card-title">Términos Clave</h2>
+                </div>
+                <div class="card-body">
+                    <div class="terms">
+                        <div class="term">
+                            <div class="term-name">FIDIC</div>
+                            <div class="term-def">Contrato estándar internacional. Libro Rojo = construcción.</div>
+                        </div>
+                        <div class="term">
+                            <div class="term-name">EPC</div>
+                            <div class="term-def">"Llave en mano". Contratista diseña, compra y construye a precio fijo.</div>
+                        </div>
+                        <div class="term">
+                            <div class="term-name">Claims</div>
+                            <div class="term-def">Reclamo formal por mayor costo o plazo.</div>
+                        </div>
+                        <div class="term">
+                            <div class="term-name">Cláusula 20</div>
+                            <div class="term-def"><strong>28 días</strong> para notificar → DAB (árbitro técnico) → <strong>56 días</strong> negociación amigable.</div>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <strong>Símil logística:</strong> Es como un siniestro de transporte: avisas en 24h, adjuntas pruebas, negocias antes de demandar. Si no avisas a tiempo, pierdes.
+                    </div>
+                </div>
+            </article>
+
+            <!-- Card 8 -->
+            <article class="card" id="checklist">
+                <div class="card-header">
+                    <div class="card-icon">✅</div>
+                    <h2 class="card-title">Checklist Mañana</h2>
+                </div>
+                <div class="card-body">
+                    <ul class="checklist">
+                        <li><input type="checkbox"><span><strong>Apertura 30 seg:</strong> "Vengo a garantizar que sus US$1.100M se ejecuten sin multas del Coordinador"</span></li>
+                        <li><input type="checkbox"><span>Usar verbos: <strong>garantizar, asegurar, dar seguimiento, controlar, mitigar</strong></span></li>
+                        <li><input type="checkbox"><span><strong>NO mencionar Enel</strong> ni experiencia no comprobable</span></li>
+                        <li><input type="checkbox"><span>Llevar impresas las 3 historias STAR (Sodimac, Contiflex, Dunati)</span></li>
+                        <li><input type="checkbox"><span>Preguntas finales: "¿Cuál es el mayor riesgo en Jadresic hoy?" y "¿Qué esperan en 90 días?"</span></li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        // Guardar checklist en localStorage
+        document.querySelectorAll('.checklist input').forEach((cb, i) => {
+            const key = 'transelec-check-' + i;
+            cb.checked = localStorage.getItem(key) === '1';
+            cb.addEventListener('change', () => {
+                localStorage.setItem(key, cb.checked ? '1' : '0');
+            });
+        });
+        
+        // Click en li marca checkbox
+        document.querySelectorAll('.checklist li').forEach(li => {
+            li.addEventListener('click', (e) => {
+                if (e.target.tagName !== 'INPUT') {
+                    const cb = li.querySelector('input');
+                    cb.checked = !cb.checked;
+                    cb.dispatchEvent(new Event('change'));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
