@@ -1,153 +1,632 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV - Gestión de Operaciones – Eduardo Silva Medina</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV – Gestión de Operaciones · Eduardo Silva Medina</title>
+<meta name="description" content="CV de Eduardo Silva Medina enfocado en Gestión de Operaciones, Logística y Lean Management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/esm-design.css">
 <style>
-  body {font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; line-height: 1.55; color:#222; margin:0; padding:0;}
-  .header-bar { background: #2c5e5e; color: white; padding: 16px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-  .header-content { max-width: 900px; margin: 0 auto; padding: 0 16px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-  .back-link { color: white; text-decoration: none; font-size: 14px; display: flex; align-items: center; gap: 6px; opacity: 0.9; }
-  .back-link:hover { opacity: 1; }
-  .download-btn { background: white; color: #2c5e5e; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); transition: all 0.2s; }
-  .download-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.15); }
-  .content { max-width: 900px; margin: 0 auto; padding: 24px 16px 48px; }
-  h1,h2,h3 {line-height:1.25; margin-top:28px; color:#0f172a;}
-  h1 {font-size: 30px; margin-top: 24px;}
-  h2 {font-size: 22px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px;}
-  h3 {font-size: 18px; margin-top: 20px;}
-  p {margin: 10px 0;}
-  ul {margin: 8px 0 16px 20px;}
-  li {margin: 6px 0;}
-  .muted {color:#475569; font-size: 14px;}
-  .tag {display:inline-block; background:#f1f5f9; color:#0f172a; padding:2px 8px; border-radius:999px; font-size:12px; margin:0 6px 6px 0;}
-  .section {margin-top: 28px;}
-  hr {border:0; border-top:1px solid #e5e7eb; margin:28px 0;}
-  .note {background:#f8fafc; border:1px solid #e2e8f0; padding:12px; border-radius:8px; font-size: 14px;}
-  a { color: #1e5a8a; text-decoration: none; }
-  a:hover { text-decoration: underline; }
+/* ── CV PAGE STYLES ── */
+:root { --cv-accent: #B84A1E; }
+
+.cv-hero {
+  background: linear-gradient(160deg, #7A3A16 0%, var(--soil) 70%);
+  padding: 40px 40px 32px;
+  position: relative; overflow: hidden;
+}
+.cv-hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(circle at 80% 30%, rgba(184,74,30,.3) 0%, transparent 50%);
+}
+.cv-hero::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--cv-accent), transparent);
+}
+.cv-hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  position: relative; z-index: 1;
+  display: flex; align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+}
+.cv-hero-title {
+  font-family: var(--ff-display);
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 800; color: var(--linen);
+  letter-spacing: -0.5px; line-height: 1.05;
+  margin-bottom: 8px;
+}
+.cv-hero-title span { color: var(--sand); }
+.cv-hero-sub {
+  font-family: var(--ff-ui); font-size: 14px;
+  color: rgba(245,239,227,.65); margin-top: 6px;
+}
+.cv-tabs {
+  background: rgba(44,36,22,.6);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(156,110,60,.25);
+  position: sticky; top: 64px; z-index: 50;
+}
+.cv-tabs-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 40px;
+  display: flex; gap: 2px;
+  height: 46px; align-items: center;
+  overflow-x: auto;
+}
+.cv-tab {
+  font-family: var(--ff-ui); font-size: 12px;
+  font-weight: 500; padding: 6px 14px;
+  border-radius: 6px; text-decoration: none;
+  color: rgba(245,239,227,.55);
+  white-space: nowrap; transition: all .15s;
+  display: flex; align-items: center; gap: 5px;
+}
+.cv-tab:hover { color: var(--linen); background: rgba(255,255,255,.08); }
+.cv-tab.active { color: var(--sand); background: rgba(184,74,30,.25); }
+
+/* CONTENIDO CV */
+.cv-body {
+  max-width: 1100px; margin: 0 auto;
+  padding: 48px 40px 64px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 48px;
+  align-items: start;
+}
+.cv-main {}
+.cv-sidebar {}
+
+/* Secciones */
+.cv-section { margin-bottom: 40px; }
+.cv-section-title {
+  font-family: var(--ff-display);
+  font-size: 18px; font-weight: 700;
+  color: var(--cv-accent);
+  border-bottom: 2px solid var(--fog);
+  padding-bottom: 8px; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.cv-section-icon { font-size: 16px; }
+
+/* Resumen */
+.cv-resumen {
+  font-family: var(--ff-body); font-size: 16px;
+  color: var(--bark); line-height: 1.8;
+  font-style: italic;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, rgba(184,74,30,.06) 0%, rgba(156,110,60,.06) 100%);
+  border-left: 3px solid var(--cv-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 32px;
+}
+
+/* Experiencia */
+.exp-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--fog);
+  position: relative;
+}
+.exp-item:last-child { border-bottom: none; }
+.exp-item::before {
+  content: '';
+  position: absolute; left: -24px; top: 28px;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--cv-accent); opacity: .5;
+}
+.exp-header {
+  display: flex; align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px; margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.exp-title {
+  font-family: var(--ff-ui); font-size: 15px;
+  font-weight: 700; color: var(--soil);
+}
+.exp-company {
+  font-family: var(--ff-ui); font-size: 13px;
+  font-weight: 600; color: var(--cv-accent);
+}
+.exp-period {
+  font-family: var(--ff-ui); font-size: 12px;
+  color: var(--slate); white-space: nowrap;
+  background: var(--fog); padding: 3px 9px;
+  border-radius: 12px; flex-shrink: 0;
+}
+.exp-items { padding-left: 0; list-style: none; margin-top: 10px; }
+.exp-items li {
+  font-family: var(--ff-ui); font-size: 13.5px;
+  color: #5A4A38; line-height: 1.65;
+  padding: 4px 0 4px 18px;
+  position: relative;
+}
+.exp-items li::before {
+  content: '→';
+  position: absolute; left: 0; color: var(--clay);
+  font-size: 12px; top: 5px;
+}
+
+/* Skills tags */
+.skills-grid {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-top: 8px;
+}
+.skill-tag {
+  font-family: var(--ff-ui); font-size: 12px;
+  font-weight: 500; padding: 5px 12px;
+  border-radius: 20px;
+  background: var(--fog); color: var(--bark);
+  border: 1px solid rgba(156,110,60,.2);
+}
+.skill-tag.highlight {
+  background: rgba(184,74,30,.1);
+  border-color: rgba(184,74,30,.3);
+  color: var(--cv-accent);
+}
+
+/* Sidebar cards */
+.sidebar-card {
+  background: var(--cream);
+  border: 1px solid var(--fog);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.sidebar-card-title {
+  font-family: var(--ff-ui); font-size: 11px;
+  font-weight: 700; letter-spacing: 1.2px;
+  text-transform: uppercase; color: var(--cv-accent);
+  margin-bottom: 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+.contact-item {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px;
+}
+.contact-icon {
+  width: 28px; height: 28px; border-radius: 6px;
+  background: var(--fog); display: grid; place-items: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.contact-text {
+  font-family: var(--ff-ui); font-size: 13px;
+  color: var(--soil); line-height: 1.3;
+}
+.contact-text a { color: var(--moss); }
+.edu-item { margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--fog); }
+.edu-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.edu-degree {
+  font-family: var(--ff-ui); font-size: 12.5px;
+  font-weight: 600; color: var(--soil); line-height: 1.3;
+  margin-bottom: 3px;
+}
+.edu-school {
+  font-family: var(--ff-ui); font-size: 11.5px;
+  color: var(--slate);
+}
+.edu-year {
+  display: inline-block; font-family: var(--ff-ui);
+  font-size: 10px; font-weight: 600;
+  background: var(--fog); color: var(--bark);
+  padding: 2px 7px; border-radius: 10px;
+  margin-top: 4px;
+}
+.comp-item {
+  display: flex; align-items: center; gap: 8px;
+  font-family: var(--ff-ui); font-size: 13px;
+  color: var(--soil); padding: 5px 0;
+  border-bottom: 1px solid var(--fog);
+}
+.comp-item:last-child { border-bottom: none; }
+.comp-item::before { content: '✓'; color: var(--moss); font-size: 12px; }
+
+/* CTA sidebar */
+.sidebar-cta {
+  background: linear-gradient(135deg, var(--bark) 0%, var(--soil) 100%);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+.sidebar-cta-title {
+  font-family: var(--ff-display); font-size: 15px;
+  font-weight: 700; color: var(--linen);
+  margin-bottom: 8px;
+}
+.sidebar-cta-sub {
+  font-family: var(--ff-ui); font-size: 12px;
+  color: rgba(245,239,227,.65); margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+/* Voluntariado */
+.vol-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--ff-ui); font-size: 12px;
+  padding: 5px 12px; border-radius: 20px;
+  background: var(--moss-light); color: var(--moss);
+  margin: 4px 4px 4px 0;
+}
+
+/* Print */
+@media print {
+  .esm-header, .cv-tabs, .esm-footer, .sidebar-cta { display: none !important; }
+  body { background: white; }
+  .cv-body { grid-template-columns: 1fr; }
+  .cv-hero { background: #B84A1E !important; -webkit-print-color-adjust: exact; }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cv-body { grid-template-columns: 1fr; }
+  .cv-hero, .cv-body { padding-left: 20px; padding-right: 20px; }
+  .cv-tabs-inner { padding: 0 16px; }
+  .exp-item::before { display: none; }
+}
 </style>
 </head>
 <body>
-<div class="header-bar">
-  <div class="header-content">
-    <a href="/" class="back-link">← Volver al portfolio</a>
-    <a href="/CV-Gestion-Operaciones-Eduardo-Silva.pdf" download class="download-btn">
-      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-      Descargar PDF
+
+<!-- ══ HEADER ══ -->
+<header class="esm-header">
+  <div class="esm-header-inner">
+    <a href="/" class="esm-brand">
+      <div class="esm-brand-monogram">ES</div>
+      <div>
+        <div class="esm-brand-name">Eduardo Silva Medina</div>
+        <div class="esm-brand-tagline">Consultor · Mentor · Operaciones</div>
+      </div>
     </a>
+    <nav class="esm-nav">
+      <a href="/" class="esm-back-btn">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Volver al inicio
+      </a>
+      <div style="width:1px;height:24px;background:rgba(255,255,255,.15);margin:0 4px"></div>
+      <a href="/linea-de-vida.html" class="esm-nav-link">Línea de Vida</a>
+      <a href="/#consultorias" class="esm-nav-link">Consultorías</a>
+      <a href="/CV-Gestion-Operaciones-Eduardo-Silva.pdf" download class="esm-header-action">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+        </svg>
+        Descargar PDF
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ HERO CV ══ -->
+<div class="cv-hero">
+  <div class="cv-hero-inner">
+    <div>
+      <div class="esm-eyebrow" style="margin-bottom:14px">Currículum Vitae</div>
+      <h1 class="cv-hero-title">Gestión de <span>Operaciones</span></h1>
+      <p class="cv-hero-sub">Líder senior enfocado en simplificar procesos y generar eficiencia real · 20+ años de trayectoria</p>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;align-self:center">
+      <a href="/cv-producto.html" style="font-family:var(--ff-ui);font-size:12px;color:rgba(245,239,227,.55);padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:20px;text-decoration:none;transition:all .15s" onmouseover="this.style.color='var(--linen)'" onmouseout="this.style.color='rgba(245,239,227,.55)'">Gestión de Producto →</a>
+      <a href="/cv-cultural.html" style="font-family:var(--ff-ui);font-size:12px;color:rgba(245,239,227,.55);padding:6px 14px;border:1px solid rgba(255,255,255,.15);border-radius:20px;text-decoration:none;transition:all .15s" onmouseover="this.style.color='var(--linen)'" onmouseout="this.style.color='rgba(245,239,227,.55)'">Gestión Cultural →</a>
+      <a href="/cv-completo-atm.html" style="font-family:var(--ff-ui);font-size:12px;color:var(--sand);padding:6px 14px;border:1px solid rgba(212,169,106,.4);border-radius:20px;text-decoration:none">CV Completo ATS</a>
+    </div>
   </div>
 </div>
-<div class="content">
-<!-- CV COMPLETO – EDUARDO SILVA MEDINA -->
-<h1>CV - Gestión de Operaciones – Eduardo Silva Medina</h1>
-<p class="muted">Página consolidada para lectura humana, compatibilidad ATS y consulta por agente asesor laboral.</p>
 
-<section class="section" id="cv-operaciones">
-  <h3 id="op-indice-int">Índice interno – CV Gestión de Operaciones</h3>
-<ul>
-  <li><a href="#op-contacto">Contacto</a></li>
-  <li><a href="#op-resumen">Resumen Profesional</a></li>
-  <li><a href="#op-competencias">Competencias Claves</a></li>
-  <li><a href="#op-herramientas">Herramientas y Competencias Técnicas</a></li>
-  <li><a href="#op-educacion">Educación Formal</a></li>
-  <li><a href="#op-formacion">Formación Complementaria</a></li>
-  <li><a href="#op-experiencia">Experiencia Laboral</a></li>
-  <li><a href="#op-voluntariado">Voluntariado y Liderazgo Social</a></li>
-</ul>
+<!-- ══ TABS INTERNAS ══ -->
+<nav class="cv-tabs">
+  <div class="cv-tabs-inner">
+    <a href="#resumen" class="cv-tab active">📋 Resumen</a>
+    <a href="#experiencia" class="cv-tab">💼 Experiencia</a>
+    <a href="#competencias" class="cv-tab">⚡ Competencias</a>
+    <a href="#educacion" class="cv-tab">🎓 Educación</a>
+    <a href="#voluntariado" class="cv-tab">🌱 Voluntariado</a>
+  </div>
+</nav>
 
-  <h3 id="op-contacto">Contacto</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <p>📞 +56962060611<br>
-  ✉️ <a href="mailto:Eduardosilva05@hotmail.com">Eduardosilva05@hotmail.com</a><br>
-  🌐 <a href="https://eduardo-silva-medina.blogspot.com">Web interactiva de Eduardo</a></p>
-  
-   <h3 id="op-resumen">Resumen Profesional</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <p>Líder senior de Operaciones, enfocado en simplificar procesos y generar eficiencia organizacional. Utilizo el análisis de datos como base para la toma de decisiones e implemento metodologías Lean/Ágiles para potenciar la productividad, la calidad del servicio y la rentabilidad del negocio.</p>
+<!-- ══ CUERPO ══ -->
+<div class="cv-body">
 
-  <h3 id="op-competencias">Competencias Claves</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <ul>
-    <li>Liderazgo y Desarrollo de Equipos</li>
-    <li>Planificación Estratégica y Financiera</li>
-    <li>Optimización de Procesos (Lean &amp; Agile)</li>
-    <li>Análisis de Datos para la Toma de Decisiones</li>
-    <li>IA Generativa</li>
-  </ul>
+  <!-- ── MAIN ── -->
+  <main class="cv-main">
 
-  <h3 id="op-herramientas">Herramientas y Competencias Técnicas</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <ul>
-    <li><strong>Metodologías:</strong> Lean Management, Metodologías Ágiles, Scrum, Gestión de Proyectos, 5S, ISO 9001.</li>
-    <li><strong>IA Generativa:</strong> Dominio intermedio de Gemini, ChatGPT (OpenAI), Microsoft Copilot. (Ingeniería de Prompts, Configuración de Agentes de IA.)</li>
-    <li><strong>Software de BI y Datos:</strong> Power BI (Avanzado), Looker Studio (Avanzado), Excel (Avanzado), SQL (Intermedio), Google BigQuery (Intermedio).</li>
-    <li><strong>Sistemas ERP / WMS:</strong> Odoo, Manhattan (WMOS), Profit, Saint.</li>
-    <li><strong>Idiomas:</strong> Inglés – Nivel Profesional</li>
-  </ul>
+    <!-- Resumen -->
+    <div id="resumen">
+      <p class="cv-resumen">
+        Líder senior de Operaciones, enfocado en simplificar procesos y generar eficiencia organizacional. Utilizo el análisis de datos como base para la toma de decisiones e implemento metodologías Lean/Ágiles para potenciar la productividad, la calidad del servicio y la rentabilidad del negocio.
+      </p>
+    </div>
 
-  <h3 id="op-educacion">Educación Formal</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <ul>
-    <li>Diplomado en Gestión de Proyectos con Metodologías Ágiles y Enfoque Lean | U. de Playa Ancha | 2024</li>
-    <li>Especialización en Gerencia Empresarial | U. José María Vargas | 2001</li>
-    <li>Ingeniería Comercial (Bachelor of Business Administration) | U. José María Vargas | 2001</li>
-  </ul>
+    <!-- Competencias clave -->
+    <div class="cv-section" id="competencias">
+      <h2 class="cv-section-title"><span class="cv-section-icon">⚡</span> Competencias Clave</h2>
+      <div class="skills-grid">
+        <span class="skill-tag highlight">Liderazgo y Desarrollo de Equipos</span>
+        <span class="skill-tag highlight">Planificación Estratégica y Financiera</span>
+        <span class="skill-tag highlight">Optimización de Procesos (Lean & Agile)</span>
+        <span class="skill-tag highlight">Análisis de Datos para Decisiones</span>
+        <span class="skill-tag highlight">IA Generativa</span>
+      </div>
 
-  <h3 id="op-formacion">Formación Complementaria Relevante</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <ul>
-    <li>Lean Management</li>
-    <li>El Gerente Coach</li>
-    <li>Auditor de SGC ISO 9001</li>
-    <li>Liderazgo y Resolución de Conflictos</li>
-    <li>Prevención del Estrés y Calidad de Servicio al Cliente</li>
-  </ul>
+      <h3 style="font-family:var(--ff-ui);font-size:13px;font-weight:700;color:var(--bark);margin:20px 0 10px;text-transform:uppercase;letter-spacing:.5px">Herramientas Técnicas</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Lean Management</span>
+        <span class="skill-tag">Scrum / Agile</span>
+        <span class="skill-tag">5S</span>
+        <span class="skill-tag">ISO 9001</span>
+        <span class="skill-tag">Power BI (Avanzado)</span>
+        <span class="skill-tag">Looker Studio (Avanzado)</span>
+        <span class="skill-tag">Excel (Avanzado)</span>
+        <span class="skill-tag">SQL (Intermedio)</span>
+        <span class="skill-tag">Google BigQuery</span>
+        <span class="skill-tag">Gemini · ChatGPT · Copilot</span>
+        <span class="skill-tag">Odoo</span>
+        <span class="skill-tag">Manhattan WMOS</span>
+        <span class="skill-tag">Inglés Profesional</span>
+      </div>
+    </div>
 
-  <h3 id="op-experiencia">Experiencia Laboral</h3><a href="#op-indice-int">Regresar al índice interno</a>
+    <!-- Experiencia -->
+    <div class="cv-section" id="experiencia" style="padding-left:24px;border-left:2px solid var(--fog)">
+      <h2 class="cv-section-title" style="margin-left:-24px"><span class="cv-section-icon">💼</span> Experiencia Laboral</h2>
 
-  <p><strong>Jefe de Operaciones y Producción | Dunati Chile SPA</strong> <span class="muted">(dic. 2023 – mar. 2025)</span></p>
-  <ul>
-    <li>Implementé un sistema de seguimiento de la producción para optimizar la planificación de recursos y asegurar el cumplimiento de los plazos de entrega establecidos.</li>
-    <li>Diseñé e introduje un nuevo proceso de inventario cíclico, aumentando la frecuencia y la fiabilidad de los registros de stock para una mejor planificación operativa.</li>
-    <li>Optimicé el flujo de picking en una bodega con sobrecapacidad (+100%), implementando 'caminatas operativas' (Gemba) para agilizar los despachos y mejorar la eficiencia del equipo.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Jefe de Operaciones y Producción</div>
+            <div class="exp-company">Dunati Chile SPA</div>
+          </div>
+          <span class="exp-period">dic. 2023 – mar. 2025</span>
+        </div>
+        <ul class="exp-items">
+          <li>Implementé un sistema de seguimiento de la producción para optimizar la planificación de recursos y asegurar el cumplimiento de los plazos de entrega.</li>
+          <li>Diseñé e introduje un nuevo proceso de inventario cíclico, aumentando la frecuencia y fiabilidad de los registros de stock.</li>
+          <li>Optimicé el flujo de picking en una bodega con sobrecapacidad (+100%), implementando caminatas operativas (Gemba).</li>
+        </ul>
+      </div>
 
-  <p><strong>Gerente de Operaciones y Comex | Comercializadora Vida Orgánica SPA</strong> <span class="muted">(dic. 2019 – jun. 2023)</span></p>
-  <ul>
-    <li>Reduje la diferencia de inventario del 16% al 0,04% mediante el rediseño e implementación de nuevos procesos logísticos y de control de stock.</li>
-    <li>Contribuí a un aumento de ventas del 88% en el primer año a través de la optimización de los procesos logísticos y de compra, asegurando una alta disponibilidad de productos.</li>
-    <li>Diseñé y programé un sistema WMS a medida y un modelo de asignación de ubicaciones (slotting) que optimizaron la operación interna y el flujo de la bodega.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Gerente de Operaciones y Comex</div>
+            <div class="exp-company">Comercializadora Vida Orgánica SPA</div>
+          </div>
+          <span class="exp-period">dic. 2019 – jun. 2023</span>
+        </div>
+        <ul class="exp-items">
+          <li>Reduje la diferencia de inventario del <strong>16% al 0,04%</strong> mediante el rediseño de procesos logísticos.</li>
+          <li>Contribuí a un aumento de ventas del <strong>88%</strong> en el primer año a través de la optimización logística y de compra.</li>
+          <li>Diseñé y programé un sistema WMS a medida y un modelo de slotting que optimizaron la operación interna.</li>
+        </ul>
+      </div>
 
-  <p><strong>Head of Warehouse | Grin Scooters SPA</strong> <span class="muted">(may. 2019 – nov. 2019)</span></p>
-  <ul>
-    <li>Diseñé desde cero el layout de la bodega y lideré un plan de despliegue que permitió escalar la operación en un 90% en un solo mes, superando las metas propuestas.</li>
-    <li>Implementé un plan de mantenimiento preventivo basado en metodología Lean que aseguró una tasa de disponibilidad de la flota superior al 98%.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Head of Warehouse</div>
+            <div class="exp-company">Grin Scooters SPA</div>
+          </div>
+          <span class="exp-period">may. 2019 – nov. 2019</span>
+        </div>
+        <ul class="exp-items">
+          <li>Diseñé desde cero el layout de la bodega y lideré un plan de despliegue que escaló la operación en un <strong>90% en un solo mes</strong>.</li>
+          <li>Implementé un plan de mantenimiento preventivo Lean que aseguró disponibilidad de flota <strong>superior al 98%</strong>.</li>
+        </ul>
+      </div>
 
-  <p><strong>Jefe de Planificación Operacional | SODIMAC, S.A</strong> <span class="muted">(ago. 2015 – may. 2019)</span></p>
-  <ul>
-    <li>Lideré la reingeniería del modelo de planificación de despachos, logrando una reducción sostenida de 1.5 días en el tiempo de respuesta de los CD a la red de tiendas.</li>
-    <li>Dirigí talleres de mejora continua (LEAN) en múltiples Centros de Distribución, logrando un aumento del 25% en la capacidad de despacho a través de la optimización de procesos.</li>
-    <li>Gestioné la planificación logística para 6 Centros de Distribución a nivel nacional, coordinando el despacho diario de más de 8,000 m³ de mercancía a toda la red de tiendas.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Jefe de Planificación Operacional</div>
+            <div class="exp-company">SODIMAC, S.A.</div>
+          </div>
+          <span class="exp-period">ago. 2015 – may. 2019</span>
+        </div>
+        <ul class="exp-items">
+          <li>Lideré la reingeniería del modelo de despachos, logrando una reducción sostenida de <strong>1,5 días</strong> en el tiempo de respuesta.</li>
+          <li>Dirigí talleres LEAN en múltiples Centros de Distribución, logrando un aumento del <strong>25% en capacidad de despacho</strong>.</li>
+          <li>Gestioné la planificación logística de <strong>6 CD</strong>, coordinando el despacho de más de <strong>8.000 m³ diarios</strong>.</li>
+        </ul>
+      </div>
 
-  <p><strong>Ingeniero de Desarrollo Logístico | SODIMAC, S.A</strong> <span class="muted">(ene. 2014 – ago. 2015)</span></p>
-  <ul>
-    <li>Desarrollé la ingeniería de procesos para la planificación de despachos a 74 tiendas, sentando las bases para un sistema de entrega Just-in-Time a nivel nacional.</li>
-    <li>Gestioné la planificación diaria de 7 CD (3,500 m³/día), logrando un equilibrio de cargas de trabajo que eliminó los quiebres de stock en los puntos de venta.</li>
-    <li>Desarrollé una aplicación interna para el control y gestión de despachos, mejorando la visibilidad y el seguimiento de las entregas a nivel nacional.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Ingeniero de Desarrollo Logístico</div>
+            <div class="exp-company">SODIMAC, S.A.</div>
+          </div>
+          <span class="exp-period">ene. 2014 – ago. 2015</span>
+        </div>
+        <ul class="exp-items">
+          <li>Desarrollé la ingeniería de procesos para la planificación de despachos a <strong>74 tiendas</strong> en modalidad Just-in-Time.</li>
+          <li>Gestioné la planificación diaria de 7 CD (<strong>3.500 m³/día</strong>), eliminando quiebres de stock.</li>
+          <li>Desarrollé una aplicación interna de control de despachos que se convirtió en herramienta central del equipo.</li>
+        </ul>
+      </div>
 
-  <p><strong>Gerente de Planta | Label Tech De Venezuela, C.A.</strong> <span class="muted">(may. 2008 – jul. 2013)</span></p>
-  <ul>
-    <li>Lideré la reingeniería de procesos que aumentó la producción en un 70% y eliminó (de 40% a 0%) la devolución de productos por problemas de calidad.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Gerente de Planta</div>
+            <div class="exp-company">Label Tech de Venezuela, C.A.</div>
+          </div>
+          <span class="exp-period">may. 2008 – jul. 2013</span>
+        </div>
+        <ul class="exp-items">
+          <li>Lideré la reingeniería de procesos que aumentó la producción en un <strong>70%</strong> y eliminó (de 40% a 0%) las devoluciones por calidad.</li>
+        </ul>
+      </div>
 
-  <p><strong>Jefe de Presupuesto | CONTIFLEX, C.A.</strong> <span class="muted">(feb. 2001 – may. 2008)</span></p>
-  <ul>
-    <li>Gestioné estrategias de negocio que lograron un sobrecumplimiento del 115% de las metas y lideré la exitosa certificación de calidad ISO 9001.</li>
-  </ul>
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <div class="exp-title">Jefe de Presupuesto</div>
+            <div class="exp-company">CONTIFLEX, C.A.</div>
+          </div>
+          <span class="exp-period">feb. 2001 – may. 2008</span>
+        </div>
+        <ul class="exp-items">
+          <li>Gestioné estrategias de negocio logrando un sobrecumplimiento del <strong>115%</strong> de las metas.</li>
+          <li>Lideré la exitosa certificación de calidad <strong>ISO 9001</strong> en la primera auditoría.</li>
+        </ul>
+      </div>
+    </div>
 
-  <h3 id="op-voluntariado">Voluntariado y Liderazgo Social</h3><a href="#op-indice-int">Regresar al índice interno</a>
-  <p>Trayectoria en programas de formación juvenil, acompañamiento comunitario y educación no formal, desarrollando habilidades de liderazgo, trabajo en equipo y comunicación efectiva. Mis experiencias destacadas incluyen Asociación Scouts (1985 - 2008), Fundación Marozo (1995 - 1997), Catequista de Talleres en Parroquia San Carlos Borromeo.</p>
-</section>
-</div>
+    <!-- Educación -->
+    <div class="cv-section" id="educacion">
+      <h2 class="cv-section-title"><span class="cv-section-icon">🎓</span> Educación Formal</h2>
+      <div class="exp-item" style="padding-left:0">
+        <div class="exp-title">Diplomado en Gestión de Proyectos — Ágile & Lean</div>
+        <div class="exp-company" style="font-family:var(--ff-ui);font-size:13px;color:var(--slate);margin-top:2px">Universidad de Playa Ancha</div>
+        <span class="edu-year">2024</span>
+      </div>
+      <div class="exp-item" style="padding-left:0">
+        <div class="exp-title">Especialización en Gerencia Empresarial</div>
+        <div class="exp-company" style="font-family:var(--ff-ui);font-size:13px;color:var(--slate);margin-top:2px">Universidad José María Vargas</div>
+        <span class="edu-year">2001</span>
+      </div>
+      <div class="exp-item" style="padding-left:0">
+        <div class="exp-title">Ingeniería Comercial — BBA</div>
+        <div class="exp-company" style="font-family:var(--ff-ui);font-size:13px;color:var(--slate);margin-top:2px">Universidad José María Vargas</div>
+        <span class="edu-year">2001</span>
+      </div>
+
+      <h3 style="font-family:var(--ff-ui);font-size:13px;font-weight:700;color:var(--bark);margin:24px 0 12px;text-transform:uppercase;letter-spacing:.5px">Formación Complementaria</h3>
+      <div class="skills-grid">
+        <span class="skill-tag">Lean Management</span>
+        <span class="skill-tag">El Gerente Coach</span>
+        <span class="skill-tag">Auditor SGC ISO 9001</span>
+        <span class="skill-tag">Liderazgo y Conflictos</span>
+        <span class="skill-tag">Calidad de Servicio</span>
+      </div>
+    </div>
+
+    <!-- Voluntariado -->
+    <div class="cv-section" id="voluntariado">
+      <h2 class="cv-section-title"><span class="cv-section-icon">🌱</span> Voluntariado y Liderazgo Social</h2>
+      <p style="font-family:var(--ff-body);font-size:15px;color:#5A4A38;line-height:1.75;margin-bottom:14px">
+        Trayectoria en programas de formación juvenil, acompañamiento comunitario y educación no formal. Desarrollando habilidades de liderazgo, trabajo en equipo y comunicación efectiva.
+      </p>
+      <div>
+        <span class="vol-tag">🏕️ Scouts de Venezuela (1985–2008)</span>
+        <span class="vol-tag">🎗️ Fundación Marozo (1995–1997)</span>
+        <span class="vol-tag">✝️ Catequista Pre-matrimonial (2024–)</span>
+        <span class="vol-tag">🕊️ Pastoral del Consuelo (2024–)</span>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="cv-sidebar">
+
+    <div class="sidebar-cta">
+      <div class="sidebar-cta-title">¿Necesitas a alguien así?</div>
+      <div class="sidebar-cta-sub">Estoy disponible para consultorías y proyectos donde se requiera gestión operativa de alto impacto.</div>
+      <a href="/#contacto" class="esm-btn-primary" style="width:100%;justify-content:center;font-size:13px">
+        Conversemos →
+      </a>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">📬 Contacto</div>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-text">+56 9 6206 0611</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <div class="contact-text"><a href="mailto:Eduardosilva05@hotmail.com">Eduardosilva05@hotmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💼</div>
+        <div class="contact-text"><a href="https://www.linkedin.com/in/eduardosilvamedinachile/" target="_blank">LinkedIn</a></div>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">🎓 Educación</div>
+      <div class="edu-item">
+        <div class="edu-degree">Diplomado Gestión de Proyectos Ágile & Lean</div>
+        <div class="edu-school">U. de Playa Ancha</div>
+        <span class="edu-year">2024</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Especialización en Gerencia Empresarial</div>
+        <div class="edu-school">U. José María Vargas</div>
+        <span class="edu-year">2001</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-degree">Ingeniería Comercial — BBA</div>
+        <div class="edu-school">U. José María Vargas</div>
+        <span class="edu-year">2001</span>
+      </div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">✅ Competencias Destacadas</div>
+      <div class="comp-item">Liderazgo de equipos</div>
+      <div class="comp-item">Lean & 5S</div>
+      <div class="comp-item">Power BI Avanzado</div>
+      <div class="comp-item">WMS & ERP</div>
+      <div class="comp-item">ISO 9001</div>
+      <div class="comp-item">IA Generativa</div>
+      <div class="comp-item">Inglés Profesional</div>
+    </div>
+
+    <div class="sidebar-card">
+      <div class="sidebar-card-title">📂 Otros CVs</div>
+      <a href="/cv-producto.html" style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--fog);text-decoration:none;font-family:var(--ff-ui);font-size:13px;color:var(--soil);transition:color .15s" onmouseover="this.style.color='var(--bark)'" onmouseout="this.style.color='var(--soil)'">
+        📦 Gestión de Producto
+      </a>
+      <a href="/cv-cultural.html" style="display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--fog);text-decoration:none;font-family:var(--ff-ui);font-size:13px;color:var(--soil);transition:color .15s" onmouseover="this.style.color='var(--bark)'" onmouseout="this.style.color='var(--soil)'">
+        🎭 Gestión Cultural
+      </a>
+      <a href="/cv-completo-atm.html" style="display:flex;align-items:center;gap:8px;padding:8px 0;text-decoration:none;font-family:var(--ff-ui);font-size:13px;color:var(--soil);transition:color .15s" onmouseover="this.style.color='var(--bark)'" onmouseout="this.style.color='var(--soil)'">
+        📄 CV Completo ATS
+      </a>
+    </div>
+
+  </aside>
+</div><!-- /cv-body -->
+
+<!-- ══ FOOTER ══ -->
+<footer class="esm-footer">
+  <div class="esm-footer-inner">
+    <div>
+      <div style="font-family:var(--ff-display);font-size:16px;font-weight:700;color:var(--linen);margin-bottom:4px">Eduardo Silva Medina</div>
+      <div class="esm-footer-copy">© 2026 · Portfolio profesional · Santiago de Chile</div>
+    </div>
+    <div class="esm-footer-links">
+      <a href="/">Inicio</a>
+      <a href="/linea-de-vida.html">Línea de Vida</a>
+      <a href="/#contacto">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Tab highlight
+const tabs = document.querySelectorAll('.cv-tab');
+const sections = ['resumen','competencias','experiencia','educacion','voluntariado'].map(id => document.getElementById(id));
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      tabs.forEach(t => t.classList.toggle('active', t.getAttribute('href') === '#' + e.target.id));
+    }
+  });
+}, { threshold: 0.3 });
+sections.forEach(s => { if (s) observer.observe(s); });
+</script>
+
 </body>
 </html>
