@@ -10,10 +10,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/esm-design.css">
 <style>
+/* ── FUENTE GLOBAL: DM Sans (estilo limpio, similar a Arial/Calibri) ── */
+body, * { font-family: 'DM Sans', system-ui, Arial, sans-serif !important; }
+h1, h2, h3, h4 { font-family: 'DM Sans', system-ui, Arial, sans-serif !important; font-weight: 700 !important; letter-spacing: -0.3px !important; }
+
 /* ── PAGE-SPECIFIC ── */
 
 /* HERO */
-.hero { min-height: 520px; display: flex; align-items: center; }
+.hero { min-height: 320px; display: flex; align-items: center; padding: 32px 0; }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr auto;
@@ -22,14 +26,13 @@
   width: 100%;
 }
 .hero-name {
-  font-family: var(--ff-display);
   font-weight: 800;
-  font-size: clamp(44px, 7vw, 88px);
-  line-height: 0.92;
-  letter-spacing: -2px;
+  font-size: clamp(28px, 4.5vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
   color: var(--linen);
+  white-space: nowrap;
 }
-.hero-name span { color: var(--sand); display: block; }
 .hero-divider {
   width: 48px; height: 2px;
   background: linear-gradient(90deg, var(--sand), transparent);
@@ -73,14 +76,14 @@
   align-items: center;
   gap: 12px;
 }
-.hero-avatar {
-  width: 120px; height: 120px;
+.hero-photo-wrap {
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.hero-photo {
+  width: 200px; height: 200px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--clay) 0%, var(--bark) 100%);
-  display: grid; place-items: center;
-  font-family: var(--ff-display);
-  font-size: 40px; font-weight: 700;
-  color: var(--linen);
+  object-fit: cover;
+  object-position: center top;
   border: 3px solid var(--sand);
   box-shadow: 0 0 0 8px rgba(212,169,106,.12), var(--shadow-lg);
 }
@@ -108,14 +111,14 @@
 }
 .stats-inner {
   max-width: 1200px; margin: 0 auto;
-  padding: 28px 40px;
+  padding: 32px 40px;
   display: flex; flex-wrap: wrap;
   gap: 0;
 }
 .stat-item {
   flex: 1; min-width: 140px;
-  padding: 8px 28px 8px 0;
-  border-right: 1px solid rgba(92,74,42,.15);
+  padding: 12px 48px 12px 24px;
+  border-right: 1px solid rgba(92,74,42,.2);
 }
 .stat-item:last-child { border-right: none; padding-right: 0; }
 .stat-num {
@@ -613,11 +616,7 @@
     <div class="hero-grid">
       <div>
         <div class="esm-eyebrow" style="margin-bottom:20px">Portfolio Profesional</div>
-        <h1 class="hero-name">
-          EDUARDO
-          <span>SILVA</span>
-          <span style="color:rgba(245,239,227,.35);font-size:0.72em;letter-spacing:-1px">MEDINA</span>
-        </h1>
+        <h1 class="hero-name">Eduardo Silva Medina</h1>
         <div class="hero-divider"></div>
         <p class="hero-tagline">
           Más de 20 años haciendo que las cosas sucedan.<br>
@@ -641,10 +640,12 @@
         </div>
       </div>
       <div class="hero-avatar-wrap">
-        <div class="hero-avatar">ES</div>
-        <div class="hero-status">
-          <div class="hero-status-dot"></div>
-          Disponible para proyectos
+        <div class="hero-photo-wrap">
+          <img src="/foto-perfil.png" alt="Eduardo Silva Medina" class="hero-photo">
+          <div class="hero-status">
+            <div class="hero-status-dot"></div>
+            Disponible para proyectos
+          </div>
         </div>
       </div>
     </div>
@@ -867,82 +868,6 @@
       </div>
     </section>
 
-    <!-- ── REDES ── -->
-    <section class="section" id="redes">
-      <div class="section-header">
-        <div class="esm-eyebrow" style="color:var(--clay)">Presencia digital</div>
-        <h2 class="esm-section-title" style="margin-top:10px">Reflexiones y contenido reciente</h2>
-      </div>
-      <div class="redes-grid">
-        <!-- Instagram -->
-        <div class="red-card">
-          <div class="red-header">
-            <div class="red-id">
-              <div class="red-icon" style="background:#fce4ec">📸</div>
-              <div>
-                <div class="red-name">Instagram</div>
-                <a href="https://instagram.com/edus_teologik" target="_blank" class="red-handle" style="color:#E4405F;font-family:var(--ff-ui);font-size:12px">@edus_teologik</a>
-              </div>
-            </div>
-            <span class="red-badge">730 seguidores</span>
-          </div>
-          <a href="https://www.instagram.com/p/DR3fUhSjUIq/" target="_blank" class="red-post">
-            <div class="red-post-title">Del pedestál vacío al camino de Emaús</div>
-            <div class="red-post-meta">5 dic 2025 · ❤️ 113 me gusta</div>
-          </a>
-          <a href="https://www.instagram.com/p/DST_SKaDV9j/" target="_blank" class="red-post">
-            <div class="red-post-title">Hoy el pedestál está vacío</div>
-            <div class="red-post-meta">16 dic 2025 · ❤️ 54 me gusta</div>
-          </a>
-          <a href="https://www.instagram.com/p/DU65Rw6iTA0/" target="_blank" class="red-post">
-            <div class="red-post-title">Miércoles de Ceniza — Liderazgo como entrega</div>
-            <div class="red-post-meta">19 feb 2026 · ❤️ 11 me gusta</div>
-          </a>
-          <a href="https://instagram.com/edus_teologik" target="_blank" class="red-more" style="color:#E4405F;background:none;border:1px solid #fce4ec;">
-            Ver perfil completo →
-          </a>
-        </div>
-
-        <!-- YouTube -->
-        <div class="red-card">
-          <div class="red-header">
-            <div class="red-id">
-              <div class="red-icon" style="background:#fff0f0">▶️</div>
-              <div>
-                <div class="red-name">YouTube</div>
-                <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-handle" style="color:#FF0000;font-family:var(--ff-ui);font-size:12px">@EduSTeologiK</a>
-              </div>
-            </div>
-            <span class="red-badge">Canal activo</span>
-          </div>
-          <a href="https://www.youtube.com/@EduSTeologiK" target="_blank">
-            <div class="yt-thumb">
-              <img src="https://img.youtube.com/vi/SFqVzAPMGus/maxresdefault.jpg" alt="Concierto Orquesta" loading="lazy" onerror="this.style.display='none'">
-              <div class="yt-play">
-                <div class="yt-play-btn">
-                  <svg width="20" height="20" fill="#FF0000" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                </div>
-              </div>
-            </div>
-            <div class="yt-caption">Concierto Orquesta Juvenil de la Reina</div>
-          </a>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
-            <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-post" style="margin:0">
-              <div class="red-post-title" style="font-size:12px">Arepas de Avena y Coco</div>
-              <div class="red-post-meta">Hace 5 años</div>
-            </a>
-            <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-post" style="margin:0">
-              <div class="red-post-title" style="font-size:12px">Salmo 143</div>
-              <div class="red-post-meta">Hace 14 años</div>
-            </a>
-          </div>
-          <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-more" style="color:#FF0000;background:none;border:1px solid #fff0f0;margin-top:8px">
-            Ver todos los videos →
-          </a>
-        </div>
-      </div>
-    </section>
-
     <!-- ── CONTACTO ── -->
     <section class="section" id="contacto">
       <div class="section-header">
@@ -1027,6 +952,84 @@
         </div>
       </div>
     </section>
+
+
+    <!-- ── REDES ── -->
+    <section class="section" id="redes">
+      <div class="section-header">
+        <div class="esm-eyebrow" style="color:var(--clay)">Presencia digital</div>
+        <h2 class="esm-section-title" style="margin-top:10px">Reflexiones y contenido reciente</h2>
+      </div>
+      <div class="redes-grid">
+        <!-- Instagram -->
+        <div class="red-card">
+          <div class="red-header">
+            <div class="red-id">
+              <div class="red-icon" style="background:#fce4ec">📸</div>
+              <div>
+                <div class="red-name">Instagram</div>
+                <a href="https://instagram.com/edus_teologik" target="_blank" class="red-handle" style="color:#E4405F;font-family:var(--ff-ui);font-size:12px">@edus_teologik</a>
+              </div>
+            </div>
+            <span class="red-badge">730 seguidores</span>
+          </div>
+          <a href="https://www.instagram.com/p/DR3fUhSjUIq/" target="_blank" class="red-post">
+            <div class="red-post-title">Del pedestál vacío al camino de Emaús</div>
+            <div class="red-post-meta">5 dic 2025 · ❤️ 113 me gusta</div>
+          </a>
+          <a href="https://www.instagram.com/p/DST_SKaDV9j/" target="_blank" class="red-post">
+            <div class="red-post-title">Hoy el pedestál está vacío</div>
+            <div class="red-post-meta">16 dic 2025 · ❤️ 54 me gusta</div>
+          </a>
+          <a href="https://www.instagram.com/p/DU65Rw6iTA0/" target="_blank" class="red-post">
+            <div class="red-post-title">Miércoles de Ceniza — Liderazgo como entrega</div>
+            <div class="red-post-meta">19 feb 2026 · ❤️ 11 me gusta</div>
+          </a>
+          <a href="https://instagram.com/edus_teologik" target="_blank" class="red-more" style="color:#E4405F;background:none;border:1px solid #fce4ec;">
+            Ver perfil completo →
+          </a>
+        </div>
+
+        <!-- YouTube -->
+        <div class="red-card">
+          <div class="red-header">
+            <div class="red-id">
+              <div class="red-icon" style="background:#fff0f0">▶️</div>
+              <div>
+                <div class="red-name">YouTube</div>
+                <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-handle" style="color:#FF0000;font-family:var(--ff-ui);font-size:12px">@EduSTeologiK</a>
+              </div>
+            </div>
+            <span class="red-badge">Canal activo</span>
+          </div>
+          <a href="https://www.youtube.com/@EduSTeologiK" target="_blank">
+            <div class="yt-thumb">
+              <img src="https://img.youtube.com/vi/SFqVzAPMGus/maxresdefault.jpg" alt="Concierto Orquesta" loading="lazy" onerror="this.style.display='none'">
+              <div class="yt-play">
+                <div class="yt-play-btn">
+                  <svg width="20" height="20" fill="#FF0000" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="yt-caption">Concierto Orquesta Juvenil de la Reina</div>
+          </a>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px">
+            <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-post" style="margin:0">
+              <div class="red-post-title" style="font-size:12px">Arepas de Avena y Coco</div>
+              <div class="red-post-meta">Hace 5 años</div>
+            </a>
+            <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-post" style="margin:0">
+              <div class="red-post-title" style="font-size:12px">Salmo 143</div>
+              <div class="red-post-meta">Hace 14 años</div>
+            </a>
+          </div>
+          <a href="https://www.youtube.com/@EduSTeologiK" target="_blank" class="red-more" style="color:#FF0000;background:none;border:1px solid #fff0f0;margin-top:8px">
+            Ver todos los videos →
+          </a>
+        </div>
+      </div>
+    </section>
+
 
   </div><!-- /esm-content -->
 </main>

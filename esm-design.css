@@ -3,7 +3,7 @@
    Dirección: Tierra/Madera Editorial — Cálido & Humano
    ═══════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
 
 /* ── TOKENS ── */
 :root {
@@ -21,9 +21,9 @@
   --slate:       #7A7060;   /* texto secundario */
 
   /* Tipografía */
-  --ff-display: 'Playfair Display', Georgia, serif;
-  --ff-body:    'Source Serif 4', Georgia, serif;
-  --ff-ui:      'DM Sans', system-ui, sans-serif;
+  --ff-display: 'DM Sans', system-ui, Arial, sans-serif;
+  --ff-body:    'DM Sans', system-ui, Arial, sans-serif;
+  --ff-ui:      'DM Sans', system-ui, Arial, sans-serif;
 
   /* Espaciado */
   --space-xs: 4px;
@@ -49,7 +49,7 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; }
 body {
-  font-family: var(--ff-body);
+  font-family: 'DM Sans', system-ui, Arial, sans-serif;
   background: var(--linen);
   color: var(--soil);
   line-height: 1.65;
