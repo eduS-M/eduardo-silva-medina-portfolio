@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicios — Consultoría & Mentoría de Operaciones | Eduardo Silva Medina</title>
+<meta name="description" content="Consultoría en operaciones, control de inventario y logística. Menos mermas, procesos claros y datos confiables — automatizado con IA y gestionado con Scrum/Lean.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/esm-design.css">
+<style>
+body, * { font-family: 'DM Sans', system-ui, Arial, sans-serif !important; }
+h1, h2, h3, h4 { font-weight: 700 !important; letter-spacing: -0.3px !important; }
+
+.section { padding: var(--space-2xl) 0; }
+.section-header { margin-bottom: var(--space-xl); }
+
+/* HERO */
+.srv-hero-title {
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 800; color: var(--linen);
+  line-height: 1.15; letter-spacing: -0.5px;
+  max-width: 720px; margin-bottom: 18px;
+}
+.srv-hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: rgba(245,239,227,.8);
+  line-height: 1.7; max-width: 620px; margin-bottom: 28px;
+}
+.srv-hero-proof {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(212,169,106,.12);
+  border: 1px solid rgba(212,169,106,.4);
+  border-radius: 12px; padding: 10px 16px;
+  color: var(--sand); font-size: 13px; font-weight: 500;
+  margin-bottom: 28px;
+}
+
+/* SEGMENTOS */
+.seg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.seg-card {
+  background: var(--cream); border: 1px solid var(--fog);
+  border-radius: var(--radius-lg); padding: 26px;
+}
+.seg-icon { font-size: 26px; margin-bottom: 12px; }
+.seg-title { font-size: 16px; font-weight: 700; color: var(--soil); margin-bottom: 8px; }
+.seg-pain { font-size: 13.5px; color: var(--slate); line-height: 1.6; margin-bottom: 10px; }
+.seg-hook { font-size: 13px; color: var(--bark); line-height: 1.6; font-weight: 500; }
+
+/* ESCALERA */
+.srv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.srv-card {
+  background: var(--cream); border: 1px solid var(--fog);
+  border-radius: var(--radius-lg); padding: 28px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: all .25s;
+}
+.srv-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: var(--color, var(--clay));
+}
+.srv-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.srv-card.featured {
+  border: 2px solid var(--clay);
+  box-shadow: var(--shadow-md);
+}
+.srv-badge {
+  display: inline-block; align-self: flex-start;
+  font-size: 11px; font-weight: 600; letter-spacing: .6px; text-transform: uppercase;
+  color: var(--clay); background: rgba(156,110,60,.1);
+  padding: 4px 10px; border-radius: 20px; margin-bottom: 12px;
+}
+.srv-title { font-size: 17px; font-weight: 700; color: var(--soil); margin-bottom: 8px; }
+.srv-text { font-size: 13.5px; color: var(--slate); line-height: 1.65; margin-bottom: 12px; flex: 1; }
+.srv-deliver { font-size: 12.5px; color: var(--bark); line-height: 1.6; margin-bottom: 14px; }
+.srv-deliver strong { color: var(--soil); }
+.srv-price {
+  border-top: 1px solid var(--fog); padding-top: 12px;
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+}
+.srv-price-main { font-size: 18px; font-weight: 800; color: var(--clay); }
+.srv-price-alt { font-size: 12px; color: var(--slate); }
+
+/* CASO */
+.case-band {
+  background: linear-gradient(135deg, var(--moss) 0%, var(--bark) 100%);
+  border-radius: var(--radius-xl); padding: 44px;
+  display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center;
+}
+.case-num { font-size: clamp(40px, 6vw, 64px); font-weight: 800; color: var(--linen); line-height: 1; white-space: nowrap; }
+.case-num span { color: var(--sand); }
+.case-text { font-size: 15px; color: rgba(245,239,227,.85); line-height: 1.7; }
+
+/* CÓMO */
+.how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.how-card { background: var(--linen); border: 1px solid var(--fog); border-radius: var(--radius-lg); padding: 24px; }
+.how-title { font-size: 14px; font-weight: 700; color: var(--soil); margin-bottom: 8px; }
+.how-text { font-size: 13px; color: var(--slate); line-height: 1.65; }
+
+/* CTA FINAL */
+.cta-final {
+  background: var(--soil); border-radius: var(--radius-xl);
+  padding: 48px; text-align: center;
+}
+.cta-final h2 { font-size: clamp(22px, 3vw, 32px); color: var(--linen); margin-bottom: 12px; }
+.cta-final p { font-size: 15px; color: rgba(245,239,227,.75); margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+
+@media (max-width: 700px) {
+  .case-band { grid-template-columns: 1fr; padding: 32px 24px; gap: 20px; }
+  .cta-final { padding: 32px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HEADER COMPARTIDO ══ -->
+<header class="esm-header" id="esm-header">
+  <div class="esm-header-inner">
+    <a href="/" class="esm-brand">
+      <div class="esm-brand-monogram">ES</div>
+      <div>
+        <div class="esm-brand-name">Eduardo Silva Medina</div>
+        <div class="esm-brand-tagline">Consultor · Mentor · Operaciones</div>
+      </div>
+    </a>
+    <nav class="esm-nav">
+      <a href="/#sobre-mi" class="esm-nav-link">Sobre mí</a>
+      <a href="/servicios.html" class="esm-nav-link" style="color:var(--bark);font-weight:600">Servicios</a>
+      <a href="/linea-de-vida.html" class="esm-nav-link">Línea de Vida</a>
+      <a href="/#contacto" class="esm-header-action">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+        </svg>
+        Conversemos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ══ HERO ══ -->
+<div class="esm-page-hero">
+  <div class="esm-page-hero-inner">
+    <div class="esm-eyebrow" style="margin-bottom:20px">Consultoría & Mentoría de Operaciones</div>
+    <h1 class="srv-hero-title">Recupera el control de tu operación: menos mermas, procesos claros y datos confiables para decidir.</h1>
+    <p class="srv-hero-sub">
+      Ayudo a empresas con bodega, inventario y despacho a ordenar su operación — y la dejo <strong style="color:var(--sand)">automatizada con IA</strong> y gestionada con método (<strong style="color:var(--sand)">Scrum / Lean</strong>) para que el equipo la sostenga solo.
+    </p>
+    <div class="srv-hero-proof">
+      📊 Caso real: diferencias de inventario reducidas de <strong>&nbsp;16% a menos de 0,05%</strong>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="#agendar" class="esm-btn-primary" id="ctaHeroAgenda">
+        Agenda tu sesión de diagnóstico →
+      </a>
+      <a href="#escalera" class="esm-btn-secondary" style="background:transparent;color:var(--sand);border-color:rgba(212,169,106,.4)">
+        Ver servicios
+      </a>
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="esm-content">
+
+    <!-- ── PARA QUIÉN ── -->
+    <section class="section" id="segmentos">
+      <div class="section-header">
+        <div class="esm-eyebrow" style="color:var(--clay)">Para quién</div>
+        <h2 class="esm-section-title" style="margin-top:10px">¿Te suena alguno de estos problemas?</h2>
+      </div>
+      <div class="seg-grid">
+        <div class="seg-card">
+          <div class="seg-icon">🛒</div>
+          <div class="seg-title">Pyme retail / e-commerce</div>
+          <p class="seg-pain">Quiebres de stock, inventario que no cuadra con el sistema, despachos atrasados.</p>
+          <p class="seg-hook">→ Control de inventario, KPIs simples y reportes automatizados con IA.</p>
+        </div>
+        <div class="seg-card">
+          <div class="seg-icon">🏭</div>
+          <div class="seg-title">Operador logístico / CD</div>
+          <p class="seg-pain">Mermas, baja productividad de bodega, slotting desordenado.</p>
+          <p class="seg-hook">→ Experiencia WMS, layout y slotting, con seguimiento automatizado.</p>
+        </div>
+        <div class="seg-card">
+          <div class="seg-icon">⚙️</div>
+          <div class="seg-title">Industria / manufactura</div>
+          <p class="seg-pain">Inventario de insumos descontrolado, paros por falta de material.</p>
+          <p class="seg-hook">→ Lean, mejora continua y planificación de abastecimiento con Scrum.</p>
+        </div>
+      </div>
+      <p style="margin-top:24px;font-size:15px;color:var(--bark);font-style:italic;text-align:center">
+        "El problema no es la gente: es que las decisiones se toman sin datos confiables. Eso se arregla."
+      </p>
+    </section>
+
+    <!-- ── ESCALERA DE SERVICIOS ── -->
+    <section class="section" id="escalera">
+      <div class="section-header">
+        <div class="esm-eyebrow" style="color:var(--clay)">Servicios</div>
+        <h2 class="esm-section-title" style="margin-top:10px">Empieza por lo pequeño, sube según tu necesidad</h2>
+        <p style="font-size:14px;color:var(--slate);margin-top:8px">Precios referenciales en UF (Chile) y USD (extranjero). El valor final se define tras el diagnóstico.</p>
+      </div>
+
+      <div class="srv-grid">
+        <div class="srv-card" style="--color:var(--moss)">
+          <span class="srv-badge">Puerta de entrada</span>
+          <div class="srv-title">Sesión de diagnóstico 1:1</div>
+          <p class="srv-text">1 hora: me cuentas tu problema y te llevas 3 acciones concretas aplicables de inmediato.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> mini-informe de 1 página con diagnóstico y siguientes pasos.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 3 UF</span><span class="srv-price-alt">/ USD 80 · por hora</span></div>
+        </div>
+
+        <div class="srv-card" style="--color:var(--clay)">
+          <span class="srv-badge">1 semana</span>
+          <div class="srv-title">Diagnóstico Express</div>
+          <p class="srv-text">Revisión acotada de un proceso (inventario, bodega o despacho) con reunión y revisión de datos.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> informe con hallazgos, quick-wins y plan priorizado.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 15 UF</span><span class="srv-price-alt">/ USD 600</span></div>
+        </div>
+
+        <div class="srv-card featured" style="--color:var(--clay)">
+          <span class="srv-badge">⭐ Proyecto estrella</span>
+          <div class="srv-title">Control de Inventario en 30 días</div>
+          <p class="srv-text">Del descontrol a diferencias bajo control, en un mes. Basado en el método con el que llevé diferencias de 16% a 0,05%.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> proceso documentado + KPIs + tablero de seguimiento + equipo capacitado.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 60 UF</span><span class="srv-price-alt">/ USD 1.500 · según tamaño</span></div>
+        </div>
+
+        <div class="srv-card" style="--color:var(--moss)">
+          <span class="srv-badge">Mensual</span>
+          <div class="srv-title">Mentoría a líderes de operaciones</div>
+          <p class="srv-text">4 sesiones al mes para jefes y gerentes: decisiones bajo presión, gestión de equipo y KPIs.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> plan de acción mensual + seguimiento.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 12 UF/mes</span><span class="srv-price-alt">/ USD 500 mes</span></div>
+        </div>
+
+        <div class="srv-card" style="--color:#1A5FA8">
+          <span class="srv-badge">⚡ Alto impacto</span>
+          <div class="srv-title">Automatización de procesos con IA</div>
+          <p class="srv-text">Identifico 1–3 tareas repetitivas (reportes, seguimiento, alertas, análisis) y las dejo automatizadas y andando.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> automatizaciones funcionando + instructivo + capacitación al equipo.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 25 UF</span><span class="srv-price-alt">/ USD 700</span></div>
+        </div>
+
+        <div class="srv-card" style="--color:#6C63C9">
+          <span class="srv-badge">4–8 semanas</span>
+          <div class="srv-title">Scrum + Lean para tu operación</div>
+          <p class="srv-text">Para cuando hay "muchos frentes abiertos y nada avanza": sprints, tablero visual, roles y mejora continua.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> tablero de gestión + cadencia de sprints + equipo capacitado en la mecánica.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 40 UF</span><span class="srv-price-alt">/ USD 1.200 · o retainer mensual</span></div>
+        </div>
+
+        <div class="srv-card" style="--color:var(--rust)">
+          <span class="srv-badge">1 día · in-company</span>
+          <div class="srv-title">Taller Lean / mejora continua</div>
+          <p class="srv-text">Taller presencial o remoto para tu equipo de operaciones: eliminar desperdicio, estandarizar y mejorar.</p>
+          <p class="srv-deliver"><strong>Entregable:</strong> equipo alineado + plan de mejoras priorizado.</p>
+          <div class="srv-price"><span class="srv-price-main">desde 30 UF</span><span class="srv-price-alt">/ USD 800</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CASO ── -->
+    <section class="section" id="caso">
+      <div class="case-band">
+        <div class="case-num">16% <span>→</span> 0,05%</div>
+        <div>
+          <p class="case-text" style="margin-bottom:16px">
+            En un centro de distribución, las diferencias de inventario llegaban al <strong>16%</strong>: el sistema decía una cosa y la bodega otra. Con conteos cíclicos, disciplina transaccional, ajustes controlados y KPIs visibles, quedaron bajo <strong>0,05%</strong> — y el cambio se sostuvo, porque quedó instalado en el proceso y el equipo, no en una persona.
+          </p>
+          <a href="/#contacto" class="esm-btn-primary" style="background:var(--linen);color:var(--soil)">Quiero ese resultado →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CÓMO TRABAJO ── -->
+    <section class="section" id="como">
+      <div class="section-header">
+        <div class="esm-eyebrow" style="color:var(--clay)">Mi diferencia</div>
+        <h2 class="esm-section-title" style="margin-top:10px">No solo te digo qué mejorar: instalo cómo sostenerlo</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-card">
+          <div class="how-title">🔧 Operación real</div>
+          <p class="how-text">20+ años liderando bodegas, inventario, despacho y equipos en Venezuela y Chile. Sé sacar los datos yo mismo (SQL, dashboards).</p>
+        </div>
+        <div class="how-card">
+          <div class="how-title">🤖 Automatización con IA</div>
+          <p class="how-text">Tareas repetitivas — reportes, conteos, seguimiento, correos — dejan de consumir horas de tu equipo.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-title">🔁 Scrum para el proyecto</div>
+          <p class="how-text">Avances por sprints con entregas visibles cada 1–2 semanas: ves resultados rápido y sin sorpresas.</p>
+        </div>
+        <div class="how-card">
+          <div class="how-title">📉 Lean para la operación</div>
+          <p class="how-text">Eliminar desperdicio, estandarizar y mejorar de forma continua — para que el resultado no dependa de mí.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA FINAL ── -->
+    <section class="section" id="agendar">
+      <div class="cta-final">
+        <h2>Empecemos con 1 hora</h2>
+        <p>Una sesión de diagnóstico: me cuentas el problema, te llevas 3 acciones concretas y un mini-informe. Si te sirve seguimos; si no, igual te quedas con valor.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+          <!-- TODO: reemplazar por link de Calendly cuando exista la cuenta -->
+          <a href="mailto:edusilvamtrader@gmail.com?subject=Sesión%20de%20diagnóstico%20—%20Operaciones&body=Hola%20Eduardo,%20me%20interesa%20agendar%20una%20sesión%20de%20diagnóstico.%0A%0AEmpresa:%0ARubro:%0AProblema%20principal:%0A" class="esm-btn-primary" style="background:var(--sand);color:var(--soil)">
+            📅 Agendar sesión de diagnóstico
+          </a>
+          <a href="/#contacto" class="esm-btn-secondary" style="background:transparent;color:var(--sand);border-color:rgba(212,169,106,.4)">
+            O escríbeme por el formulario
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="esm-footer">
+  <div class="esm-footer-inner">
+    <div>
+      <div style="font-size:16px;font-weight:700;color:var(--linen);margin-bottom:4px">Eduardo Silva Medina</div>
+      <div class="esm-footer-copy">© 2026 · Consultoría & Mentoría de Operaciones · Santiago de Chile</div>
+    </div>
+    <div class="esm-footer-links">
+      <a href="/">Inicio</a>
+      <a href="/linea-de-vida.html">Línea de Vida</a>
+      <a href="https://www.linkedin.com/in/eduardosilvamedinachile/" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
