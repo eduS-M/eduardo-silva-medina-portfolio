@@ -1,0 +1,45 @@
+/* ============================================================
+   EduS · Tokens de diseño — Manual de Marca v1.0 (jul 2026)
+   Fuente: Consultoria_EduS/00_Estrategia/Manual_de_Marca_EduS.md
+   Uso futuro: migrar esm-design.css a estas variables.
+   ============================================================ */
+:root {
+  /* color — base */
+  --color-bg: #FBF7EE;            /* cream */
+  --color-bg-alt: #F5EFE3;        /* linen */
+  --color-border: #E8E0D0;        /* fog   */
+  --color-text: #3A2E1A;          /* soil  */
+  --color-text-soft: #5C4A2A;     /* bark  */
+  --color-text-muted: #8A7B5E;    /* slate — solo captions */
+  /* color — acento y funcionales */
+  --color-accent: #D4A96A;        /* sand  */
+  --color-accent-strong: #9C6E3C; /* clay  */
+  --color-success: #5F7A54;       /* moss  */
+  --color-danger: #A64B2A;        /* terra */
+  /* acento por expresión */
+  --color-consultoria: #9C6E3C;
+  --color-trader: #5F7A54;
+  --color-teologik: #D4A96A;
+  /* tipografía */
+  --font-sans: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-size-h1: 44px;  --font-size-h2: 30px;
+  --font-size-h3: 21px;  --font-size-h4: 17px;
+  --font-size-body: 16px; --font-size-caption: 13px;
+  --line-tight: 1.15; --line-body: 1.6;
+  /* radios y espaciado (escala 4 px) */
+  --radius-sm: 6px; --radius-md: 10px;
+  --radius-lg: 16px; --radius-pill: 999px;
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px;
+  --space-4: 16px; --space-6: 24px; --space-8: 32px;
+  --space-12: 48px; --space-16: 64px;
+}
+/* tokens adicionales — universo EduS Trader */
+:root {
+  --trader-bg: #0B2227;      /* ink   */
+  --trader-data: #2EC4B0;    /* teal  */
+  --trader-brand: #C9A24B;   /* oro   */
+  --trader-text: #C7CCD1;    /* plata */
+  --trader-text-strong: #FBF7EE;
+  --trader-danger: #A64B2A;  /* terra compartido */
+}
